@@ -1,0 +1,29 @@
+13
+14
+41
+55
+126 w
+140 h
+160
+161 h
+181 h
+197
+237 
+264 maltese w
+265 h
+268 maremma-sheepdog
+277 mutt w h -> 그냥 잡종 설명. 제외 필요.
+283 w
+285 w h
+287 w h
+288 w
+292 h
+294 w
+322 rat-terrier w
+336 scottish-terrier h
+337 sealyham-terrier h
+340 shetland-sheepdog w
+372 tibetan-spanial h
+382 welsh-terrier
+
+391 yorkshire-terrier 따로 필요

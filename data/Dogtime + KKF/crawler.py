@@ -1,3 +1,6 @@
+from pprint import pprint
+from typing import List
+import json
 import requests
 
 from bs4 import BeautifulSoup
@@ -62,3 +65,81 @@ class NiasCrawler(Crawler):
 
         print(data)
         return data
+
+
+def sort_data_by_keyword(keyword_location: List[str]):
+    def find_info_by_keyword(value: dict):
+        for location in keyword_location:
+            value = value.get(location)
+        return value
+
+    def print_values(values: List[dict]):
+        for value in values:
+            name = value['name']
+            physical_need = value['traits']['Physical Needs']['rating']
+            # image = value['images']
+            pprint((name, physical_need))
+
+    with open('merge_result_with_images.json', encoding='utf8') as file:
+        total_info = json.load(file)
+        values = list(total_info.values())
+        values.sort(key=find_info_by_keyword)
+        print_values(values[:10])
+
+
+def flatten_dict():
+    def flatten_sub_dict_as_prefixed(info: dict, prefix: str):
+        new_dict = {}
+        new_dict[prefix] = int(info['rating'])
+
+        sub_traits = info['sub_traits']
+        for key, value in sub_traits.items():
+            new_dict[prefix + '_' + key] = int(value)
+        return new_dict
+
+    with open('merge_result_with_images.json', encoding='utf8') as file:
+        total_info = json.load(file)
+        for dog_name in total_info.keys():
+            dog_info = total_info[dog_name]
+
+            # 체중, 체고 추출
+            stats = dog_info['stats']
+            dog_info.update({key: value for key, value in stats.items()})
+            del dog_info['stats']
+
+            # 특징 추출
+            adaptable = flatten_sub_dict_as_prefixed(
+                dog_info['traits']['Adaptability'], 'adaptable'
+            )
+            friendly = flatten_sub_dict_as_prefixed(
+                dog_info['traits']['All Around Friendliness'], 'friendly'
+            )
+            health = flatten_sub_dict_as_prefixed(
+                dog_info['traits']['Health And Grooming Needs'], 'health'
+            )
+            trainable = flatten_sub_dict_as_prefixed(
+                dog_info['traits']['Trainability'], 'trainable'
+            )
+            physical = flatten_sub_dict_as_prefixed(
+                dog_info['traits']['Physical Needs'], 'physical'
+            )
+            dog_info.update(adaptable)
+            dog_info.update(friendly)
+            dog_info.update(health)
+            dog_info.update(trainable)
+            dog_info.update(physical)
+            del dog_info['traits']
+
+            # 이미지 제거
+            del dog_info['images']
+
+            # 그 외 필요한 칼럼들 추가
+            dog_info['image'] = ''
+            dog_info['mbti'] = ''
+
+        with open('merge_result_flattened.json', 'w', encoding='utf8') as new_file:
+            json.dump(list(total_info.values()), new_file, ensure_ascii=False, indent=2)
+
+
+# sort_data_by_keyword(['traits', 'Physical Needs', 'rating'])
+flatten_dict()

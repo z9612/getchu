@@ -1,5 +1,7 @@
 package com.ssafy.project.controller;
 
+import java.util.EmptyStackException;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 
 @RestController
@@ -17,8 +20,7 @@ public class TestController {
     @ApiOperation(value = "hello 출력")
     @GetMapping("/hello1")
     public String hello1() {
-        throw new IllegalArgumentException();
-        // return "hello";
+        return "hello";
     }
 
     @ApiOperation(value = "입력 값 출력", notes = "입력 받은 값을 그대로 반환합니다.", response = String.class)

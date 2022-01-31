@@ -1,16 +1,18 @@
 package com.ssafy.project.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity //엔티티로 쓸 클래스라고 선언. 엔티티 클래스는 테이블 그 자체이다.
+@Table(name = "dog") //dog 테이블을 이용한다
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +31,6 @@ public class DogEntity {
     private int height_max;
     private int adaptability;
 
-    @Column(name = "adaptable_Adapts Well To Apartment Living")
     private int adaptable_Adaps_Well_To_Apartment_Living;
     private int adaptable_Good_For_Novice_Owners;
     private int adaptable_Sensitivity_Level;
@@ -62,5 +63,11 @@ public class DogEntity {
     private int physical_Potential_For_Playfulness;
     private String image;
     private String mbti;
+
+
+    // @Builder
+
+        
+
     
 }

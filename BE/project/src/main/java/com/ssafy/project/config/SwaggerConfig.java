@@ -32,9 +32,9 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     private ApiInfo apiInfo() {
 
         return new ApiInfoBuilder()
-                .title("API")
-                .description("API TEST")
-                .version("0.8.0")
+                .title("getchu")
+                .description("getchu API TEST")
+                .version("0.0.1")
                 .license("LICENSE")
                 .licenseUrl("")
                 .build();

@@ -22,17 +22,17 @@ public class DogController{
 
     @ApiOperation(value = "라이프 스타일 견종 추천 샘플",response = List.class)
     @GetMapping("/lifestyleTest")
-    public List<DogEntity> lifeStyleTest(@ApiParam(value = "아파트 거주 가능", required = true) int aprtmentLiving,int noviceOwners, 
+    public List<DogEntity> lifeStyleTest(int size, @ApiParam(value = "아파트 거주 가능", required = true) int aprtmentLiving,int noviceOwners, 
     int beingAlone,  int kidFriendly,int dogFriendly, int amoutOfShedding){
 
-        return dogService.lifeStyleRefTest(aprtmentLiving,noviceOwners,beingAlone,dogFriendly,kidFriendly,amoutOfShedding);
+        return dogService.lifeStyleRefTest(size,aprtmentLiving,noviceOwners,beingAlone,dogFriendly,kidFriendly,amoutOfShedding);
     }
 
 
     @GetMapping("/lifestyle")
-    public List<DogEntity> lifeStyle(){
+    public List<DogEntity> lifeStyle(int size, int apartmentLiving){
 
-        return dogService.lifeStyleRef();
+        return dogService.lifeStyleRef(size,apartmentLiving);
     }
 
     @ApiOperation(value = "모든 견종 데이터를 출력합니다",response = List.class)

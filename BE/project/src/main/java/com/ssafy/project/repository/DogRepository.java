@@ -16,6 +16,6 @@ public interface DogRepository extends JpaRepository<DogEntity,Integer>{
     List<DogEntity> lifeStyleRefTest(int size,int apartmentLiving,int noviceOwners, 
     int beingAlone,  int kidFriendly, int dogFriendly,int amoutOfShedding); // 사이즈만으로 테스트
     
-    @Query(nativeQuery = true, value = "select * from dog")
-    List<DogEntity> lifeStyleRef(); // 라이프 스타일로 추천
+    @Query(nativeQuery = true, value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving")
+    List<DogEntity> lifeStyleRef(int size, int apartmentLiving); // 라이프 스타일로 추천
 }

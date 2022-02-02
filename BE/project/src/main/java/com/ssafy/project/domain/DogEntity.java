@@ -29,19 +29,19 @@ public class DogEntity {
     private int weight_max;
     private int height_min;
     private int height_max;
-    private int adaptability;
 
+    private int adaptable;
     private int adaptable_Adaps_Well_To_Apartment_Living;
     private int adaptable_Good_For_Novice_Owners;
     private int adaptable_Sensitivity_Level;
     private int adaptable_Tolerates_Being_Alone;
     private int adaptable_Tolerates_Cold_Weather;
     private int adaptable_Tolerates_Hot_Weather;
-    private int freindly;
-    private int freindly_Affectionate_With_Family;
-    private int freindly_Kid_Friendly;
+    private int friendly;
+    private int friendly_Affectionate_With_Family;
+    private int friendly_Kid_Friendly;
     private int friendly_Dog_Friendly;
-    private int freindly_Friendly_Toward_Strangers;
+    private int friendly_Friendly_Toward_Strangers;
     private int health;
     private int health_Amount_Of_Shedding;
     private int health_Drooling_Potential;

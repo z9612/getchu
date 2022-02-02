@@ -21,9 +21,8 @@ public class DogServiceImpl implements DogService{
     }
     
     @Override
-    public List<DogEntity> lifeStyleRef() {
-        //서비스 데이터 처리하기
-        return null;
+    public List<DogEntity> lifeStyleRef(int size, int apartmentLiving) {
+        return repo.lifeStyleRef(size,apartmentLiving);
     }
 
     @Override

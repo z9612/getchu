@@ -11,7 +11,7 @@
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>project</name>
-	<description>Demo project for Spring Boot</description>
+	<description>project getchu</description>
 	<properties>
 		<java.version>8</java.version>
 	</properties>

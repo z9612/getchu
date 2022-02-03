@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DogRepository extends JpaRepository<DogEntity, Integer> {
 
-    // --------------------------------------------------------------------------------------------------------------------------------
     // 라이프 스타일 견종 추천
+    // --------------------------------------------------------------------------------------------------------------------------------
     @Query(nativeQuery = true, value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and adaptable_Tolerates_Being_Alone =:beingAlone and friendly_Dog_Friendly =:dogFriendly and friendly_Kid_Friendly =:kidFriendly and health_Amount_Of_Shedding =:amountOfShedding")
     List<DogEntity> lifeStyleRef(int size, int apartmentLiving, int noviceOwners, int beingAlone, int kidFriendly,
             int dogFriendly, int amountOfShedding); // 라이프 스타일로 추천
@@ -37,15 +37,60 @@ public interface DogRepository extends JpaRepository<DogEntity, Integer> {
     // 아파트 거주 삭제
     @Query(nativeQuery = true, value = "select * from dog where health_Size=:size")
     List<DogEntity> lifeStyleRef(int size);
-
     // --------------------------------------------------------------------------------------------------------------------------------
+
+
+
     // 견종 특성 추천
+    // --------------------------------------------------------------------------------------------------------------------------------
+    @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and friendly_Dog_Friendly =:dogFriendly and friendly_Friendly_Toward_Strangers =:strangers and friendly_Affectionate_With_Family=:family and health_Amount_Of_Shedding =:amountOfShedding and health_Easy_To_Groom =:easyToGroom and trainable_Easy_To_Train=:easyToTrain and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+    List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners,int dogFriendly,int strangers, int family, int amountOfShedding, int easyToGroom, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
+   
+    //다른 개와 친화성 삭제
+    @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and friendly_Friendly_Toward_Strangers =:strangers and friendly_Affectionate_With_Family=:family and health_Amount_Of_Shedding =:amountOfShedding and health_Easy_To_Groom =:easyToGroom and trainable_Easy_To_Train=:easyToTrain and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+    List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners,int strangers, int family, int amountOfShedding, int easyToGroom, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
     
+    //낯선 이와 친화성 삭제
+    @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and friendly_Affectionate_With_Family=:family and health_Amount_Of_Shedding =:amountOfShedding and health_Easy_To_Groom =:easyToGroom and trainable_Easy_To_Train=:easyToTrain and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+    List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int family, int amountOfShedding, int easyToGroom, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
 
+     //가족에게 친밀함 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and health_Amount_Of_Shedding =:amountOfShedding and health_Easy_To_Groom =:easyToGroom and trainable_Easy_To_Train=:easyToTrain and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int amountOfShedding, int easyToGroom, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
+     
+     //손질하기 쉬움 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and health_Amount_Of_Shedding =:amountOfShedding and trainable_Easy_To_Train=:easyToTrain and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int amountOfShedding, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
+     
+     //훈련하기 쉬움 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and health_Amount_Of_Shedding =:amountOfShedding and trainable_Intelligence=:intelligence and trainable_Tendency_To_Bark_Or_Howl=:barkOrHowl and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int amountOfShedding, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness);
+
+     //짖는 정도 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and health_Amount_Of_Shedding =:amountOfShedding and trainable_Intelligence=:intelligence and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int amountOfShedding, int intelligence, int wanderlust, int energyLevel, int playfullness);
+
+     //지능 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and adaptable_Good_For_Novice_Owners =:noviceOwners and health_Amount_Of_Shedding =:amountOfShedding and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners, int amountOfShedding, int wanderlust, int energyLevel, int playfullness);
+
+     //초심자에게 키우기 좋음 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and health_Amount_Of_Shedding =:amountOfShedding and trainable_Wanderlust_Potential=:wanderlust and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving, int amountOfShedding, int wanderlust, int energyLevel, int playfullness);
+
+     //산책하기 좋아함 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and health_Amount_Of_Shedding =:amountOfShedding and physical_Energy_Level=:energyLevel and physical_Potential_For_Playfulness=:playfullness")
+     List<DogEntity> dogStyle(int size, int apartmentLiving, int amountOfShedding, int energyLevel, int playfullness);
+
+     //에너지 레벨, 놀기 좋아함 삭제
+     @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and health_Amount_Of_Shedding =:amountOfShedding")
+     List<DogEntity> dogStyle(int size, int apartmentLiving, int amountOfShedding);
+
+    
     // --------------------------------------------------------------------------------------------------------------------------------
 
-    // --------------------------------------------------------------------------------------------------------------------------------
     // MBTI 추천
+    // --------------------------------------------------------------------------------------------------------------------------------
 
     // --------------------------------------------------------------------------------------------------------------------------------
 }

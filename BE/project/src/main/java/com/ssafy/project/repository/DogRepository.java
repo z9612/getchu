@@ -18,4 +18,7 @@ public interface DogRepository extends JpaRepository<DogEntity,Integer>{
     
     @Query(nativeQuery = true, value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving")
     List<DogEntity> lifeStyleRef(int size, int apartmentLiving); // 라이프 스타일로 추천
+
+    @Query(nativeQuery = true, value = "select * from dog where mbti LIKE %:mbti%")
+    List<DogEntity> mbtiRef(String mbti); // mbti로 추천
 }

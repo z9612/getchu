@@ -1,0 +1,56 @@
+/* resultHeader */
+.result-header {
+  padding: 20px;
+}
+.result-header-text {
+  font-weight: bolder;
+}
+
+/* resultBody 1 */
+.result-dog-img {
+  width: 100%;
+  /* height: 300px; */
+  /* max-width: 200px; */
+}
+
+
+/* resultBody 2 */
+.result-dog-breed {
+  font-weight: 700;
+}
+.result-dog-feature {
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* .display-table {
+  display: table;
+} */
+
+/* .dog-breed {
+
+} */
+/* .box {
+  height: 600px;
+} */
+
+/* .dog-feature { */
+  /* position: relative; */
+  /* text-align: start; */
+  /* top: 50%; */
+  /* transform: translate(0, -50%); */
+  
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-items: center; */
+  /* align-items: center; */
+
+/* } */
+
+
+/* dogInfo */
+.result-dog-Info {
+  font-weight: bold;
+  text-align: left;
+}

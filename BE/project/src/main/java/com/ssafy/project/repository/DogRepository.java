@@ -85,14 +85,9 @@ public interface DogRepository extends JpaRepository<DogEntity, Integer> {
      //에너지 레벨, 놀기 좋아함 삭제
      @Query(nativeQuery =  true , value = "select * from dog where health_Size=:size and adaptable_Adaps_Well_To_Apartment_Living=:apartmentLiving and health_Amount_Of_Shedding =:amountOfShedding")
      List<DogEntity> dogStyle(int size, int apartmentLiving, int amountOfShedding);
-
-    
     // --------------------------------------------------------------------------------------------------------------------------------
 
     // MBTI 추천
-    // --------------------------------------------------------------------------------------------------------------------------------
-
-    // --------------------------------------------------------------------------------------------------------------------------------
     @Query(nativeQuery = true, value = "select * from dog where mbti LIKE %:mbti%")
     List<DogEntity> mbtiRef(String mbti); // mbti로 추천
 

@@ -10,9 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
+
 @Entity //엔티티로 쓸 클래스라고 선언. 엔티티 클래스는 테이블 그 자체이다.
 @Table(name = "dog") //dog 테이블을 이용한다
-@Getter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DogEntity {
@@ -68,5 +70,5 @@ public class DogEntity {
 
         
 
-    
-}
+}   
+

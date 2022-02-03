@@ -149,8 +149,8 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
-    public List<DogEntity> mbtiRef() {
-        return null;
+    public List<DogEntity> mbtiRef(String mbti) {
+        return repo.mbtiRef(mbti);
     }
 
     @Override

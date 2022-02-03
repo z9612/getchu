@@ -93,4 +93,7 @@ public interface DogRepository extends JpaRepository<DogEntity, Integer> {
     // --------------------------------------------------------------------------------------------------------------------------------
 
     // --------------------------------------------------------------------------------------------------------------------------------
+    @Query(nativeQuery = true, value = "select * from dog where mbti LIKE %:mbti%")
+    List<DogEntity> mbtiRef(String mbti); // mbti로 추천
+
 }

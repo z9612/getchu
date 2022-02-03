@@ -40,6 +40,12 @@ public class DogController{
 
         return dogService.findAll();
     }
+    
+    @ApiOperation(value = "MBTI 견종 추천",response = List.class)
+    @GetMapping("/mbti")
+    public List<DogEntity> mbti(String mbti){
+    	return dogService.mbtiRef(mbti);
+    }
 
 
 }

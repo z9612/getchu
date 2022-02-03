@@ -20,19 +20,11 @@ public class DogController{
     @Autowired
     private DogService dogService;
 
-    @ApiOperation(value = "라이프 스타일 견종 추천 샘플",response = List.class)
-    @GetMapping("/lifestyleTest")
-    public List<DogEntity> lifeStyleTest(int size, @ApiParam(value = "아파트 거주 가능", required = true) int aprtmentLiving,int noviceOwners, 
-    int beingAlone,  int kidFriendly,int dogFriendly, int amoutOfShedding){
-
-        return dogService.lifeStyleRefTest(size,aprtmentLiving,noviceOwners,beingAlone,dogFriendly,kidFriendly,amoutOfShedding);
-    }
-
-
+    @ApiOperation(value = "라이프 스타일로 견종 추천",response = List.class)
     @GetMapping("/lifestyle")
-    public List<DogEntity> lifeStyle(int size, int apartmentLiving){
+    public List<DogEntity> lifeStyle(@ApiParam(value = "견종의 크기", required = true) int size, @ApiParam(value = "아파트 거주 가능성", required = true) int apartmentLiving, @ApiParam(value = "초보자에게 키우기 좋은 정도", required = true)  int noviceOwners, @ApiParam(value = "혼자 있는 능력", required = true)  int beingAlone, @ApiParam(value = "아이와 친한 정도", required = true)  int kidFriendly, @ApiParam(value = "다른 개와 친한 정도", required = true)  int dogFriendly, @ApiParam(value = "털 빠짐 정도", required = true)  int amountOfShedding){
 
-        return dogService.lifeStyleRef(size,apartmentLiving);
+        return dogService.lifeStyleRef(size,apartmentLiving,noviceOwners,beingAlone,kidFriendly,dogFriendly,amountOfShedding);
     }
 
     @ApiOperation(value = "모든 견종 데이터를 출력합니다",response = List.class)

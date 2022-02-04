@@ -55,52 +55,50 @@ function SurveyPage() {
   };
 
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Paper
-          square
-          elevation={0}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            bgcolor: 'background.default',
-          }}
-        >
-          <p>뒤로 가기</p>
-        </Paper>
+    <Box sx={{ flexGrow: 1 }}>
+      <Paper
+        square
+        elevation={0}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          bgcolor: 'background.default',
+        }}
+      >
+        <p>뒤로 가기</p>
+      </Paper>
 
-        <SurveySet 
-          questionSet={questionSetList[activeStep]}
-          onAnswer={addAnswer}
+      <SurveySet 
+        questionSet={questionSetList[activeStep]}
+        onAnswer={addAnswer}
+      />
+
+      <MobileStepper
+        variant="text"
+        position="bottom"
+        steps={maxSteps}
+        activeStep={activeStep}
+        backButton={
+          <Button 
+          size="small" 
+          onClick={handleBack} 
+          disabled={activeStep === 0}>
+            <KeyboardArrowLeft />
+            이전
+          </Button>
+        }
+        nextButton={
+          <Button
+            size="small"
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+          >
+            다음
+            <KeyboardArrowRight />
+          </Button>
+        }
         />
-
-        <MobileStepper
-          variant="text"
-          position="bottom"
-          steps={maxSteps}
-          activeStep={activeStep}
-          backButton={
-            <Button 
-            size="small" 
-            onClick={handleBack} 
-            disabled={activeStep === 0}>
-              <KeyboardArrowLeft />
-              이전
-            </Button>
-          }
-          nextButton={
-            <Button
-              size="small"
-              onClick={handleNext}
-              disabled={activeStep === maxSteps - 1}
-            >
-              다음
-              <KeyboardArrowRight />
-            </Button>
-          }
-          />
-      </Box>
-    </div>
+    </Box>
   );
 }
 

@@ -1,16 +1,20 @@
-import { Route, Routes } from 'react-router-dom'
+import { 
+  BrowserRouter as Router, 
+  Routes,  
+  Route
+} from 'react-router-dom'
 
-import SurveyPage from "./components/SurveyPage";
+import SurveyPage from "./pages/survey/SurveyPage";
 import Result from './pages/result'
 
 function App() {
   return (
-    <div>
-      <SurveyPage />
+    <Router>
       <Routes>
         <Route path='/Result' element={ <Result /> } />
+        <Route path='/survey' element={ <SurveyPage /> } />
       </Routes>
-    </div>
+    </Router>
   );
 }
 

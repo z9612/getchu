@@ -1,33 +1,41 @@
 import { useState } from "react";
 import { Box, Paper, Button } from '@mui/material';
-import Survey from "./Survey";
-
-import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
+import SurveySet from "./SurveySet";
 
-
-const questionList = [
+const questionSetList = [
   [
-    ['1. 활발한 강아지를 원하나요?', 'energy']
-    ['2. 털빠짐에 민감한 편인가요?', 'shedding']
+    {
+      text: '1. 활발한 강아지를 원하나요?',
+      detail: '활발한다는 건 활발하다는 것이다.',
+      paramName: 'energy'
+    },
+    {
+      text: '2. 털빠짐에 민감한 편인가요?',
+      detail: '모든 개는 털이 빠집니다!',
+      paramName: 'shedding'
+    }
   ],
   [
     {
-      text: '3. ddd?',
-      param: 'shedding'
+      text: '3. 집에 아이가 있나요?',
+      detail: '일부 개들은 아이에게 우호적입니다.',
+      paramName: 'friendliness'
     },
     {
-      text: '4. aaaa?',
-      param: 'shedding'
-    },
+      text: '4. 운동을 좋아하시나요?',
+      detail: '사냥견은 2시간, 실내견은 1시간...',
+      paramName: 'energy_level'
+    }
   ]
 ]
 
 function SurveyPage() {
   const [answers, setAnswers] = useState({})
+
   const addAnswer = (name, value) => {
     const new_answers = {...answers}
     new_answers[name] = value
@@ -35,9 +43,8 @@ function SurveyPage() {
     console.log(new_answers);
   }
 
-  const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = questionList.length;
+  const maxSteps = questionSetList.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -61,26 +68,33 @@ function SurveyPage() {
             bgcolor: 'background.default',
           }}
         >
-          {questionList[activeStep].label}
+          <p>뒤로 가기</p>
         </Paper>
 
         <Box sx={{ 
           width: '90%', 
           p: 2 
         }}>
-          {/* {questionList} */}
-          <Survey
-            question={questionList[activeStep].text}
-            paramName={questionList[activeStep].param}
+          <SurveySet 
+            questionSet={questionSetList[activeStep]}
             onAnswer={addAnswer}
           />
         </Box>
 
         <MobileStepper
           variant="text"
-          steps={maxSteps}
           position="bottom"
+          steps={maxSteps}
           activeStep={activeStep}
+          backButton={
+            <Button 
+            size="small" 
+            onClick={handleBack} 
+            disabled={activeStep === 0}>
+              <KeyboardArrowLeft />
+              이전
+            </Button>
+          }
           nextButton={
             <Button
               size="small"
@@ -88,24 +102,10 @@ function SurveyPage() {
               disabled={activeStep === maxSteps - 1}
             >
               다음
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowLeft />
-              ) : (
-                <KeyboardArrowRight />
-              )}
+              <KeyboardArrowRight />
             </Button>
           }
-          backButton={
-            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowRight />
-              ) : (
-                <KeyboardArrowLeft />
-              )}
-              이전
-            </Button>
-          }
-        />
+          />
       </Box>
     </div>
   );

@@ -1,6 +1,7 @@
-import { Grid, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
+import HelpIconButton from "../../components/HelpIconButton";
 
-function Survey({question, paramName, onAnswer}) {
+function Survey({question, detail, paramName, onAnswer}) {
   const indexList = [5, 4, 3, 2, 1]
   const getSelectedIndex = (event) => {
     onAnswer(paramName, event.target.value)
@@ -11,7 +12,11 @@ function Survey({question, paramName, onAnswer}) {
       direction="column"
       alignItems="center"
     >
-      <p>{question}</p>
+      <p>
+        {question}
+        <HelpIconButton content={detail} />
+      </p>
+
       <div>
         <strong>YES </strong>
 

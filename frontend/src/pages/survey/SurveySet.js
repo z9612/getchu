@@ -11,6 +11,7 @@ function SurveySet({questionSet, onAnswer}) {
         <Survey
         key={question.paramName}
         question={question.text}
+        detail={question.detail}
         paramName={question.paramName}
         onAnswer={onAnswer}
         />

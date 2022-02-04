@@ -63,23 +63,16 @@ function SurveyPage() {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            height: 50,
-            pl: 2,
             bgcolor: 'background.default',
           }}
         >
           <p>뒤로 가기</p>
         </Paper>
 
-        <Box sx={{ 
-          width: '90%', 
-          p: 2 
-        }}>
-          <SurveySet 
-            questionSet={questionSetList[activeStep]}
-            onAnswer={addAnswer}
-          />
-        </Box>
+        <SurveySet 
+          questionSet={questionSetList[activeStep]}
+          onAnswer={addAnswer}
+        />
 
         <MobileStepper
           variant="text"

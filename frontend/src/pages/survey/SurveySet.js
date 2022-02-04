@@ -1,8 +1,12 @@
+import { Stack } from '@mui/material';
 import Survey from './Survey';
 
 function SurveySet({questionSet, onAnswer}) {
   return (
-    <div>
+    <Stack
+      height="70vh"
+      justifyContent="space-evenly"
+    >
       {questionSet.map(question => (
         <Survey
         key={question.paramName}
@@ -11,7 +15,7 @@ function SurveySet({questionSet, onAnswer}) {
         onAnswer={onAnswer}
         />
         ))}
-    </div>
+    </Stack>
   );
 }
 

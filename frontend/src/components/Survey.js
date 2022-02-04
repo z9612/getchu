@@ -1,4 +1,4 @@
-import ImageButton from "./ImageButton";
+import { Grid } from "@mui/material";
 
 function Survey({question, paramName, onAnswer}) {
   const indexList = [1, 2, 3, 4, 5]
@@ -8,21 +8,31 @@ function Survey({question, paramName, onAnswer}) {
   }
 
   return (
-    <article>
-      <h5>{question}<ImageButton /></h5>
+    <Grid 
+      container
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Grid item>
+        <p>{question}</p>
+      </Grid>
+      <Grid item>
+        <strong>YES </strong>
 
-      <strong>YES </strong>
-      {indexList.map(index => (
-        <input
+        {indexList.map(index => (
+          <input
           key={index}
           type="radio" 
           name={`survey_${paramName}`} 
           value={index}
           onClick={getSelectedIndex}
-        />
-      ))}
-      <strong> NO</strong>
-    </article>
+          />
+          ))}
+
+        <strong> NO</strong>
+      </Grid>
+    </Grid>
   );
 }
 

@@ -1,6 +1,5 @@
-package com.ssafy.project.configuration;
+package com.ssafy.project.config;
 
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -33,9 +32,9 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     private ApiInfo apiInfo() {
 
         return new ApiInfoBuilder()
-                .title("API")
-                .description("API TEST")
-                .version("0.8.0")
+                .title("getchu")
+                .description("getchu API TEST")
+                .version("0.0.1")
                 .license("LICENSE")
                 .licenseUrl("")
                 .build();

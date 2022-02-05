@@ -1,13 +1,12 @@
 // import { Box, Container } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import BackBar from "./BackBar";
 
-function BackBarLayout({ children }) {
-  return (
-    <div>
-      <BackBar />
-      {children}
-    </div>
-  );
-}
+const BackBarLayout = () => (
+  <>
+    <BackBar />
+    <Outlet />
+  </>
+);
 
 export default BackBarLayout;

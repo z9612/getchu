@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { 
   AppBar, 
   Toolbar,
@@ -5,9 +6,9 @@ import {
   Box,
   IconButton
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
-function BackBar() {
+function BackBar({ to }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -17,14 +18,16 @@ function BackBar() {
             edge="start"
             color="inherit"
             aria-label="menu"
+            component={Link}
+            to={to}
           >
-            <MenuIcon />
+            <ArrowBackIosNewIcon />
           </IconButton>
           <Typography 
             variant="h6" 
             component="div" 
             sx={{ flexGrow: 1 }}>
-            News
+            처음으로
           </Typography>
         </Toolbar>
       </AppBar>

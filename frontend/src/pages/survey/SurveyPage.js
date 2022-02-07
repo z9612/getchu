@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, Button } from '@mui/material';
 import MobileStepper from '@mui/material/MobileStepper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -60,8 +61,17 @@ function SurveyPage() {
               <KeyboardArrowRight />
             </Button>
           ) : (
+            // 완료 시 Link의 to로 state 담아서 이동
             <Button
               size="small"
+              component={Link}
+              to="/Result"
+              state={answers}
+              // 프로그래밍 방식 이동
+              // onClick={() => {
+              //   const navigate = useNavigate();
+              //   navigate('/Result', {state: state})
+              // }}
             >
               완료
               <KeyboardArrowRight />

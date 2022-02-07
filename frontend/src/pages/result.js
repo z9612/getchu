@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import { Container, Row, Col } from 'react-bootstrap';
 import { Divider } from '@mui/material';
 
@@ -11,6 +11,11 @@ import ResultBody from './resultComponent/resultBody';
 import './result.css'
 
 const Result = () => {
+  // 이전 주소에서 넘겨받은 인자 (개 특징 정보)
+  const { state } = useLocation();
+  for (const key in state) {
+    console.log(key, state[key]);
+  }
 
   // const 
   return (

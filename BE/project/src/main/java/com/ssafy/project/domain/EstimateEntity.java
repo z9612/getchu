@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +25,17 @@ public class EstimateEntity {
     private int id;
 
     private String category;
+    private String name;
+
+    @ApiModelProperty(required = false)
     private String weight;
-    private int price_min;
-    private int price_avg;
-    private int price_max;
+
+    @ApiModelProperty(required = false)
+    private Integer price_min;
+
+    @ApiModelProperty(required = false)
+    private Integer price_avg;
+
+    @ApiModelProperty(required = false)
+    private Integer price_max;
 }

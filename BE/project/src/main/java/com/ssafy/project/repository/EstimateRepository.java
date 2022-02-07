@@ -1,11 +1,10 @@
 package com.ssafy.project.repository;
 
-import java.util.List;
-
 import com.ssafy.project.domain.EstimateEntity;
 
-public interface EstimateRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-	List<EstimateEntity> findAll();
+public interface EstimateRepository extends JpaRepository<EstimateEntity, Integer>{
+
 
 }

@@ -10,5 +10,6 @@ public interface DogService {
     
     List<DogEntity> mbtiRef(String mbti); // mbti 정보로 추천
     List<DogEntity> findAll();
+    DogEntity findByName(String name);
     
 }

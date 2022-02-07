@@ -139,7 +139,18 @@ public class DogServiceImpl implements DogService {
                 System.out.println("10.놀기 좋아함, 에너지 레벨 삭제");
                 return result;
             }
+            result = repo.dogStyle(size, apartmentLiving);
+            if (result.size() != 0) {
+                System.out.println("11. 털 양 삭제");
+                return result;
+            }
+            result = repo.dogStyle(size);
+            if (result.size() != 0) {
+                System.out.println("12. 아파트 거주 삭제");
+                return result;
+            }
             else{
+                //이 값이 나오면 안됨
                 System.out.println("해당되는 견종이 없습니다");
                 return result;
             }
@@ -156,6 +167,11 @@ public class DogServiceImpl implements DogService {
     @Override
     public List<DogEntity> findAll() {
         return repo.findAll();
+    }
+
+    @Override
+    public DogEntity findByName(String name){
+        return repo.findByName(name);
     }
 
 }

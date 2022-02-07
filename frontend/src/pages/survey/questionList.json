@@ -1,0 +1,100 @@
+[
+  [
+    {
+      "text": "1. 이전에 개를 키워본 적이 있으신가요?",
+      "detail": " ",
+      "optionNum": "2",
+      "paramName": "noviceOwners"
+    },
+    {
+      "text": "2. 집에 다른 반려견이 있나요?",
+      "detail": " ",
+      "optionNum": "2",
+      "paramName": "dogFriendly"
+    }
+  ],
+  [
+    {
+      "text": "3. 다 자란 크기는 어느 정도가 좋으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "size"
+    },
+    {
+      "text": "4. 반려견의 털 빠짐은 어느 정도 괜찮으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "amountOfShedding"
+    }
+  ],
+  [
+    {
+      "text": "5. 반려견의 털 관리를 잘 할 자신이 있으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "easyToGroom"
+    },
+    {
+      "text": "6. 반려견의 훈련을 잘 할 자신이 있으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "easyToTrain"
+    }
+  ],
+  [
+    {
+      "text": "7. 반려견의 지능은 어느 정도가 좋으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "intelligence"
+    },
+    {
+      "text": "8. 반려견이 애교가 많은 편이 좋으신가요?",
+      "detail": "",
+      "optionNum": "5",
+      "paramName": "family"
+    }
+  ],
+  [
+    {
+      "text": "9. 반려견이 낯선 사람에게도 친절하면 좋으신가요?",
+      "detail": "",
+      "optionNum": "5",
+      "paramName": "strangers"
+    },
+    {
+      "text": "10. 아파트 같은 공동 주택에 거주 중이신가요?",
+      "detail": " ",
+      "optionNum": "2",
+      "paramName": "apartmentLiving"
+    }
+  ],
+  [
+    {
+      "text": "11. 반려견이 짖는 게 어느 정도 괜찮으신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "barkOrHowl"
+    },
+    {
+      "text": "12. 반려견과의 산책이 어느 정도 가능하신가요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "wanderlust"
+    }
+  ],
+  [
+    {
+      "text": "13. 반려견이 활발한 걸 좋아하시나요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "energyLevel"
+    },
+    {
+      "text": "14. 반려견이 장난이 많았으면 하시나요?",
+      "detail": " ",
+      "optionNum": "5",
+      "paramName": "playfullness"
+    }
+  ]
+]

@@ -1,11 +1,13 @@
+from pprint import pprint
 from typing import List
+from pathlib import Path
 import json
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-from crawler import Crawler
-from dogtime_crawler import DogTimeListProvider
+from Dogtime_KKF.crawler import Crawler
+from Dogtime.dogtime_crawler import DogTimeListProvider
 
 
 class DogTimeImageCrawler(Crawler):
@@ -16,7 +18,7 @@ class DogTimeImageCrawler(Crawler):
         webdriver_options = webdriver.ChromeOptions()
         # webdriver_options.add_argument('headless')
 
-        chromedriver = 'chromedriver.exe'
+        chromedriver = f'{Path(__file__).parent}/chromedriver.exe'
         self.driver = webdriver.Chrome(
             chromedriver, 
             options=webdriver_options
@@ -25,9 +27,38 @@ class DogTimeImageCrawler(Crawler):
 
     def generate(self, dog_names: List[str]):
         for dog_name in dog_names:
-            yield dog_name.replace('-', ' '), self.crawl(dog_name)
+            yield dog_name.replace('-', ' '), self.crawl_slideshow_images(dog_name)
 
-    def crawl(self, dog_name: str) -> dict:
+    def crawl_profile_images(self) -> dict:
+        """
+        profile 페이지에 있는 모든 강아지들의
+        프로필 이미지 주소 가져오기
+        """
+
+        new_dict = {}
+        
+        html_body = self.get_html_body(self.URL_prefix + 'profiles')
+        # print(html_body)
+
+        images = html_body.select('img.list-item-breed-img')
+        # pprint(images)
+        for image in images:
+            # 같은 클래스 네임을 가진 img 태그가 2개 있으나,
+            # 뒤에 오는 걸로 덮어쓰면 해결됨.
+            
+            # if image.get('data-lazy-src'):
+            #     image_url = image['data-lazy-src']
+            # else:
+
+            image_url = image['src']
+
+            new_dict.update(
+                {image['alt'].lower(): image_url}
+            )
+
+        return new_dict        
+
+    def crawl_slideshow_images(self, dog_name: str) -> dict:
         """
         이미지 주소 가져오기
         1. 한 장만 있는 경우부터 처리
@@ -72,7 +103,7 @@ class DogTimeImageCrawler(Crawler):
 
 def test_crawl_one():
     # DogTimeImageCrawler().crawl('yorkshire-terrier')
-    DogTimeImageCrawler().crawl('jindo-dog')
+    DogTimeImageCrawler().crawl_slideshow_images('jindo-dog')
 
 
 def test_crawl_all_images():
@@ -99,5 +130,20 @@ def crawl_all_images():
             json.dump(new_dict, file, ensure_ascii=False, indent=2)
 
 
+def test_crawl_profile_images():
+    pprint(DogTimeImageCrawler().crawl_profile_images())
+
+
+def crawl_profile_images():
+    with open(
+        f'{Path(__file__).parent}/dogtime_profile_images.json', 
+        'w',
+        encoding='utf8'
+    ) as file:
+        profile_images = DogTimeImageCrawler().crawl_profile_images()
+        json.dump(profile_images, file, ensure_ascii=False, indent=2)
+
+
 # test_crawl_one()
-crawl_all_images()
+# crawl_all_images()
+crawl_profile_images()

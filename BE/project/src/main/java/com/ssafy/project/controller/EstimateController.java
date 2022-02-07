@@ -19,7 +19,7 @@ public class EstimateController {
 	@Autowired
     private EstimateService estimateService;
 
-    @ApiOperation(value = "모든 견적 정보를 출력합니다.")
+    @ApiOperation(value = "모든 견적 정보를 출력합니다.", response = List.class )
     @GetMapping("/findAll")
     public List<EstimateEntity> findAll(){
         return estimateService.findAll();

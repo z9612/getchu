@@ -24,18 +24,21 @@ public class EstimateEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @ApiModelProperty(value = "카테고리")
     private String category;
+
+    @ApiModelProperty( value = "물품명")
     private String name;
 
-    @ApiModelProperty(required = false)
+    @ApiModelProperty(required = false, value = "무게")
     private String weight;
 
-    @ApiModelProperty(required = false)
+    @ApiModelProperty(required = false, value = "최소 가격")
     private Integer price_min;
 
-    @ApiModelProperty(required = false)
+    @ApiModelProperty(required = false, value = "평균 가격")
     private Integer price_avg;
 
-    @ApiModelProperty(required = false)
+    @ApiModelProperty(required = false, value = "최대 가격")
     private Integer price_max;
 }

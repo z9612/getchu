@@ -7,7 +7,7 @@ import regex
 
 from bs4.element import Tag
 
-from crawler import Crawler
+from Dogtime_KKF.crawler import Crawler
 
 
 class DogTimeListProvider(Crawler):

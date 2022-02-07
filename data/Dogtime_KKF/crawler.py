@@ -141,5 +141,6 @@ def flatten_dict():
             json.dump(list(total_info.values()), new_file, ensure_ascii=False, indent=2)
 
 
-# sort_data_by_keyword(['traits', 'Physical Needs', 'rating'])
-flatten_dict()
+if __name__ == '__main__':
+    # sort_data_by_keyword(['traits', 'Physical Needs', 'rating'])
+    flatten_dict()

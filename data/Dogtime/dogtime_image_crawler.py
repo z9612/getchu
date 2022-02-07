@@ -3,27 +3,12 @@ from typing import List
 from pathlib import Path
 import json
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
 from Dogtime_KKF.crawler import Crawler
 from Dogtime.dogtime_crawler import DogTimeListProvider
 
 
 class DogTimeImageCrawler(Crawler):
     URL_prefix = 'https://dogtime.com/dog-breeds/'
-
-    def __init__(self):
-        super().__init__()
-        webdriver_options = webdriver.ChromeOptions()
-        # webdriver_options.add_argument('headless')
-
-        chromedriver = f'{Path(__file__).parent}/chromedriver.exe'
-        self.driver = webdriver.Chrome(
-            chromedriver, 
-            options=webdriver_options
-        )
-        self.driver.implicitly_wait(5)
 
     def generate(self, dog_names: List[str]):
         for dog_name in dog_names:
@@ -74,14 +59,10 @@ class DogTimeImageCrawler(Crawler):
 
         # 여러 장인 경우 처리
         slideshow = html_body.find('div', class_='pbslideshow')
-        if slideshow:
-            slideshow_id = slideshow['data-id']
-            slideshow_url = f'{self.URL_prefix}{dog_name}?slideshow={slideshow_id}'
-            # print(slideshow_url)
-            # https://dogtime.com/dog-breeds/akita?slideshow=615
-        else:
-            # 로딩 안 된 경우, 셀레늄으로 처리
-            slideshow_url = self.__get_slideshow_url_by_selenium(dog_name)
+        slideshow_id = slideshow['data-id']
+        slideshow_url = f'{self.URL_prefix}{dog_name}?slideshow={slideshow_id}'
+        # print(slideshow_url)
+        # https://dogtime.com/dog-breeds/akita?slideshow=615
 
         html_body = self.get_html_body(slideshow_url)
 
@@ -90,15 +71,6 @@ class DogTimeImageCrawler(Crawler):
         # pprint(image_urls)
 
         return {'images': image_urls}
-    
-    def __get_slideshow_url_by_selenium(self, dog_name):
-        self.driver.get(self.URL_prefix + str(dog_name))
-
-        slideshow = self.driver.find_element(By.CSS_SELECTOR, 'div.pbslideshow')
-        slideshow_id = slideshow.get_attribute('data-id')
-        slideshow_url = f'{self.URL_prefix}{dog_name}?slideshow={slideshow_id}'
-
-        return slideshow_url
 
 
 def test_crawl_one():

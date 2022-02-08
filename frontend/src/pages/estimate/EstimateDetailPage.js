@@ -1,40 +1,40 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
   Alert,
   AlertTitle
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import EstimateDetail from './EstimateDetail';
 import estimateContent from './estimateContent'
+import currency from './currencyFormatter';
 
-export default function EstimateDetailPage() {
+const EstimateDetailPage = () => {
+  const [sum, setSum] = useState(0)
+  const [expanded, setExpanded] = useState(false);
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
     <div>
       <h1>병원비</h1>
       <div>주사 그림</div>
+      <div>총합: {currency(sum)}</div>
       
       {estimateContent.map(content => (
         <EstimateDetail
           sum={content.price}
           title={content.title}
           detail={content.detail}
+          checkDefault={content.checkDefault}
+          
+          expanded={expanded}
+          handleChange={handleChange}
+          setSum={setSum}
+          key={content.title}
         />
       ))} 
       
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
-      </Accordion>
       <Alert severity="info">
         <AlertTitle>Info</AlertTitle>
         This is an info alert 
@@ -43,3 +43,5 @@ export default function EstimateDetailPage() {
     </div>
   );
 }
+
+export default EstimateDetailPage;

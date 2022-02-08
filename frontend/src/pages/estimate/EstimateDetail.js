@@ -1,37 +1,63 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Checkbox,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const EstimateDetail = ({ sum, title, detail, index }) => {
+import currency from './currencyFormatter';
+
+const EstimateDetail = ({ 
+  sum, 
+  title, 
+  detail,
+  checkDefault,
+  
+  expanded,
+  handleChange, 
+  setSum, 
+  index 
+}) => {
+  const [checked, setChecked] = useState(Boolean(checkDefault))
+  
+  useEffect(() => {
+    const amount = checked ? Number(sum) : -Number(sum);
+    setSum(current => Number(current) + amount);
+  }, [setSum, sum, checked])
+
   return (
-    <Accordion>
+    <Accordion 
+      expanded={expanded === title} 
+      onChange={handleChange(title)}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={`panel${index}-content`}
         id={`panel${index}-header`}
       >
         <Typography sx={{ width: '50%', flexShrink: 0 }}>
-          { sum }
+          { checked ? currency(sum) : currency(0) }
         </Typography>
         <Typography sx={{ color: 'text.secondary' }}>
           { title }
         </Typography>
       </AccordionSummary>
+      
       <AccordionDetails>
         <ul>
-          {detail.map(item => (
-            <li>
-              <Typography>
-                {item}
-              </Typography>
+          {detail.map((item, index) => (
+            <li key={index}>
+              <Typography>{item}</Typography>
             </li>
           ))}
         </ul>
+        <Checkbox 
+          checked={checked}
+          onClick={() => {setChecked(!checked)}}/
+        >
       </AccordionDetails>
     </Accordion>
   );

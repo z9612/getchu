@@ -34,17 +34,24 @@ public class DogController{
         return dogService.dogStyle(size,apartmentLiving,noviceOwners,dogFriendly,strangers,family,amountOfShedding,easyToGroom,easyToTrain,intelligence,barkOrHowl,wanderlust,energyLevel,playfullness);
     }
 
+        
+    @ApiOperation(value = "MBTI 견종 추천",response = List.class)
+    @GetMapping("/mbti")
+    public List<DogEntity> mbti(String mbti){
+    	return dogService.mbtiRef(mbti);
+    }
+
     @ApiOperation(value = "모든 견종 데이터를 출력합니다",response = List.class)
     @GetMapping("/findAll")
     public List<DogEntity> findAll(){
 
         return dogService.findAll();
     }
-    
-    @ApiOperation(value = "MBTI 견종 추천",response = List.class)
-    @GetMapping("/mbti")
-    public List<DogEntity> mbti(String mbti){
-    	return dogService.mbtiRef(mbti);
+
+    @ApiOperation(value = "이름으로 한 견종 데이터를 출력합니다",response = DogEntity.class)
+    @GetMapping("/findByName")
+    public DogEntity findByName(String name){
+        return dogService.findByName(name);
     }
 
 

@@ -1,56 +1,87 @@
 /* resultHeader */
 .result-header {
   padding: 20px;
+  text-align: center;
+
 }
 .result-header-text {
   font-weight: bolder;
+  font-size: x-large;
+  text-align: left;
 }
 
-/* resultBody 1 */
+/* resultBody */
+.show-more {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
 .result-dog-img {
-  width: 100%;
+  /* width: 100%; */
   /* height: 300px; */
   /* max-width: 200px; */
+
+  width: 100px;
+  height: 100px;
+
+  /* max-width: 130px; */
+  /* max-height: 130px; */
+
+  display: block;
+  object-fit: contain;
+  margin: auto 10px;
+  border-radius: 100%;
+  border: 5px solid #b1b1b1;
 }
 
 
-/* resultBody 2 */
+/*                     */
+/* resultBodyComponent */
+/*                     */
 .result-dog-breed {
   font-weight: 700;
 }
-.result-dog-feature {
+.result-dog-personality {
+  max-width: 100%;
+  display: block;
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 3; */
+  /* -webkit-box-orient: vertical; */
+  /* font-size: 15px; */
+  max-height: 84px;
+  /* max-height: 700px; */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+
+  /* white-space: initial; */
+
   text-align: left;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
 }
 
-/* .display-table {
-  display: table;
-} */
 
-/* .dog-breed {
+/* resultDogDetail */
+.result-info {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left; */
+  text-align: center;
+}
 
-} */
-/* .box {
-  height: 600px;
-} */
-
-/* .dog-feature { */
-  /* position: relative; */
-  /* text-align: start; */
-  /* top: 50%; */
-  /* transform: translate(0, -50%); */
-  
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-items: center; */
-  /* align-items: center; */
-
-/* } */
-
-
-/* dogInfo */
-.result-dog-Info {
+.result-dog-info {
+  margin: 5px 0;
+  text-align: 30%;
   font-weight: bold;
-  text-align: left;
+  /* text-align: left; */
+}
+
+.row-arrange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -1,14 +1,18 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Divider } from '@mui/material';
 
 import ResultHeader from './resultComponent/resultHeader';
 import ResultBody from './resultComponent/resultBody';
-
-
 import './result.css'
 
 const Result2 = () => {
+  // 이전 주소에서 넘겨받은 인자 (개 특징 정보)
+  const { state } = useLocation();
+  for (const key in state) {
+    console.log(key, state[key]);
+  }
+
   return (
     <div>
       <div className='result-arrange'>

@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EstimateRepository extends JpaRepository<EstimateEntity, Integer>{
 
+    EstimateEntity getEstimate(String name);
+
 }

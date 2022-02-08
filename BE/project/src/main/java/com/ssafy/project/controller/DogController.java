@@ -8,6 +8,7 @@ import com.ssafy.project.service.DogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
@@ -50,7 +51,7 @@ public class DogController{
 
     @ApiOperation(value = "이름으로 한 견종 데이터를 출력합니다",response = DogEntity.class)
     @GetMapping("/findByName")
-    public DogEntity findByName(String name){
+    public DogEntity findByName(@ApiParam(value = "견종명") @RequestParam String name){
         return dogService.findByName(name);
     }
 

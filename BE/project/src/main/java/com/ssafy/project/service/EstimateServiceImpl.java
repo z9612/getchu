@@ -18,4 +18,18 @@ public class EstimateServiceImpl implements EstimateService {
 	public List<EstimateEntity> findAll() {
         return repo.findAll();
     }
+
+    @Override
+    public EstimateEntity getEstimate(String name) {
+
+        return repo.getEstimate(name);
+    }
+
+    @Override
+    public int getDesexualization(String sex) {
+        
+        return 1;
+    }
+
+
 }

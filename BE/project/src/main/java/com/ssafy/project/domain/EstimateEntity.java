@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.lang.Nullable;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,6 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EstimateEntity {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,7 +26,7 @@ public class EstimateEntity {
     @ApiModelProperty(value = "카테고리")
     private String category;
 
-    @ApiModelProperty( value = "물품명")
+    @ApiModelProperty(value = "물품명")
     private String name;
 
     @ApiModelProperty(required = false, value = "무게")

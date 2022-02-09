@@ -8,7 +8,7 @@ import BackBarLayout from './layouts/BackBarLayout';
 import SurveyPage from "./pages/survey/SurveyPage";
 import Result from './pages/result';
 import Start from './pages/start'
-import EstimateDetailPage from './pages/estimate/EstimateDetailPage';
+import MedicalPage from './pages/estimate/medical/MedicalPage'
 import './index.css'
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
         <Route path='' element={ <BackBarLayout to='/Result' title='처음으로' /> } >
           <Route path='/survey' element={ <SurveyPage /> } />
         </Route>
-        <Route path='/estimate/detail' element={ <BackBarLayout to='/estimate' title='초기 자금 견적 내기' /> } >
-          <Route path='/estimate/detail' element={ <EstimateDetailPage /> } />
+        <Route path='/estimate/' element={ <BackBarLayout to='/estimate' title='초기 자금 견적 내기' /> } >
+          <Route path='/estimate/medical' element={ <MedicalPage /> } />
         </Route>
         <Route path='/start' element={ <Start /> } />
       </Routes>

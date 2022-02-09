@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import currency from './currencyFormatter';
+import currency from '../currencyFormatter';
 
 const EstimateDetail = ({ 
   sum, 

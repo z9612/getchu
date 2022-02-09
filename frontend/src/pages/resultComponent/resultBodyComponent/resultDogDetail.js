@@ -1,9 +1,18 @@
 import React from 'react';
-import { Box, Grid, Rating, Typography } from '@mui/material';
+import { 
+  Box, Rating, Accordion, AccordionDetails, AccordionSummary, Typography
+} from '@mui/material'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import '../resultComponent.css'
 
-const dogInfo = (props) => {
+import Adaptable from './breedCharacteristics/adaptable';
+import Friendly from './breedCharacteristics/friendly'
+import Health from './breedCharacteristics/health'
+import Physical from './breedCharacteristics/physical'
+import Trainable from './breedCharacteristics/trainable'
+
+const DogInfo = (props) => {
 
   const dogInfoData = [
     // 128종
@@ -53,66 +62,140 @@ const dogInfo = (props) => {
     }
   ]
 
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
-    // <Grid item xs={10}>
+    <div>
       <div>
-      {/* <div className='result-info'> */}
-        <div className='result-dog-info'>견종</div>
-        <div className='result-info'>
-          { props.dogData.name }
-        </div>
-        <div className='result-dog-info' style={{color:'red'}}>성격 / "조정 필요"</div>
-        <div>
-          { props.dogData.personality }
-        </div>
-
-        <div style={{textAlign:'center'}}>
-          <div className='result-dog-info'>체중</div>
-          <div>
-            { props.dogData.weight_min }~{ props.dogData.weight_max } (kg)
-          </div>
-          <div className='result-dog-info'>adaptable</div>
-          <Rating name='test-rating' value={ props.dogData.adaptable } readOnly />
-          <div className='result-dog-info'>friendly</div>
-          <Rating name='test-rating' value={ props.dogData.friendly } readOnly />
-          <div className='result-dog-info'>health</div>
-          <Rating name='test-rating' value={ props.dogData.health } readOnly />
-          <div className='result-dog-info'>trainable</div>
-          <Rating name='test-rating' value={ props.dogData.trainable } readOnly />
-          <div className='result-dog-info'>physical_Energy_Level</div>
-          <Rating name='test-rating' value={ props.dogData.physical_Energy_Level } readOnly />
-          <div className='result-dog-info'>에너지 레벨(?)</div>
-          <Rating name='test-rating' value={ props.dogData.physical_Energy_Level } readOnly />
-          
-          <div style={{color: 'red'}}>
-            <div className='row-arrange'>
-              <div className='result-dog-info'>physical_Exercise_Needs</div>
-              <Rating name='test-rating' value={ props.dogData.physical_Exercise_Needs } readOnly />
-            </div>
-            <div className='row-arrange'>
-              <div className='result-dog-info'>운동 필요 정도</div>
-              <Rating name='test-rating' value={ props.dogData.physical_Exercise_Needs } readOnly />
-            </div>
-            <div className='row-arrange'>
-              <div className='result-dog-info'>adaptable</div>
-              <Rating name='test-rating' value={ props.dogData.adaptable } readOnly />
-            </div>
-            <div className='row-arrange'>
-              <div className='result-dog-info'>friendly</div>
-              <Rating name='test-rating' value={ props.dogData.friendly } readOnly />
-            </div>
-            <div className='row-arrange'>
-              <div className='result-dog-info'>운동 필요 정도</div>
-              <Rating name='test-rating' value={ props.dogData.physical_Exercise_Needs } readOnly />
-            </div>
-          </div>
-        </div>
-
-        <div style={{color:'blue'}}>텍스트 배치 어떻게 할지</div>
-        <br />
+        { props.dogData.personality}
       </div>
-    // </Grid>
+      <div style={{ margin: '10px 0' }}>
+        <Accordion>
+          <AccordionSummary
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Box
+              sx={{width: '100%'}}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <div className='result-dog-info'>체중</div>
+                <div className='result-info'>
+                  { props.dogData.weight_min }~{ props.dogData.weight_max } (kg)
+                </div>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <div className='result-dog-info'>신장</div>
+                <div>
+                  { props.dogData.height_min }~{ props.dogData.height_max } (cm)
+                </div>
+              </Box>
+            </Box>
+          </AccordionSummary>
+        </Accordion>
+        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
+              Adaptable
+            </Typography>
+            <Rating sx={{ width: '50%', flexShrink: 0 }}
+              name='test-rating' value={ props.dogData.adaptable } readOnly />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Adaptable dogData={ props.dogData } />
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
+              Friendly
+            </Typography>
+            <Rating sx={{ width: '50%', flexShrink: 0 }}
+              name='test-rating' value={ props.dogData.friendly } readOnly />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Friendly dogData={ props.dogData } />
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
+              Health
+            </Typography>
+            <Rating sx={{ width: '50%', flexShrink: 0 }}
+              name='test-rating' value={ props.dogData.health } readOnly />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Health dogData={ props.dogData } />
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
+              Trainable
+            </Typography>
+            <Rating sx={{ width: '50%', flexShrink: 0 }}
+              name='test-rating' value={ props.dogData.trainable } readOnly />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Trainable dogData={ props.dogData } />
+          </AccordionDetails>
+        </Accordion>
+
+        <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1bh-content"
+            id="panel1bh-header"
+          >
+            <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
+              Physical
+            </Typography>
+            <Rating sx={{ width: '50%', flexShrink: 0 }}
+              name='test-rating' value={ props.dogData.physical } readOnly />
+          </AccordionSummary>
+          <AccordionDetails>
+            <Physical dogData={ props.dogData } />
+          </AccordionDetails>
+        </Accordion>
+      </div>
+    </div>
   );
 };
 
-export default dogInfo;
+export default DogInfo;

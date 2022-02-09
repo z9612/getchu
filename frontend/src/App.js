@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/Result' element={ <Result /> } />
+        <Route path='/result' element={ <Result /> } />
         <Route path='' element={ <BackBarLayout to='/Result' /> } >
           <Route path='/survey' element={ <SurveyPage /> } />
         </Route>

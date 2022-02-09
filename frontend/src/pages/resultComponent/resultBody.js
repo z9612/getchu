@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { Grid, Box, Divider } from '@mui/material';
-import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import './resultComponent.css';
 import ResultDogDetail from './resultBodyComponent/resultDogDetail';
-import ResultDogPic from './resultBodyComponent/resultPic';
-import ResultDogInfo from './resultBodyComponent/resultDogInfo';
-
+import ResultDogPic from './resultBodyComponent/resultDogPic';
 
 const ResultBody = () => {
 
@@ -119,41 +116,53 @@ const ResultBody = () => {
     }
   ]
 
-  const MakeButton = (info) => {
+  const MakeButton = (info, dog) => {
 
     const [isShow,setIsShow] = useState(false)
 
     return (
-      <div onClick={ () => setIsShow((isShow) => (!isShow)) }>
+      <div>
         {
           isShow
-          ? <Box className='show-more'
-              sx={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-              <div>더보기 닫기</div>
-              <KeyboardArrowUpIcon
-                fontSize='small'
-                color='primary' />
-            </Box>
-          : <Box className='show-more'
-              sx={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}
-            >
-              <div>특징 더보기</div>
-              <KeyboardArrowDownIcon 
-                fontSize='small'
-                color='primary' 
-              />
-            </Box>
+          ? info
+          : 
+          <div>
+            { dog.personality.length > 80 
+              ? `${dog.personality.slice(0, 79)}...`
+              : dog.personality}
+          </div>
         }
-        {
-          isShow
-          && info
-        }
+        <div onClick={ () => setIsShow((isShow) => (!isShow)) }>
+          {
+            isShow
+            ? <Box className='show-more'
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}>
+                <div>더보기 닫기</div>
+                <KeyboardArrowUpIcon
+                  fontSize='small'
+                  color='primary' />
+              </Box>
+            : <Box className='show-more'
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <div>특징 더보기</div>
+                <KeyboardArrowDownIcon 
+                  fontSize='small'
+                  color='primary' 
+                />
+              </Box>
+          }
+          {/* {
+            isShow
+            && info
+          } */}
+        </div>
       </div>
     )
   }
@@ -165,19 +174,31 @@ const ResultBody = () => {
         <Grid container spacing={0} justifyContent='center'>
 
           {/* 견종이미지 */}
-          <Grid item xs={4} sm={3} md={2}>
+          <Grid item xs={10}>
             <ResultDogPic dogData={ dog } />
+            {/* <ResultDogInfo dogData={ dog } /> */}
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }} py={1}
+            >
+              <div className='result-dog-breed'>
+                { dog.name }
+              </div>
+            </Box>
           </Grid>
 
           {/* 이름/특징 */}
           <Grid item xs={8} sm={6} md={4} px={2}>
-            <ResultDogInfo dogData={ dog } />
           </Grid>
 
           {/* 상세 정보 */}
           <Grid item xs={10}>
             { MakeButton(
-              <ResultDogDetail dogData={ dog } />
+              <ResultDogDetail dogData={ dog } />, dog
             )}
           </Grid>
           

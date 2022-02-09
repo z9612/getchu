@@ -1,0 +1,109 @@
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
+
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+
+import './initialFundsComponent.css'
+
+
+// 임시 사용
+import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
+
+const MedicalCosts = (props) => {
+
+  const cost = {
+    "medical": 
+    {
+      "a-cost": 100000,
+      "b-cost": 150000,
+      "c-cost": 120000,
+      "d-cost": 130000,
+      "e-cost": 140000,
+    }
+  }
+
+  const [isShow, setIsShow] = useState(false)
+  // console.log(isShow)
+
+  const Button = () => {
+    setIsShow((isShow) => (!isShow))
+    // console.log('button 확인용')
+    // console.log(isShow)
+  }
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        // width: '80%'
+      }}
+      py={1}
+    >
+      <div className='cost-title'>
+        의료비용
+      </div>
+      <div>
+        <LocalHospitalOutlinedIcon 
+          sx={{color: 'gray', width: 100, height: 100, border: 5, borderRadius: '100%'}} />
+      </div>
+
+      {/* cost 변경 필요 */}
+      <Box
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+        >
+        <div className='cost-cost'>■ { cost.medical['a-cost'] }원</div>
+        <div>(A 비용)</div>
+      </Box>
+
+      {/* cost 변경 필요 */}
+      <Box
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+        >
+        <div className='cost-cost'>■ { cost.medical['b-cost'] }원</div>
+        <div>(B 비용)</div>
+      </Box>
+      
+      {/* cost 변경 필요 */}
+      <Box
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+      >
+        <div className='cost-cost'>■ { cost.medical['c-cost'] }원</div>
+        <div>(C 비용)</div>
+      </Box>
+
+      {
+        !isShow
+        ?
+        <div style={{textAlign: 'end', width: '100%'}}>
+          <div className='cost-show-more'>
+            <div onClick={ Button } className='flex-row'>
+              <div>금액산정기준</div>
+              <KeyboardArrowDownIcon />
+            </div>
+          </div>
+        </div>
+        :
+        <Box sx={{width: '85%'}} pt={2}>
+
+          {/* 비용 상세정보 가져오기 */}
+          <ResultDogDetail dogData={ props.dogData } />
+
+          <div style={{textAlign: 'end'}}>
+            <div className='cost-show-more'>
+              <div onClick={ Button } className='flex-row'>
+                <div>금액산정기준</div>
+                <KeyboardArrowUpIcon />
+              </div>
+            </div>
+          </div>
+        </Box>
+      }
+    </Box>
+  );
+};
+
+export default MedicalCosts;

@@ -33,19 +33,24 @@ const EstimateDetail = ({
       expanded={expanded === title} 
       onChange={handleChange(title)}
     >
+      {/* 제목 부분 */}
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={`panel${index}-content`}
         id={`panel${index}-header`}
       >
+        {/* 좌측 제목 */}
         <Typography sx={{ width: '50%', flexShrink: 0 }}>
           { checked ? currency(sum) : currency(0) }
         </Typography>
+
+        {/* 우측 부제목 */}
         <Typography sx={{ color: 'text.secondary' }}>
           { title }
         </Typography>
       </AccordionSummary>
       
+      {/* 세부 내용 부분 */}
       <AccordionDetails>
         <ul>
           {detail.map((item, index) => (
@@ -54,10 +59,14 @@ const EstimateDetail = ({
             </li>
           ))}
         </ul>
-        <Checkbox 
-          checked={checked}
-          onClick={() => {setChecked(!checked)}}/
-        >
+        {/* 항목 포함 여부 */}
+        <div>
+          <Checkbox 
+            checked={checked}
+            onClick={() => {setChecked(!checked)}}/
+          >
+          {checked ? "포함" : "미포함"}
+        </div>
       </AccordionDetails>
     </Accordion>
   );

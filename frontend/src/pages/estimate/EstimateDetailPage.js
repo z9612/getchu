@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import {
+  Stack,
   Alert,
   AlertTitle
 } from '@mui/material';
+import MedicationIcon from '@mui/icons-material/Medication';
 
 import EstimateDetail from './EstimateDetail';
-import estimateContent from './estimateContent'
+import estimateContent from './estimateContent';
+import estimateDisclaimer from './estimateDisclaimer';
 import currency from './currencyFormatter';
 
 const EstimateDetailPage = () => {
@@ -16,31 +19,39 @@ const EstimateDetailPage = () => {
   };
 
   return (
-    <div>
-      <h1>병원비</h1>
-      <div>주사 그림</div>
-      <div>총합: {currency(sum)}</div>
-      
-      {estimateContent.map(content => (
-        <EstimateDetail
-          sum={content.price}
-          title={content.title}
-          detail={content.detail}
-          checkDefault={content.checkDefault}
-          
-          expanded={expanded}
-          handleChange={handleChange}
-          setSum={setSum}
-          key={content.title}
-        />
-      ))} 
-      
-      <Alert severity="info">
-        <AlertTitle>Info</AlertTitle>
-        This is an info alert 
-        — <strong>check it out!</strong>
-      </Alert>
-    </div>
+    <Stack
+      height="90vh"
+      direction="column"
+      alignItems="stretch"
+      justifyContent="space-between"
+    >
+      <Stack alignItems="center">
+        <h1>의료비</h1>
+        <MedicationIcon sx={{ fontSize: 100 }}/>
+        <strong>총합: {currency(sum)}</strong>
+      </Stack>
+      <main>
+        {estimateContent.map(content => (
+          <EstimateDetail
+            sum={content.price}
+            title={content.title}
+            detail={content.detail}
+            checkDefault={content.checkDefault}
+            
+            expanded={expanded}
+            handleChange={handleChange}
+            setSum={setSum}
+            key={content.title}
+          /> 
+        ))} 
+      </main>
+      <footer>
+        <Alert severity="info">
+          <AlertTitle>알려드립니다!</AlertTitle>
+          {estimateDisclaimer.content}
+        </Alert>
+      </footer>
+    </Stack>
   );
 }
 

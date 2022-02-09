@@ -73,3 +73,9 @@
   font-weight: bold;
   /* text-align: left; */
 }
+
+.row-arrange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

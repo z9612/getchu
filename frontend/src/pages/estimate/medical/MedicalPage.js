@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import {
-  Stack,
-  Alert,
-  AlertTitle
-} from '@mui/material';
-import MedicationIcon from '@mui/icons-material/Medication';
+import { Stack } from '@mui/material';
 
-import EstimateDetail from './EstimateDetail';
-import estimateContent from './estimateContent';
-import estimateDisclaimer from './estimateDisclaimer';
-import currency from './currencyFormatter';
+import MedicalHeader from './MedicalHeader';
+import MedicalDetail from './MedicalDetail';
+import MedicalFooter from './MedicalFooter';
+import medicalContent from './medicalContent';
 
 const EstimateDetailPage = () => {
   const [sum, setSum] = useState(0)
@@ -25,14 +20,10 @@ const EstimateDetailPage = () => {
       alignItems="stretch"
       justifyContent="space-between"
     >
-      <Stack alignItems="center">
-        <h1>의료비</h1>
-        <MedicationIcon sx={{ fontSize: 100 }}/>
-        <strong>총합: {currency(sum)}</strong>
-      </Stack>
+      <MedicalHeader sum={sum} />
       <main>
-        {estimateContent.map(content => (
-          <EstimateDetail
+        {medicalContent.map(content => (
+          <MedicalDetail
             sum={content.price}
             title={content.title}
             detail={content.detail}
@@ -45,12 +36,7 @@ const EstimateDetailPage = () => {
           /> 
         ))} 
       </main>
-      <footer>
-        <Alert severity="info">
-          <AlertTitle>알려드립니다!</AlertTitle>
-          {estimateDisclaimer.content}
-        </Alert>
-      </footer>
+      <MedicalFooter />
     </Stack>
   );
 }

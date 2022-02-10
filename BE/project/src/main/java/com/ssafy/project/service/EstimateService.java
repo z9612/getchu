@@ -8,5 +8,5 @@ public interface EstimateService {
 	List<EstimateEntity> findAll();
 	EstimateEntity getEstimate(String name);
 
-	int getDesexualization(String sex);
+	EstimateEntity getDesexualization(String sex);
 }

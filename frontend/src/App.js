@@ -4,8 +4,10 @@ import BackBarLayout from "./layouts/BackBarLayout";
 import SurveyPage from "./pages/survey/SurveyPage";
 import Result from "./pages/result";
 import Start from "./pages/start";
+import Costs from "./pages/costs";
 import DogSelect from "./pages/dogSelect/dogSelect";
 import EstimateDetailPage from "./pages/estimate/EstimateDetailPage";
+
 import "./index.css";
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         </Route>
         <Route path="/start" element={<Start />} />
         <Route path="/dogselect" element={<DogSelect />} />
+        <Route path="/costs/:breed" element={<Costs />} />
       </Routes>
     </Router>
   );

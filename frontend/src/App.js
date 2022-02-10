@@ -5,7 +5,7 @@ import SurveyPage from "./pages/survey/SurveyPage";
 import Result from "./pages/result";
 import Start from "./pages/start";
 import Costs from "./pages/costs";
-import DogSelect from "./pages/dogSelect/dogSelect";
+import DogSelect from "./pages/dogSelect";
 import EstimateDetailPage from "./pages/estimate/EstimateDetailPage";
 
 import "./index.css";

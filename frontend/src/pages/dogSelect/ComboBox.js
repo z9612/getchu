@@ -11,7 +11,6 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import DogInfo from "./dogInfo.json";
 import { Button } from "@mui/material";
-import Costs from "../costs";
 
 export default function ComboBox() {
   const [selected, setSelected] = useState([]);
@@ -23,10 +22,16 @@ export default function ComboBox() {
         id="dog-select-box"
         options={DogInfo}
         sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="견종 선택" />}
+        renderInput={(params) => (
+          <TextField {...params} label="견종을 선택해주세요" />
+        )}
       />
-      <Button>
-        <Link to={`/costs/${selected}`} className="links">
+      <Button variant="outlined" color="success">
+        <Link
+          to={`/costs/${selected}`}
+          style={{ textDecoration: "none" }}
+          className="견종별 견적"
+        >
           견적페이지 이동
         </Link>
       </Button>

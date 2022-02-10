@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ssafy.project.domain.DesexualizationResult;
+import com.ssafy.project.domain.EstimateResult;
 import com.ssafy.project.domain.EstimateEntity;
+import com.ssafy.project.domain.PriceResult;
 import com.ssafy.project.repository.EstimateRepository;
 
 @Service
@@ -27,14 +28,30 @@ public class EstimateServiceImpl implements EstimateService {
     }
 
     @Override
-    public EstimateEntity getDesexualization(String sex) {
+    public List<PriceResult> getFeedPrice(String name) {
+        return repo.getFeedPrice(name);
+    }
+
+    @Override
+    public List<EstimateResult> getHealthPrice(String name) {
+        return repo.getHealthPrice(name);
+    }
+
+    
+    @Override
+    public List<PriceResult> getToolsPrice(String name) {
+        return repo.getToolsPrice(name);
+    }
+
+    @Override
+    public EstimateResult getDesexualization(String sex) {
         // EstimateEntity entity;
 
         if (sex.equals("수컷")) {
-            return repo.getDesexualization(sex,13);
+            return repo.getMaleDesexualization(sex);
         }
-        else {
-            return repo.getDesexualization(sex,14);
+        else if(sex.equals("암컷")) {
+            return repo.getFemaleDesexualization(sex);
         }
 
         // if (sex.equals("수컷")) {
@@ -45,7 +62,13 @@ public class EstimateServiceImpl implements EstimateService {
         //     entity = repo.getDesexualization(sex, 14);
         //     return new DesexualizationDto(entity);
         // }
+        return null;
 
     }
+
+
+    
+
+ 
 
 }

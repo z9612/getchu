@@ -28,7 +28,7 @@ public class EstimateEntity {
     private String name;
 
     @ApiModelProperty(required = false, value = "무게")
-    private String weight;
+    private Double weight;
 
     @ApiModelProperty(required = false, value = "최소 가격")
     private Integer price_min;

@@ -2,7 +2,9 @@ package com.ssafy.project.controller;
 
 import java.util.List;
 
+import com.ssafy.project.domain.EstimateResult;
 import com.ssafy.project.domain.EstimateEntity;
+import com.ssafy.project.domain.PriceResult;
 import com.ssafy.project.service.EstimateService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,25 +21,43 @@ import io.swagger.annotations.ApiParam;
 public class EstimateController {
 
     @Autowired
-    private EstimateService estimateService;
+    private EstimateService service;
 
     @ApiOperation(value = "모든 견적 정보를 출력합니다.", response = List.class)
     @GetMapping("/findAll")
     public List<EstimateEntity> findAll() {
-        return estimateService.findAll();
+        return service.findAll();
     }
 
     @ApiOperation(value = "견종명을 입력 받아서 견적을 보내줍니다.", response = EstimateEntity.class)
     @GetMapping(value="/estimate")
     public EstimateEntity getEstimate(@ApiParam(value = "견종명") @RequestParam String name) {
-        return estimateService.getEstimate(name);
+        return service.getEstimate(name);
     }
 
+    @ApiOperation(value = "견종명을 입력 받아서 한 달 사료값 정보를 보내줍니다.", response = PriceResult.class)
+    @GetMapping(value="/feedPrice")
+    public List<PriceResult> getFeedPrice(@ApiParam(value = "견종명") @RequestParam String name) {
+        return service.getFeedPrice(name);
+    }
+
+    @ApiOperation(value = "견종명을 입력 받아서 의료 기초 비용 보내줍니다.", response = EstimateResult.class)
+    @GetMapping(value="/health") 
+    public List<EstimateResult> getHealthPrice(@RequestParam String name) {
+        return service.getHealthPrice(name);
+    }
+    
 
     @ApiOperation(value = "성별 정보를 받아서 중성화 비용을 출력합니다.")
     @GetMapping(value = "/desexualization")
-    public EstimateEntity getDesexualization(@ApiParam(value = "성별") @RequestParam String sex) {
-        return estimateService.getDesexualization(sex);
+    public EstimateResult getDesexualization(@ApiParam(value = "성별") @RequestParam String sex) {
+        return service.getDesexualization(sex);
     }
+
+    @GetMapping(value="/tools")
+    public List<PriceResult> getToolsPrice(@RequestParam String name) {
+        return service.getToolsPrice(name);
+    }
+    
 
 }

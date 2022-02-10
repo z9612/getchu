@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Grid, Box, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Grid, Box, Divider, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
@@ -140,10 +141,12 @@ const ResultBody = () => {
                   display: 'flex',
                   justifyContent: 'center'
                 }}>
-                <div>더보기 닫기</div>
-                <KeyboardArrowUpIcon
+                <Button variant="text">
+                  닫기
+                  <KeyboardArrowUpIcon
                   fontSize='small'
                   color='primary' />
+                </Button>
               </Box>
             : <Box className='show-more'
                 sx={{
@@ -151,11 +154,12 @@ const ResultBody = () => {
                   justifyContent: 'center'
                 }}
               >
-                <div>특징 더보기</div>
-                <KeyboardArrowDownIcon 
+                <Button variant="text">
+                  특징 더보기
+                  <KeyboardArrowDownIcon
                   fontSize='small'
-                  color='primary' 
-                />
+                  color='primary' />
+                </Button>
               </Box>
           }
           {/* {
@@ -167,16 +171,19 @@ const ResultBody = () => {
     )
   }
 
+  // const ToCosts = (dogName) => {
+  //   <Link to='/costs'/>
+  // }
+
   const dogInfoLoop = dogResultData.map((dog, index) => {
     return (
       <div key={ index }>
         {/* 그리드 */}
-        <Grid container spacing={0} justifyContent='center'>
+        <Grid container spacing={0} py={1} justifyContent='center'>
 
-          {/* 견종이미지 */}
+          {/* 견종이미지/이름 */}
           <Grid item xs={10}>
             <ResultDogPic dogData={ dog } />
-            {/* <ResultDogInfo dogData={ dog } /> */}
             <Box
               sx={{
                 display: 'flex',
@@ -191,10 +198,6 @@ const ResultBody = () => {
             </Box>
           </Grid>
 
-          {/* 이름/특징 */}
-          <Grid item xs={8} sm={6} md={4} px={2}>
-          </Grid>
-
           {/* 상세 정보 */}
           <Grid item xs={10}>
             { MakeButton(
@@ -202,7 +205,31 @@ const ResultBody = () => {
             )}
           </Grid>
           
+        {/* <Button 
+          variant="text"
+          onClick={ ToCosts(dog.name) }
+        >견적 내러 가기</Button> */}
+
+        <Link to={`/costs/${dog.name}`}>
+          <Button 
+            variant="text"
+            // onClick={ ToCosts(dog.name) }
+          >견적 내러 가기</Button>
+        </Link>
+            
+        {/* <Link to={{
+          pathname: '/costs',
+          state: {
+            dogData: dog
+          }
+        }}>
+          <Button variant="text"
+          >견적 내러 가기</Button>
+        </Link> */}
         </Grid>
+
+        {/* 견적내러가기 */}
+
         <Divider variant='middle' />
       </div>
     )

@@ -1,37 +1,39 @@
-import React, {useState} from 'react';
-import { Box } from '@mui/system';
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+import VaccinesIcon from '@mui/icons-material/Vaccines';
+
+import './costsComponent.css'
 
 
 // 임시 사용
 import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
+const MedicalCosts = (props) => {
 
-const OtherCosts = (props) => {
   const cost = {
-    "other": 
+    "medical": 
     {
-      "a-cost": 3000,
-      "b-cost": 4000,
-      "c-cost": 12000,
-      "d-cost": 10000,
-      "e-cost": 8000,
+      "a-cost": 100000,
+      "b-cost": 150000,
+      "c-cost": 120000,
+      "d-cost": 130000,
+      "e-cost": 140000,
     }
   }
 
-  const sumValues = obj => 
-    Object.values(obj).reduce((a, b) => a + b);
-
-  const sumCost = sumValues(cost.other)
-
   const [isShow, setIsShow] = useState(false)
+  // console.log(isShow)
 
   const Button = () => {
     setIsShow((isShow) => (!isShow))
+    // console.log('button 확인용')
+    // console.log(isShow)
   }
-  
+
   return (
     <Box
       sx={{
@@ -43,16 +45,39 @@ const OtherCosts = (props) => {
       py={1}
     >
       <div className='cost-title'>
-        기타 생필품
+        의료비용
       </div>
-      <div className='cost-img'>
-        {/* <LocalHospitalOutlinedIcon /> */}
+      <div className='cost-icon'>
+        <VaccinesIcon 
+          sx={{
+            // color: '#b1b1b1', 
+            width: 70, height: 70, 
+            // border: 5, borderRadius: '100%'
+          }} />
       </div>
+
+      {/* cost 변경 필요 */}
+      <Box
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+        >
+        <div className='cost-cost'>■ { cost.medical['a-cost'] }원</div>
+        <div className='criteria'>(A 비용)</div>
+      </Box>
+
+      {/* cost 변경 필요 */}
+      <Box
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+        >
+        <div className='cost-cost'>■ { cost.medical['b-cost'] }원</div>
+        <div className='criteria'>(B 비용)</div>
+      </Box>
+      
+      {/* cost 변경 필요 */}
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
       >
-        <div className='cost-cost'>■ { sumCost }원</div>
-        <div>(??? 기준)</div>
+        <div className='cost-cost'>■ { cost.medical['c-cost'] }원</div>
+        <div className='criteria'>(C 비용)</div>
       </Box>
 
       {
@@ -86,4 +111,4 @@ const OtherCosts = (props) => {
   );
 };
 
-export default OtherCosts;
+export default MedicalCosts;

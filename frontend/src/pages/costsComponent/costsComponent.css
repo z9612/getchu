@@ -20,9 +20,9 @@
   width: 100px;
   height: 100px;
 
-  /* max-width: 130px; */
-  /* max-height: 130px; */
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* display: block; */
   /* object-fit: contain; */
   /* margin: auto 10px; */
@@ -31,8 +31,8 @@
   border: 5px solid #b1b1b1;
 }
 
-.cost-cost {
-  /* font-weight: bold; */
+.criteria {
+  color: gray;
 }
 
 .cost-show-more {
@@ -44,5 +44,13 @@
 
 .flex-row {
   display: flex;
+  align-items: center;
+}
+
+.non-data {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }

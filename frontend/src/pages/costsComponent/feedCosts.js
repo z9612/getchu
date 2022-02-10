@@ -4,7 +4,7 @@ import { Box } from '@mui/system';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import './initialFundsComponent.css'
+import './costsComponent.css'
 
 // 임시 사용
 import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
@@ -68,7 +68,7 @@ const FeedCosts = (props) => {
           <div>■&nbsp;</div>
           <div className='cost-cost'>{ cost.feed['avg-cost'] }원</div>
         </Box>
-        <div>(한 달 기준)</div>
+        <div className='criteria'>(한 달 기준)</div>
       </Box>
 
       {

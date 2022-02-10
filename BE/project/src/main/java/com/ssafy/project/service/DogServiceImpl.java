@@ -3,6 +3,7 @@ package com.ssafy.project.service;
 import java.util.List;
 
 import com.ssafy.project.domain.DogEntity;
+import com.ssafy.project.domain.DogNameImageResult;
 import com.ssafy.project.repository.DogRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -182,6 +183,11 @@ public class DogServiceImpl implements DogService {
     @Override
     public DogEntity findByName(String name) {
         return repo.findByName(name);
+    }
+
+    @Override
+    public DogNameImageResult getDogNameImage(String name) {
+        return repo.getDogNameImage(name);
     }
 
 }

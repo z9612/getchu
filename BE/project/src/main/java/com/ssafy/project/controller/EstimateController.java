@@ -29,31 +29,32 @@ public class EstimateController {
         return service.findAll();
     }
 
-    @ApiOperation(value = "견종명을 입력 받아서 견적을 보내줍니다.", response = EstimateEntity.class)
+    @ApiOperation(value = "종합 견적을 견종명을 입력 받아서 보내줍니다.", response = EstimateEntity.class)
     @GetMapping(value="/estimate")
     public EstimateEntity getEstimate(@ApiParam(value = "견종명") @RequestParam String name) {
         return service.getEstimate(name);
     }
 
-    @ApiOperation(value = "견종명을 입력 받아서 한 달 사료값 정보를 보내줍니다.", response = PriceResult.class)
+    @ApiOperation(value = " 한 달 사료값 정보를 견종명을 입력 받아서 보내줍니다.", response = PriceResult.class)
     @GetMapping(value="/feedPrice")
     public List<PriceResult> getFeedPrice(@ApiParam(value = "견종명") @RequestParam String name) {
         return service.getFeedPrice(name);
     }
 
-    @ApiOperation(value = "견종명을 입력 받아서 의료 기초 비용 보내줍니다.", response = EstimateResult.class)
+    @ApiOperation(value = "의료 기초 비용을 견종명을 입력 받아서 보내줍니다.", response = EstimateResult.class)
     @GetMapping(value="/health") 
     public List<EstimateResult> getHealthPrice(@RequestParam String name) {
         return service.getHealthPrice(name);
     }
     
 
-    @ApiOperation(value = "성별 정보를 받아서 중성화 비용을 출력합니다.")
+    @ApiOperation(value = "중성화 비용을 성별 정보를 받아서 출력합니다.")
     @GetMapping(value = "/desexualization")
     public EstimateResult getDesexualization(@ApiParam(value = "성별") @RequestParam String sex) {
         return service.getDesexualization(sex);
     }
 
+    @ApiOperation(value = "[임시] 모든 견적 정보를 출력합니다.")
     @GetMapping(value="/tools")
     public List<PriceResult> getToolsPrice(@RequestParam String name) {
         return service.getToolsPrice(name);

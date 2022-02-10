@@ -3,6 +3,7 @@ package com.ssafy.project.repository;
 import java.util.List;
 
 import com.ssafy.project.domain.DogEntity;
+import com.ssafy.project.domain.DogNameImageResult;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -113,5 +114,9 @@ public interface DogRepository extends JpaRepository<DogEntity, Integer> {
     //이름으로 견종 찾기
     @Query(nativeQuery = true, value =  "select * from dog where name=:name")
     DogEntity findByName(String name);
+
+    //이름으로 견종명, 이미지 찾기
+    @Query(nativeQuery = true, value = "select name, image from dog where name=:name")
+    DogNameImageResult getDogNameImage(String name);
 
 }

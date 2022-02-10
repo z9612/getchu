@@ -3,6 +3,7 @@ package com.ssafy.project.service;
 import java.util.List;
 
 import com.ssafy.project.domain.DogEntity;
+import com.ssafy.project.domain.DogNameImageResult;
 
 public interface DogService {
     List<DogEntity> lifeStyleRef(int size, int apartmentLiving, int noviceOwners, int beingAlone, int kidFriendly, int dogFriendly, int amountOfShedding); // 라이프 스타일로 추천
@@ -11,5 +12,6 @@ public interface DogService {
     List<DogEntity> mbtiRef(String mbti); // mbti 정보로 추천
     List<DogEntity> findAll();
     DogEntity findByName(String name);
+    DogNameImageResult getDogNameImage(String name);
     
 }

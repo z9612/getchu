@@ -6,7 +6,7 @@ import ResultHeader from './resultComponent/resultHeader';
 import ResultBody from './resultComponent/resultBody';
 import './result.css'
 
-const Result2 = () => {
+const Result = () => {
   // 이전 주소에서 넘겨받은 인자 (개 특징 정보)
   const { state } = useLocation();
   for (const key in state) {
@@ -22,11 +22,12 @@ const Result2 = () => {
       <ResultBody />
 
       <div className='result-retest'>
-        다시 검사할래요 / 테스트 페이지 링크 추가하기
+        {/* 링크 추가하기 */}
+        다시 검사할래요
         {/* <Link className='result-retest-link' to={ '/test' }>다시 검사할래요</Link> */}
       </div>
     </div>
   );
 };
 
-export default Result2;
+export default Result;

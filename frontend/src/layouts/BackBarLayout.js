@@ -2,9 +2,9 @@
 import { Outlet } from "react-router-dom";
 import BackBar from "./BackBar";
 
-const BackBarLayout = ({ to }) => (
+const BackBarLayout = ({ to, title }) => (
   <>
-    <BackBar to={to} />
+    <BackBar to={to} title={title} />
     <Outlet />
   </>
 );

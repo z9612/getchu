@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EstimateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -25,11 +24,11 @@ public class EstimateEntity {
     @ApiModelProperty(value = "카테고리")
     private String category;
 
-    @ApiModelProperty( value = "물품명")
+    @ApiModelProperty(value = "물품명")
     private String name;
 
     @ApiModelProperty(required = false, value = "무게")
-    private String weight;
+    private Double weight;
 
     @ApiModelProperty(required = false, value = "최소 가격")
     private Integer price_min;
@@ -39,4 +38,17 @@ public class EstimateEntity {
 
     @ApiModelProperty(required = false, value = "최대 가격")
     private Integer price_max;
+
+    @ApiModelProperty(required = false, value = "최소 가격")
+    private Integer small;
+
+    @ApiModelProperty(required = false, value = "평균 가격")
+    private Integer medium;
+
+    @ApiModelProperty(required = false, value = "최대 가격")
+    private Integer large;
+
+    @ApiModelProperty(required = false, value = "이미지 주소")
+    private String image;
+
 }

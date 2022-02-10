@@ -10,6 +10,7 @@ import Result from './pages/result';
 import Start from './pages/start'
 import Costs from './pages/costs';
 import MedicalPage from './pages/estimate/medical/MedicalPage'
+import FoodPage from './pages/estimate/food/FoodPage'
 import './index.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route path='/estimate/' element={ <BackBarLayout to='/estimate' title='초기 자금 견적 내기' /> } >
           <Route path='/estimate/medical' element={ <MedicalPage /> } />
+          <Route path='/estimate/food' element={ <FoodPage /> } />
         </Route>
         <Route path='/start' element={ <Start /> } />
         <Route path='/costs/:breed' element={ <Costs /> } />

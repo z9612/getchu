@@ -48,12 +48,16 @@ const OtherCosts = (props) => {
       <div className='cost-title'>
         기타 생필품
       </div>
-      <div className='cost-icon'>
+      <div>
+        <img className='cost-img' 
+          src='https://media.istockphoto.com/photos/accessories-for-cat-and-dog-on-blue-background-pet-care-and-training-picture-id1248454290?k=20&m=1248454290&s=612x612&w=0&h=Ajti5uiVqrJ4Ll66-1JS3qfSwSwvSHBAK-dOyJDj8Ow=' alt='dog-supply' />
+      </div>
+      {/* <div className='cost-icon'>
         <HouseIcon 
           sx={{
             width: 70, height: 70, 
           }} />
-      </div>
+      </div> */}
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
       >

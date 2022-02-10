@@ -45,7 +45,8 @@ const FeedCosts = (props) => {
         "{ props.dogData.name }"의 사료값
       </div>
       <img className='cost-img'
-        src= { props.dogData.image }
+        // src= { props.dogData.image }
+        src= 'https://images.medicanimal.com/image/upload/v1564586575/pethub/dry_food.jpg'
         alt='dog_img' />
       
       <Box

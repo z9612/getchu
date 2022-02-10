@@ -47,14 +47,18 @@ const MedicalCosts = (props) => {
       <div className='cost-title'>
         의료비용
       </div>
-      <div className='cost-icon'>
+      <div>
+        <img className='cost-img'
+          src='https://images.squarespace-cdn.com/content/v1/5aa0bf73af2096458586fb17/1547932498065-AUGFM6FAS19VW32LMSHR/MPC_Dog_Vaccine_Main.jpg?format=1000w' alt='dog-vaccine' />
+      </div>
+      {/* <div className='cost-icon'>
         <VaccinesIcon 
           sx={{
             // color: '#b1b1b1', 
             width: 70, height: 70, 
             // border: 5, borderRadius: '100%'
           }} />
-      </div>
+      </div> */}
 
       {/* cost 변경 필요 */}
       <Box

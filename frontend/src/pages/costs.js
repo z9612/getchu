@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 
@@ -138,7 +137,6 @@ const Costs = () => {
   ]
 
   return (
-    // <div style={{margin: '40px 20px'}}>
     <div style={{margin: '40px 20px'}}>
     {
       dogData[breed]
@@ -147,7 +145,6 @@ const Costs = () => {
         {/* 사료값 */}
         {/* <FeedCosts /> */}
         <FeedCosts dogData={ dogData[breed] } />
-        {/* <div>{ props.dogData.name }</div> */}
         {/* <FeedCosts dogData={ props.dogData } /> */}
   
         {/* 의료비 */}

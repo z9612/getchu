@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Typography } from "@material-ui/core";
-import ComboBox from "./dogSelect/ComboBox";
+import ComboBox from "./breedSelectComponent/ComboBox";
 
 function dogSelect() {
   return (

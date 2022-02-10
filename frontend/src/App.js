@@ -5,7 +5,7 @@ import SurveyPage from "./pages/survey/SurveyPage";
 import Result from "./pages/result";
 import Start from "./pages/start";
 import Costs from "./pages/costs";
-import DogSelect from "./pages/dogSelect";
+import BreedSelect from "./pages/breedSelect";
 import EstimateDetailPage from "./pages/estimate/EstimateDetailPage";
 
 import "./index.css";
@@ -28,7 +28,7 @@ function App() {
           <Route path="/estimate/detail" element={<EstimateDetailPage />} />
         </Route>
         <Route path="/start" element={<Start />} />
-        <Route path="/dogselect" element={<DogSelect />} />
+        <Route path="/breedselect" element={<BreedSelect />} />
         <Route path="/costs/:breed" element={<Costs />} />
       </Routes>
     </Router>

@@ -1,40 +1,23 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Box, Button } from '@mui/material';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
-import HouseIcon from '@mui/icons-material/House';
 
 import './costsComponent.css'
 
 // 임시 사용
 import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
-
-const OtherCosts = (props) => {
-  const cost = {
-    "other": 
-    {
-      "a-cost": 3000,
-      "b-cost": 4000,
-      "c-cost": 12000,
-      "d-cost": 10000,
-      "e-cost": 8000,
-    }
-  }
-
-  const sumValues = obj => 
-    Object.values(obj).reduce((a, b) => a + b);
-
-  const sumCost = sumValues(cost.other)
+const TotalCosts = (props) => {
 
   const [isShow, setIsShow] = useState(false)
+  // console.log(isShow)
 
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
   }
-  
+
   return (
     <Box
       sx={{
@@ -45,26 +28,22 @@ const OtherCosts = (props) => {
       }}
       py={1}
     >
+      {/* 견종명, 이미지 */}
       <div className='cost-title'>
-        기타 생필품
+        "{ props.dogData.name }"의 첫 1년 비용은?
       </div>
-      <div>
-        <img className='cost-img' 
-          src='https://media.istockphoto.com/photos/accessories-for-cat-and-dog-on-blue-background-pet-care-and-training-picture-id1248454290?k=20&m=1248454290&s=612x612&w=0&h=Ajti5uiVqrJ4Ll66-1JS3qfSwSwvSHBAK-dOyJDj8Ow=' alt='dog-supply' />
-      </div>
-      {/* <div className='cost-icon'>
-        <HouseIcon 
-          sx={{
-            width: 70, height: 70, 
-          }} />
-      </div> */}
+      <img className='cost-dog-img'
+        src= { props.dogData.image }
+        alt='dog_img' />
+
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
-      >
-        <div className='cost-cost'>■ { sumCost }원</div>
-        <div className='criteria'>(??? 기준)</div>
+        >
+        <div className='cost-cost'>■ 원</div>
       </Box>
 
+
+      {/* 금액산정기준 */}
       {
         !isShow
         ?
@@ -72,7 +51,7 @@ const OtherCosts = (props) => {
           <div className='cost-show-more'>
             <div onClick={ DetailButton }>
               <Button variant="text">
-                금액산정기준
+                {/* 금액산정기준 */}
                 <KeyboardArrowDownIcon />
               </Button>
             </div>
@@ -82,13 +61,36 @@ const OtherCosts = (props) => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          <ResultDogDetail dogData={ props.dogData } />
+          <div>
+            <div>
+              사료 33000 * 12
+            </div>
+            <div>
+              (한 달 비용 * 12개월)
+            </div>
+            <div>
+              의료비 ?????
+            </div>
+            <div>
+              (초기접종비용)
+            </div>
+            <div>
+              의료비 ?????
+            </div>
+            <div>
+              (주기적접종비용)
+            </div>
+            <div>
+              기타생필품비용 ?????원
+            </div>
+
+          </div>
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>
               <div onClick={ DetailButton }>
                 <Button variant="text">
-                  금액산정기준
+                  {/* 금액산정기준 */}
                   <KeyboardArrowUpIcon />
                 </Button>
               </div>
@@ -100,4 +102,4 @@ const OtherCosts = (props) => {
   );
 };
 
-export default OtherCosts;
+export default TotalCosts;

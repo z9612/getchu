@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Box } from '@mui/system';
+import { Box, Button } from '@mui/material';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -26,7 +26,7 @@ const FeedCosts = (props) => {
 
   const [isShow, setIsShow] = useState(false)
 
-  const Button = () => {
+  const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
   }
   
@@ -42,7 +42,8 @@ const FeedCosts = (props) => {
     >
       {/* 견종명, 이미지 */}
       <div className='cost-title'>
-        "{ props.dogData.name }"의 사료값
+        {/* "{ props.dogData.name }"의 사료값 */}
+        사료
       </div>
       <img className='cost-img'
         // src= { props.dogData.image }
@@ -77,9 +78,13 @@ const FeedCosts = (props) => {
         ?
         <div style={{textAlign: 'end', width: '100%'}}>
           <div className='cost-show-more'>
-            <div onClick={ Button } className='flex-row'>
-              <div>금액산정기준</div>
-              <KeyboardArrowDownIcon />
+            <div onClick={ DetailButton } 
+              // className='flex-row'
+            >
+              <Button variant="text">
+                금액산정기준
+                <KeyboardArrowDownIcon />
+              </Button>
             </div>
           </div>
         </div>
@@ -91,9 +96,13 @@ const FeedCosts = (props) => {
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>
-              <div onClick={ Button } className='flex-row'>
-                <div>금액산정기준</div>
+              <div onClick={ DetailButton }
+              // className='flex-row'
+              >
+              <Button variant="text">
+                금액산정기준
                 <KeyboardArrowUpIcon />
+              </Button>
               </div>
             </div>
           </div>

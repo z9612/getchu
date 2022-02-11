@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
-import VaccinesIcon from '@mui/icons-material/Vaccines';
+// import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
+// import VaccinesIcon from '@mui/icons-material/Vaccines';
 
 import './costsComponent.css'
 
@@ -28,7 +28,7 @@ const MedicalCosts = (props) => {
   const [isShow, setIsShow] = useState(false)
   // console.log(isShow)
 
-  const Button = () => {
+  const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
     // console.log('button 확인용')
     // console.log(isShow)
@@ -89,9 +89,11 @@ const MedicalCosts = (props) => {
         ?
         <div style={{textAlign: 'end', width: '100%'}}>
           <div className='cost-show-more'>
-            <div onClick={ Button } className='flex-row'>
-              <div>금액산정기준</div>
-              <KeyboardArrowDownIcon />
+            <div onClick={ DetailButton }>
+              <Button variant="text">
+                금액산정기준
+                <KeyboardArrowDownIcon />
+              </Button>
             </div>
           </div>
         </div>
@@ -103,9 +105,11 @@ const MedicalCosts = (props) => {
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>
-              <div onClick={ Button } className='flex-row'>
-                <div>금액산정기준</div>
-                <KeyboardArrowUpIcon />
+              <div onClick={ DetailButton }>
+                <Button variant="text">
+                  금액산정기준
+                  <KeyboardArrowUpIcon />
+                </Button>
               </div>
             </div>
           </div>

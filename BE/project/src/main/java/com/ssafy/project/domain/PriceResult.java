@@ -1,9 +1,10 @@
 package com.ssafy.project.domain;
 
 public interface PriceResult {
-    String getCategory();
+    String getCategory_first();
+    String getCategory_second();
     String getName();
-    String getFeedPrice();
+    String getFeed_price();
     String getPrice();
     String getImage();
 }

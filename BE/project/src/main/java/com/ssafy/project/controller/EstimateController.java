@@ -29,11 +29,11 @@ public class EstimateController {
         return service.findAll();
     }
 
-    @ApiOperation(value = "종합 견적을 견종명을 입력 받아서 보내줍니다.", response = EstimateEntity.class)
-    @GetMapping(value="/estimate")
-    public EstimateEntity getEstimate(@ApiParam(value = "견종명") @RequestParam String name) {
-        return service.getEstimate(name);
-    }
+    // @ApiOperation(value = "종합 견적을 견종명을 입력 받아서 보내줍니다.", response = EstimateEntity.class)
+    // @GetMapping(value="/estimate")
+    // public EstimateEntity getEstimate(@ApiParam(value = "견종명") @RequestParam String name) {
+    //     return service.getEstimate(name);
+    // }
 
     @ApiOperation(value = " 한 달 사료값 정보를 견종명을 입력 받아서 보내줍니다.", response = PriceResult.class)
     @GetMapping(value="/feedPrice")
@@ -54,7 +54,7 @@ public class EstimateController {
         return service.getDesexualization(sex);
     }
 
-    @ApiOperation(value = "[임시] 모든 견적 정보를 출력합니다.")
+    @ApiOperation(value = "[임시] 모든 견적 정보를 견종명을 받아서 출력합니다.")
     @GetMapping(value="/tools")
     public List<PriceResult> getToolsPrice(@RequestParam String name) {
         return service.getToolsPrice(name);

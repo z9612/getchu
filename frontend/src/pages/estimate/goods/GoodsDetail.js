@@ -4,7 +4,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
-  Stack
+  Grid
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -52,15 +52,17 @@ const GoodsDetail = ({
       
       {/* 세부 내용 부분 */}
       <AccordionDetails>
-        <Stack>
+        <Grid container>
           {goodsContent.map((item, index) => (
-            <GoodsDetailItem 
-              item={item} 
-              index={index}
-              changeSumByIndex={changeSumByIndex}
-            />
+            <Grid item xs={6} sm={4} md={3} lg={2} >
+              <GoodsDetailItem 
+                item={item} 
+                index={index}
+                changeSumByIndex={changeSumByIndex}
+              />
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
       </AccordionDetails>
     </Accordion>
   );

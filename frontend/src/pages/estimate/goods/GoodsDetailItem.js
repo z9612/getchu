@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Checkbox } from '@mui/material'
+import { Stack, Checkbox, Typography } from '@mui/material'
 import currency from '../currencyFormatter'
 
 const GoodsDetailItem = ({ 
@@ -10,19 +10,28 @@ const GoodsDetailItem = ({
   const [checked, setChecked] = useState(true)
 
   return (
-    <article>
-      <img src={item.image} alt={item.title} />
-      <p>{item.title}</p>
-      <p></p>
-      <Checkbox 
-        checked={checked}
-        onClick={() => {
-          changeSumByIndex(index, checked)
-          setChecked(!checked)
-        }}
-      />
-      {currency(item.price)}
-    </article>
+    <Stack>
+      <div>
+        <img 
+          src={item.image} 
+          alt={item.title}
+          width="100%"
+        />
+        <Typography align='center' height='50px'>
+          {item.title}
+        </Typography>
+      </div>
+      <div>
+        <Checkbox 
+          checked={checked}
+          onClick={() => {
+            changeSumByIndex(index, checked)
+            setChecked(!checked)
+          }}
+        />
+        {currency(item.price)}
+      </div>
+    </Stack>
   )
 }
 

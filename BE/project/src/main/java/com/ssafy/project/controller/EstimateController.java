@@ -2,13 +2,11 @@ package com.ssafy.project.controller;
 
 import java.util.List;
 
-import com.ssafy.project.domain.EstimateResult;
 import com.ssafy.project.domain.EstimateEntity;
+import com.ssafy.project.domain.EstimateResult;
 import com.ssafy.project.domain.PriceResult;
 import com.ssafy.project.service.EstimateService;
 
-import org.hibernate.annotations.OrderBy;
-import org.hibernate.annotations.SortComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,8 +54,8 @@ public class EstimateController {
         return service.getDesexualization(sex);
     }
 
-    @ApiOperation(value = "[임시] 모든 견적 정보를 견종명을 받아서 출력합니다.")
-    @GetMapping(value="/tools")
+    @ApiOperation(value = "모든 견적 정보를 견종명을 받아서 출력합니다.")
+    @GetMapping(value="/estimate")
     public List<PriceResult> getToolsPrice(@RequestParam String name) {
         return service.getToolsPrice(name);
     }

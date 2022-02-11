@@ -116,11 +116,7 @@ public interface DogRepository extends JpaRepository<DogEntity, Integer> {
     DogEntity findByName(String name);
 
     //이름으로 견종명, 이미지 찾기
-<<<<<<< HEAD
-    @Query(nativeQuery = true, value = "select name, image from dog where name=:name")
-=======
     @Query(nativeQuery = true, value = "select name, image from dog where name like %:name% order by name")
->>>>>>> feature/estimate
     DogNameImageResult getDogNameImage(String name);
 
 }

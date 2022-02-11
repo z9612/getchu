@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 
+import TotalCosts from './costsComponent/totalCosts';
 import FeedCosts from './costsComponent/feedCosts';
 import MedicalCosts from './costsComponent/medicalCosts';
 import OtherCosts from './costsComponent/otherCosts';
@@ -142,6 +143,9 @@ const Costs = () => {
       dogData[breed]
       ?
       <div>
+        {/* 총 비용 */}
+        <TotalCosts dogData={ dogData[breed] } />
+
         {/* 사료값 */}
         {/* <FeedCosts /> */}
         <FeedCosts dogData={ dogData[breed] } />

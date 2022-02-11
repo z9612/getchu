@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
-function BackBar({ to }) {
+function BackBar({ to, title }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -27,7 +27,7 @@ function BackBar({ to }) {
             variant="h6" 
             component="div" 
             sx={{ flexGrow: 1 }}>
-            처음으로
+            { title }
           </Typography>
         </Toolbar>
       </AppBar>

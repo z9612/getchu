@@ -1,0 +1,514 @@
+[
+  {
+    "name_english": "australian cattle dog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23166_australian-cattle-dog-300x189.jpg"
+  },
+  {
+    "name_english": "australian shepherd",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23168_australian-shepherd-300x189.jpg"
+  },
+  {
+    "name_english": "bearded collie",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23170_bearded-collie-300x189.jpg"
+  },
+  {
+    "name_english": "border collie",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23178_border-collie-300x189.jpg"
+  },
+  {
+    "name_english": "bouvier des flandres",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23180_bouvier-des-flandres-300x189.jpg"
+  },
+  {
+    "name_english": "belgian sheepdog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23174_belgian-sheepdog-300x189.jpg"
+  },
+  {
+    "name_english": "collie",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23186_collie-300x189.jpg"
+  },
+  {
+    "name_english": "komondor",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22930_komondor-300x189.jpg"
+  },
+  {
+    "name_english": "old english sheepdog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23190_old-english-sheepdog-300x189.jpg"
+  },
+  {
+    "name_english": "puli",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23196_puli-300x189.jpg"
+  },
+  {
+    "name_english": "german shepherd dog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23188_german-shepherd-dog-300x189.jpg"
+  },
+  {
+    "name_english": "shetland sheepdog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23198_shetland-sheepdog-300x189.jpg"
+  },
+  {
+    "name_english": "cardigan welsh corgi",
+    "image": "https://www.dogtime.com/assets/uploads/2011/11/file_23294_cardigan-welsh-corgi-300x189.jpg"
+  },
+  {
+    "name_english": "pembroke welsh corgi",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23192_pembroke-welsh-corgi-300x189.jpg"
+  },
+  {
+    "name_english": "affenpinscher",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23096_affenpinscher-300x189.jpg"
+  },
+  {
+    "name_english": "bulldog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23140_bulldog-300x189.jpg"
+  },
+  {
+    "name_english": "bullmastiff",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22918_bullmastiff-300x189.jpg"
+  },
+  {
+    "name_english": "bernese mountain dog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22912_bernese-mountain-dog-300x189.jpg"
+  },
+  {
+    "name_english": "boxer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22916_boxer-300x189.jpg"
+  },
+  {
+    "name_english": "dogo argentino",
+    "image": "https://www.dogtime.com/assets/uploads/2017/12/dogo-argentino-breed-pictures-7-650x368.jpg"
+  },
+  {
+    "name_english": "doberman pinscher",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22920_doberman-pinscher-300x189.jpg"
+  },
+  {
+    "name_english": "great dane",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22926_great-dane-300x189.jpg"
+  },
+  {
+    "name_english": "great pyrenees",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23202_great-pyrenees-300x189.jpg"
+  },
+  {
+    "name_english": "giant schnauzer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22924_giant-schnauzer-300x189.jpg"
+  },
+  {
+    "name_english": "leonberger",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23272_leonberger-dog-breed-300x189.jpg"
+  },
+  {
+    "name_english": "mastiff",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22934_mastiff-300x189.jpg"
+  },
+  {
+    "name_english": "miniature pinscher",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23116_miniature-pinscher-300x189.jpg"
+  },
+  {
+    "name_english": "miniature schnauzer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23074_miniature-schnauzer-300x189.jpg"
+  },
+  {
+    "name_english": "newfoundland",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22938_newfoundland-300x189.jpg"
+  },
+  {
+    "name_english": "neapolitan mastiff",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22936_neapolitan-mastiff-300x189.jpg"
+  },
+  {
+    "name_english": "rottweiler",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22942_rottweiler-300x189.jpg"
+  },
+  {
+    "name_english": "saint bernard",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22944_saint-bernard-300x189.jpg"
+  },
+  {
+    "name_english": "standard schnauzer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22950_standard-schnauzer-300x189.jpg"
+  },
+  {
+    "name_english": "tibetan mastiff",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22952_tibetan-mastiff-300x189.jpg"
+  },
+  {
+    "name_english": "cane corso",
+    "image": "https://www.dogtime.com/assets/uploads/2014/08/file_23300_cane-corso-dog-breed-650x410.jpg"
+  },
+  {
+    "name_english": "chinese shar pei",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23142_chinese-shar-pei-300x189.jpg"
+  },
+  {
+    "name_english": "central asian shepherd dog",
+    "image": "https://www.dogtime.com/assets/uploads/2020/06/central-asian-shepherd-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "caucasian shepherd dog",
+    "image": "https://www.dogtime.com/assets/uploads/2018/01/caucasian-shepherd-dog-breed-pictures-cover-650x369.jpg"
+  },
+  {
+    "name_english": "fila brasileiro",
+    "image": "https://www.dogtime.com/assets/uploads/2020/06/Fila-Brasileiro-dog-breed-pictures-1-650x433.jpg"
+  },
+  {
+    "name_english": "american staffordshire terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2018/01/american-staffordshire-terrier-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "airedale terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23050_airedale-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "bedlington terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23056_bedlington-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "bull terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23060_bull-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "cairn terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23062_cairn-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "dandie dinmont terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23064_dandie-dinmont-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "jack russell terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23080_jack-russell-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "kerry blue terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23070_kerry-blue-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "lakeland terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23072_lakeland-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "manchester terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23224_manchester-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "norfolk terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23076_norfolk-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "norwich terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23078_norwich-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "fox terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23094_fox-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "sealyham terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23084_sealyham-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "skye terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23086_skye-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "scottish terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23082_scottish-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "welsh terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23090_welsh-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "west highland white terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23092_west-highland-white-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "yorkshire terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23132_yorkshire-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "dachshund",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23020_dachshund-dog-breed-300x189.jpg"
+  },
+  {
+    "name_english": "hokkaido",
+    "image": "https://www.dogtime.com/assets/uploads/2019/08/hokkaido-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "alaskan malamute",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22908_alaskan-malamute-300x189.jpg"
+  },
+  {
+    "name_english": "basenji",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23008_basenji-300x189.jpg"
+  },
+  {
+    "name_english": "chow chow",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23144_chow-chow-300x189.jpg"
+  },
+  {
+    "name_english": "siberian husky",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22948_siberian-husky-300x189.jpg"
+  },
+  {
+    "name_english": "jindo",
+    "image": "https://www.dogtime.com/assets/uploads/2015/08/jindo-650x382.png"
+  },
+  {
+    "name_english": "akita",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22906_akita-300x189.jpg"
+  },
+  {
+    "name_english": "kishu ken",
+    "image": "https://www.dogtime.com/assets/uploads/2020/06/kishu-ken-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "shiba inu",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23160_shiba-inu-300x189.jpg"
+  },
+  {
+    "name_english": "shikoku",
+    "image": "https://www.dogtime.com/assets/uploads/2020/06/shikoku-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "keeshond",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23152_keeshond-300x189.jpg"
+  },
+  {
+    "name_english": "norwegian elkhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23032_norwegian-elkhound-300x189.jpg"
+  },
+  {
+    "name_english": "pomeranian",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23122_pomeranian-300x189.jpg"
+  },
+  {
+    "name_english": "pharaoh hound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23038_pharaoh-hound-300x189.jpg"
+  },
+  {
+    "name_english": "samoyed",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22946_Samoyed-dog-breed-300x189.jpg"
+  },
+  {
+    "name_english": "japanese spitz",
+    "image": "https://www.dogtime.com/assets/uploads/2018/06/japanese-spitz-dog-breed-pictures-header-650x368.jpg"
+  },
+  {
+    "name_english": "thai ridgeback",
+    "image": "https://www.dogtime.com/assets/uploads/2020/10/Thai-Ridgeback-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "taiwan dog",
+    "image": "https://www.dogtime.com/assets/uploads/2020/07/taiwan-dog-breed-pictures-cover-650x368.jpg"
+  },
+  {
+    "name_english": "beagle",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23012_beagle-300x189.jpg"
+  },
+  {
+    "name_english": "basset hound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23010_basset-hound-300x189.jpg"
+  },
+  {
+    "name_english": "black and tan coonhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23014_black-and-tan-coonhound-300x189.jpg"
+  },
+  {
+    "name_english": "dalmatian",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23146_dalmatian-300x189.jpg"
+  },
+  {
+    "name_english": "petit basset griffon vendeen",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23036_petit-basset-griffon-vendeen-300x189.jpg"
+  },
+  {
+    "name_english": "rhodesian ridgeback",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23042_rhodesian-ridgeback-300x189.jpg"
+  },
+  {
+    "name_english": "bloodhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23016_bloodhound-300x189.jpg"
+  },
+  {
+    "name_english": "brittany",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22956_brittany-300x189.jpg"
+  },
+  {
+    "name_english": "pointer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22992_pointer-300x189.jpg"
+  },
+  {
+    "name_english": "english setter",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22968_english-setter-300x189.jpg"
+  },
+  {
+    "name_english": "german shorthaired pointer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22976_german-shorthaired-pointer-300x189.jpg"
+  },
+  {
+    "name_english": "german wirehaired pointer",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22978_german-wirehaired-pointer-300x189.jpg"
+  },
+  {
+    "name_english": "irish red and white setter",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23254_irish-red-and-white-setter-300x189.jpg"
+  },
+  {
+    "name_english": "vizsla",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22996_vizsla-300x189.jpg"
+  },
+  {
+    "name_english": "weimaraner",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22998_weimaraner-300x189.jpg"
+  },
+  {
+    "name_english": "irish setter",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22984_irish-setter-300x189.jpg"
+  },
+  {
+    "name_english": "cocker spaniel",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22962_cocker-spaniel-300x189.jpg"
+  },
+  {
+    "name_english": "english cocker spaniel",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22966_english-cocker-spaniel-300x189.jpg"
+  },
+  {
+    "name_english": "irish water spaniel",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22986_irish-water-spaniel-300x189.jpg"
+  },
+  {
+    "name_english": "labrador retriever",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22988_labrador-retriever-300x189.jpg"
+  },
+  {
+    "name_english": "nova scotia duck tolling retriever",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22990_nova-scotia-duck-tolling-retriever-300x189.jpg"
+  },
+  {
+    "name_english": "portuguese water dog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22940_portuguese-water-dog-300x189.jpg"
+  },
+  {
+    "name_english": "golden retriever",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22980_golden-retriever-300x189.jpg"
+  },
+  {
+    "name_english": "english springer spaniel",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_22970_english-springer-spaniel-300x189.jpg"
+  },
+  {
+    "name_english": "bichon frise",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23136_bichon-frise-300x189.jpg"
+  },
+  {
+    "name_english": "brussels griffon",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23098_brussels-griffon-300x189.jpg"
+  },
+  {
+    "name_english": "boston terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23138_boston-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "chinese crested",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23104_17524831-300x189.jpg"
+  },
+  {
+    "name_english": "chihuahua",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23102_chihuahua-300x189.jpg"
+  },
+  {
+    "name_english": "french bulldog",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23150_french-bulldog-300x189.jpg"
+  },
+  {
+    "name_english": "cavalier king charles spaniel",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23100_cavalier-king-charles-spaniel-300x189.jpg"
+  },
+  {
+    "name_english": "lhasa apso",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23154_lhasa-apso-300x189.jpg"
+  },
+  {
+    "name_english": "maltese",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23114_maltese-300x189.jpg"
+  },
+  {
+    "name_english": "pug",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23124_pug-300x189.jpg"
+  },
+  {
+    "name_english": "pekingese",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23120_pekingese-300x189.jpg"
+  },
+  {
+    "name_english": "papillon",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23118_papillon-300x189.jpg"
+  },
+  {
+    "name_english": "shih tzu",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23126_shih-tzu-300x189.jpg"
+  },
+  {
+    "name_english": "coton de tulear",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23230_coton-de-tulear-300x189.jpg"
+  },
+  {
+    "name_english": "tibetan terrier",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23164_tibetan-terrier-300x189.jpg"
+  },
+  {
+    "name_english": "lowchen",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23156_lowchen-300x189.jpg"
+  },
+  {
+    "name_english": "japanese chin",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23112_japanese-chin-300x189.jpg"
+  },
+  {
+    "name_english": "afghan hound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23004_afghan-hound-300x189.jpg"
+  },
+  {
+    "name_english": "borzoi",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23018_borzoi-300x189.jpg"
+  },
+  {
+    "name_english": "scottish deerhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23046_scottish-deerhound-300x189.jpg"
+  },
+  {
+    "name_english": "greyhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23024_greyhound-300x189.jpg"
+  },
+  {
+    "name_english": "irish wolfhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23030_irish-wolfhound-300x189.jpg"
+  },
+  {
+    "name_english": "italian greyhound",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23110_italian-greyhound-300x189.jpg"
+  },
+  {
+    "name_english": "saluki",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23044_saluki-300x189.jpg"
+  },
+  {
+    "name_english": "whippet",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23048_whippet-300x189.jpg"
+  },
+  {
+    "name_english": "azawakh",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23286_azawakh-300x189.jpg"
+  },
+  {
+    "name_english": "poodle",
+    "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23200_poodle-300x189.jpg"
+  }
+]

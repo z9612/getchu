@@ -1,5 +1,6 @@
 from pprint import pprint
 from typing import List
+from pathlib import Path
 import json
 import requests
 
@@ -141,5 +142,41 @@ def flatten_dict():
             json.dump(list(total_info.values()), new_file, ensure_ascii=False, indent=2)
 
 
-# sort_data_by_keyword(['traits', 'Physical Needs', 'rating'])
-flatten_dict()
+def union_json(base_file_name, adding_file_name, out_name):
+    matching_name = {
+        'chinese shar pei': 'chinese shar-pei',
+        'jindo': 'korean jindo dog',
+        'petit basset griffon vendeen': 'petit basset griffon vendéen'
+    }
+
+    base_file = open(base_file_name, encoding='utf8')
+    base_json = json.load(base_file)
+    base_keys = base_json.keys()
+    base_file.close()
+
+    additional_file = open(adding_file_name, encoding='utf8')
+    additional_json = json.load(additional_file)
+    additional_file.close()
+
+    new_list = []
+
+    for base_key in base_keys:
+        matching_info = additional_json.get(base_key)
+        if not matching_info:
+            alias = matching_name[base_key]
+            matching_info = additional_json.get(alias)
+        new_list.append({
+            'name_english': base_key,
+            'image': matching_info
+        })
+        
+    with open(out_name, 'w', encoding='utf8') as file:
+        json.dump(new_list, file, ensure_ascii=False, indent=2)
+
+
+if __name__ == '__main__':
+    union_json(
+        f'{Path(__file__).parent.parent}/data.json',
+        f'{Path(__file__).parent.parent}/Dogtime/dogtime_profile_images.json',
+        f'{Path(__file__).parent}/dogtime_profile_images_matching.json'
+    )

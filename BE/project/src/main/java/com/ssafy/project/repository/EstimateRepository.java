@@ -41,7 +41,7 @@ public interface EstimateRepository extends JpaRepository<EstimateEntity, Intege
     //생필품 가격 정보 출력
     @Query(nativeQuery = true, value = "select e.name, e.category_first, e.category_second, concat(format(round( ( (d.weight_min+d.weight_max) /2)*0.025*30,0) * (e.price_avg/e.weight) ,0) ,'원') as feed_price, if(e.small is null, concat(format(price_avg,0),'원'), Case when(d.health_Size = 1) then concat(format(e.small,0),'원')  when(d.health_Size between 2 and 3) then concat(format(e.medium,0),'원')  when(d.health_Size between 4 and 5) then concat(format(e.large,0),'원')  else 0 end ) as price, e.image " +
     "from estimate e join dog d " +
-    "where d.name =:name")
+    "where d.name =:name order by category_first, category_second")
     List<PriceResult> getToolsPrice(String name);
 
 }

@@ -186,8 +186,15 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
-    public DogNameImageResult getDogNameImage(String name) {
+    public List<DogNameImageResult> getDogNameImage(String name) {
         return repo.getDogNameImage(name);
     }
+
+    @Override
+    public List<DogNameImageResult> getEveryDogNameImage() {
+        return repo.getEveryDogNameImage();
+    }
+    
+    
 
 }

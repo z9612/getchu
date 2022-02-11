@@ -7,6 +7,8 @@ import com.ssafy.project.domain.EstimateEntity;
 import com.ssafy.project.domain.PriceResult;
 import com.ssafy.project.service.EstimateService;
 
+import org.hibernate.annotations.OrderBy;
+import org.hibernate.annotations.SortComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

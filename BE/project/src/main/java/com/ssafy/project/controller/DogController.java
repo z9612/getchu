@@ -23,14 +23,14 @@ public class DogController{
     private DogService service;
 
     @ApiOperation(value = "라이프 스타일로 견종 추천",response = List.class)
-    @GetMapping("/lifestyle")
+    @GetMapping("/recommand/lifestyle")
     public List<DogEntity> lifeStyle(@ApiParam(value = "견종의 크기",  required = true) int size, @ApiParam(value = "아파트 거주 가능성", required = true) int apartmentLiving, @ApiParam(value = "초보자에게 키우기 좋은 정도", required = true)  int noviceOwners, @ApiParam(value = "혼자 있는 능력", required = true)  int beingAlone, @ApiParam(value = "아이와 친한 정도", required = true)  int kidFriendly, @ApiParam(value = "다른 개와 친한 정도", required = true)  int dogFriendly, @ApiParam(value = "털 빠짐 정도", required = true)  int amountOfShedding){
 
         return service.lifeStyleRef(size,apartmentLiving,noviceOwners,beingAlone,kidFriendly,dogFriendly,amountOfShedding);
     }
 
     @ApiOperation(value = "견종 특성으로 추천" , response = List.class)
-    @GetMapping("/dogStyle")
+    @GetMapping("/recommand/dogStyle")
     public List<DogEntity> dogStyle(int size, int apartmentLiving,int noviceOwners,int dogFriendly,int strangers, int family, int amountOfShedding, int easyToGroom, int easyToTrain, int intelligence, int barkOrHowl, int wanderlust, int energyLevel, int playfullness	  ){
 
         return service.dogStyle(size,apartmentLiving,noviceOwners,dogFriendly,strangers,family,amountOfShedding,easyToGroom,easyToTrain,intelligence,barkOrHowl,wanderlust,energyLevel,playfullness);
@@ -38,7 +38,7 @@ public class DogController{
 
         
     @ApiOperation(value = "MBTI 견종 추천",response = List.class)
-    @GetMapping("/mbti")
+    @GetMapping("/recommand//mbti")
     public List<DogEntity> mbti(String mbti){
     	return service.mbtiRef(mbti);
     }
@@ -50,18 +50,24 @@ public class DogController{
         return service.findAll();
     }
 
-    @ApiOperation(value = "하나의 견종 데이터를 이름을 받아서 출력합니다",response = DogEntity.class)
+    @ApiOperation(value = "한 견종의 모든 데이터를 이름을 받아서 출력합니다",response = DogEntity.class)
     @GetMapping("/findByName")
     public DogEntity findByName(@ApiParam(value = "견종명") @RequestParam String name){
         return service.findByName(name);
     }
 
-    @ApiOperation(value = "한 견종의 이름과 이미지를 이름을 받아서 출력합니다",response = DogEntity.class)
+    @ApiOperation(value = "한 견종의 이름과 이미지만 이름을 받아서 출력합니다",response = DogEntity.class)
     @GetMapping(value="/getDogNameImage")
-    public DogNameImageResult getDogNameImage(@RequestParam String name) {
+    public List<DogNameImageResult> getDogNameImage(@RequestParam String name) {
         return service.getDogNameImage(name);
     }
-    
 
+    @ApiOperation(value = "모든 견종의 이름과 이미지만 출력합니다",response = DogEntity.class)
+    @GetMapping(value="/getEveryDogNameImage")
+    public List<DogNameImageResult> getMethodName() {
+        return service.getEveryDogNameImage();
+    
+    
+    }
 
 }

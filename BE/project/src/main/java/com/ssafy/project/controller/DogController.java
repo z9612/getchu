@@ -66,8 +66,6 @@ public class DogController{
     @GetMapping(value="/getEveryDogNameImage")
     public List<DogNameImageResult> getMethodName() {
         return service.getEveryDogNameImage();
-    
-    
     }
 
 }

@@ -10,9 +10,7 @@ function SurveySet({questionSet, onAnswer}) {
       {questionSet.map(question => (
         <Survey
         key={question.paramName}
-        question={question.text}
-        detail={question.detail}
-        paramName={question.paramName}
+        question={question}
         onAnswer={onAnswer}
         />
         ))}

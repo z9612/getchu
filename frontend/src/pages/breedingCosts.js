@@ -1,6 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+import axios from 'axios'
 
 import TotalCosts from './costsComponent/totalCosts';
 import FeedCosts from './costsComponent/feedCosts';
@@ -9,6 +10,21 @@ import OtherCosts from './costsComponent/otherCosts';
 
 const BreedingCosts = () => {
   const breed = useParams().breed
+  // console.log(breed)
+
+  axios({
+    // url: `http://i6d111.p.ssafy.io:8081/estimate/estimate?name=${breed}`,
+    url: `/estimate/estimate?name=${breed}`,
+    method: 'GET',
+  })
+  .then(res => {
+    // console.log('ok')
+    console.log(res)
+  })
+  .catch(res => {
+    console.log('fail')
+    // console.log(res)
+  })
   
   // 임시
   const dogData = {
@@ -104,35 +120,35 @@ const BreedingCosts = () => {
   }
 
   // 임시
-  const costs = [
-    { "feed": 
-      {
-        "a-cost": 10000,
-        "b-cost": 20000,
-        "c-cost": 30000,
-        "d-cost": 40000,
-        "e-cost": 50000,
-      }
-    },
-    { "medical": 
-      {
-        "a-cost": 100000,
-        "b-cost": 150000,
-        "c-cost": 120000,
-        "d-cost": 130000,
-        "e-cost": 140000,
-      }
-    },
-    { "other": 
-      {
-        "a-cost": 3000,
-        "b-cost": 4000,
-        "c-cost": 12000,
-        "d-cost": 10000,
-        "e-cost": 8000,
-      }
-    }
-  ]
+  // const costs = [
+  //   { "feed": 
+  //     {
+  //       "a-cost": 10000,
+  //       "b-cost": 20000,
+  //       "c-cost": 30000,
+  //       "d-cost": 40000,
+  //       "e-cost": 50000,
+  //     }
+  //   },
+  //   { "medical": 
+  //     {
+  //       "a-cost": 100000,
+  //       "b-cost": 150000,
+  //       "c-cost": 120000,
+  //       "d-cost": 130000,
+  //       "e-cost": 140000,
+  //     }
+  //   },
+  //   { "other": 
+  //     {
+  //       "a-cost": 3000,
+  //       "b-cost": 4000,
+  //       "c-cost": 12000,
+  //       "d-cost": 10000,
+  //       "e-cost": 8000,
+  //     }
+  //   }
+  // ]
 
   return (
     <div style={{margin: '40px 20px'}}>
@@ -155,7 +171,7 @@ const BreedingCosts = () => {
       :
       <div className='non-data'>
         <div>데이터가 없는 견종입니다.</div>
-        <Button variant="text">견종 다시 고르기</Button>
+        <Button variant="text" component={Link} to='/cost/breedselect'>견종 다시 고르기</Button>
       </div>
     }
     </div>

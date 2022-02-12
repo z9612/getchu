@@ -1,32 +1,33 @@
-import { 
-  BrowserRouter as Router, 
-  Routes,  
-  Route
-} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import BackBarLayout from './layouts/BackBarLayout';
+import BackBarLayout from "./layouts/BackBarLayout";
+import Start from "./pages/start";
 import SurveyPage from "./pages/survey/SurveyPage";
-import Result from './pages/result';
-import Start from './pages/start'
-import Costs from './pages/costs';
-import MedicalPage from './pages/estimate/medical/MedicalPage'
-import FoodPage from './pages/estimate/food/FoodPage'
-import './index.css'
+import Result from "./pages/result";
+import Choice from "./pages/choice";
+import BreedingCosts from "./pages/breedingCosts";
+import BreedSelect from "./pages/breedSelect";
+import "./index.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/result' element={ <Result /> } />
-        <Route path='' element={ <BackBarLayout to='/result' title='처음으로' /> } >
-          <Route path='/survey' element={ <SurveyPage /> } />
+        {/* 견종 추천 */}
+        <Route path="/start" element={<Start />} />
+        <Route path="/recommend" element={<Choice />} />
+        <Route path="/recommend" element={<BackBarLayout to="/result" title="처음으로" />}>
+          <Route path="/recommend/lifeStyle" element={<SurveyPage />} />
+          {/* <Route path="/recommend/mbti" element={<SurveyPage />} /> */}
+          {/* <Route path="/recommend/dogTrait" element={<SurveyPage />} /> */}
         </Route>
-        <Route path='/estimate/' element={ <BackBarLayout to='/estimate' title='초기 자금 견적 내기' /> } >
-          <Route path='/estimate/medical' element={ <MedicalPage /> } />
-          <Route path='/estimate/food' element={ <FoodPage /> } />
+        <Route path="/result" element={<Result />} />
+        
+        {/* 초기 견적 */}
+        <Route path="/cost/" element={<BackBarLayout to="/start" title="처음으로" />} >
+          <Route path="/cost/breedSelect" element={<BreedSelect />} />
+          <Route path="/cost/:breed" element={<BreedingCosts />} />
         </Route>
-        <Route path='/start' element={ <Start /> } />
-        <Route path='/costs/:breed' element={ <Costs /> } />
       </Routes>
     </Router>
   );

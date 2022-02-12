@@ -7,7 +7,7 @@ import FeedCosts from './costsComponent/feedCosts';
 import MedicalCosts from './costsComponent/medicalCosts';
 import OtherCosts from './costsComponent/otherCosts';
 
-const Costs = () => {
+const BreedingCosts = () => {
   const breed = useParams().breed
   
   // 임시
@@ -103,9 +103,6 @@ const Costs = () => {
     }    
   }
 
-  // console.log(dogData)
-  // console.log(dogData[breed])
-
   // 임시
   const costs = [
     { "feed": 
@@ -147,15 +144,12 @@ const Costs = () => {
         <TotalCosts dogData={ dogData[breed] } />
 
         {/* 사료값 */}
-        {/* <FeedCosts /> */}
         <FeedCosts dogData={ dogData[breed] } />
-        {/* <FeedCosts dogData={ props.dogData } /> */}
   
         {/* 의료비 */}
         <MedicalCosts dogData={ dogData[breed] } />
   
         {/* 기타 생필품 */}
-        {/* <OtherCosts /> */}
         <OtherCosts dogData={ dogData } />
       </div>
       :
@@ -168,4 +162,4 @@ const Costs = () => {
   );
 };
 
-export default Costs;
+export default BreedingCosts;

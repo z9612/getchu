@@ -4,6 +4,8 @@ import BackBarLayout from "./layouts/BackBarLayout";
 import SurveyPage from "./pages/survey/SurveyPage";
 import Result from "./pages/result";
 import Start from "./pages/start";
+import Choice from "./pages/choice";
+
 import BreedingCosts from "./pages/breedingCosts";
 import MedicalPage from "./pages/estimate/medical/MedicalPage";
 import FoodPage from "./pages/estimate/food/FoodPage";
@@ -53,6 +55,9 @@ function App() {
         <Route path="/start" element={<Start />} />
         <Route path="/breedselect" element={<BreedSelect />} />
         <Route path="/costs/:breed" element={<Costs />} />
+      </Routes>
+      <Routes>
+        <Route path="/choice" element={<Choice />} />
       </Routes>
     </Router>
   );

@@ -8,10 +8,12 @@ import BackBarLayout from './layouts/BackBarLayout';
 import SurveyPage from "./pages/survey/SurveyPage";
 import Result from './pages/result';
 import Start from './pages/start'
-import Costs from './pages/costs';
+import BreedingCosts from './pages/breedingCosts';
 import MedicalPage from './pages/estimate/medical/MedicalPage'
 import FoodPage from './pages/estimate/food/FoodPage'
 import GoodsPage from './pages/estimate/goods/GoodsPage';
+import MedicalPage from './pages/estimate/medical/MedicalPage'
+import FoodPage from './pages/estimate/food/FoodPage'
 import './index.css'
 
 function App() {
@@ -28,7 +30,8 @@ function App() {
           <Route path='/estimate/goods' element={ <GoodsPage /> } />
         </Route>
         <Route path='/start' element={ <Start /> } />
-        <Route path='/costs/:breed' element={ <Costs /> } />
+        <Route path='/costs/:breed' element={ <BreedingCosts /> } />
+        <Route path='/start' element={ <Start /> } />
       </Routes>
     </Router>
   );

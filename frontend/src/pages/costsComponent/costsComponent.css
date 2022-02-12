@@ -2,7 +2,6 @@
   font-weight: bold;
 }
 
-<<<<<<< HEAD
 .cost-dog-img {
   width: 100px;
   height: 100px;
@@ -18,8 +17,6 @@
   /* border: 5px solid #b1b1b1; */
   border: 1px solid #b1b1b1;
 }
-=======
->>>>>>> feature/dog-select-page
 .cost-img {
   width: 100px;
   height: 100px;
@@ -72,8 +69,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> feature/dog-select-page

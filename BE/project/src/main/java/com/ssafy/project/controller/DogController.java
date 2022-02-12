@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/dog")
+// @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class DogController{
 
     @Autowired

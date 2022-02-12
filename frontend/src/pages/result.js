@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { Divider } from '@mui/material';
+import { useLocation, Link } from 'react-router-dom';
+import { Divider, Button } from '@mui/material';
 
 import ResultHeader from './resultComponent/resultHeader';
 import ResultBody from './resultComponent/resultBody';
@@ -23,7 +23,13 @@ const Result = () => {
 
       <div className='result-retest'>
         {/* 링크 추가하기 */}
-        다시 검사할래요
+        <Button 
+          variant='text'
+          style={{color: 'gray'}}
+          component={Link}
+          to='/recommend'
+        >다시 검사할래요</Button>
+        {/* 다시 검사할래요 */}
         {/* <Link className='result-retest-link' to={ '/test' }>다시 검사할래요</Link> */}
       </div>
     </div>

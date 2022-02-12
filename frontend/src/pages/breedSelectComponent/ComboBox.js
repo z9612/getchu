@@ -28,7 +28,7 @@ export default function ComboBox() {
       />
       <Button variant="outlined" color="success">
         <Link
-          to={`/costs/${selected}`}
+          to={`/cost/${selected}`}
           style={{ textDecoration: "none" }}
           className="견종별 견적"
         >

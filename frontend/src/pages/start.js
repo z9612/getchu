@@ -22,12 +22,12 @@ const Start = () => {
       </div>
 
       <div className='start-footer'>
-        <Link className='start-link' to="/test">
+        <Link className='start-link' to="/recommend">
           <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
             검사하러가기
           </Button>
         </Link>
-        <Link className='start-link' to="/costs">
+        <Link className='start-link' to="/cost/breedselect">
           <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
             견적내러가기
           </Button>

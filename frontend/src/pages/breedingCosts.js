@@ -10,24 +10,20 @@ import OtherCosts from './costsComponent/otherCosts';
 
 const BreedingCosts = () => {
   const breed = useParams().breed
-  console.log(breed)
+  // console.log(breed)
 
   axios({
-    url: `http://i6d111.p.ssafy.io:8081/estimate/estimate?name=${breed}`,
-    // url: `/estimate/estimate?name=${breed}`,
-    // url: 'http://i6d111.p.ssafy.io:8081/estimate/estimate/',
+    // url: `http://i6d111.p.ssafy.io:8081/estimate/estimate?name=${breed}`,
+    url: `/estimate/estimate?name=${breed}`,
     method: 'GET',
-    // data: {
-    //   name: breed
-    // }
   })
   .then(res => {
-    console.log('ok')
+    // console.log('ok')
     console.log(res)
   })
   .catch(res => {
     console.log('fail')
-    console.log(res)
+    // console.log(res)
   })
   
   // 임시

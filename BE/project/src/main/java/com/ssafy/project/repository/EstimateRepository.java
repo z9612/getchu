@@ -2,13 +2,15 @@ package com.ssafy.project.repository;
 
 import java.util.List;
 
-import com.ssafy.project.domain.EstimateEntity;
-import com.ssafy.project.domain.EstimateResult;
-import com.ssafy.project.domain.PriceResult;
+import com.ssafy.project.domain.estimate.EstimateEntity;
+import com.ssafy.project.domain.estimate.EstimateResult;
+import com.ssafy.project.domain.estimate.PriceResult;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface EstimateRepository extends JpaRepository<EstimateEntity, Integer> {
 
         // 안 쓰고 있음, 이하 수정

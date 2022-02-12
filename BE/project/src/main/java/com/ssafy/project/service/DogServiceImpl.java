@@ -2,8 +2,8 @@ package com.ssafy.project.service;
 
 import java.util.List;
 
-import com.ssafy.project.domain.DogEntity;
-import com.ssafy.project.domain.DogNameImageResult;
+import com.ssafy.project.domain.dog.DogEntity;
+import com.ssafy.project.domain.dog.DogNameImageResult;
 import com.ssafy.project.repository.DogRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

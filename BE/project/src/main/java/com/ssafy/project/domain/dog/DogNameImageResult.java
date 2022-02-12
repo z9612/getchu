@@ -1,4 +1,4 @@
-package com.ssafy.project.domain;
+package com.ssafy.project.domain.dog;
 
 public interface DogNameImageResult {
     String getName();

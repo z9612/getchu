@@ -1,4 +1,4 @@
-package com.ssafy.project.domain;
+package com.ssafy.project.domain.estimate;
 
 public interface PriceResult {
     String getCategory_first();

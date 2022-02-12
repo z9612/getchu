@@ -2,9 +2,9 @@ package com.ssafy.project.service;
 
 import java.util.List;
 
-import com.ssafy.project.domain.EstimateResult;
-import com.ssafy.project.domain.EstimateEntity;
-import com.ssafy.project.domain.PriceResult;
+import com.ssafy.project.domain.estimate.EstimateEntity;
+import com.ssafy.project.domain.estimate.EstimateResult;
+import com.ssafy.project.domain.estimate.PriceResult;
 
 public interface EstimateService {
 	List<EstimateEntity> findAll();

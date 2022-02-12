@@ -1,4 +1,4 @@
-package com.ssafy.project.domain;
+package com.ssafy.project.domain.estimate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

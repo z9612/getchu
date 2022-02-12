@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ssafy.project.domain.EstimateResult;
-import com.ssafy.project.domain.EstimateEntity;
-import com.ssafy.project.domain.PriceResult;
+import com.ssafy.project.domain.estimate.EstimateEntity;
+import com.ssafy.project.domain.estimate.EstimateResult;
+import com.ssafy.project.domain.estimate.PriceResult;
 import com.ssafy.project.repository.EstimateRepository;
 
 @Service

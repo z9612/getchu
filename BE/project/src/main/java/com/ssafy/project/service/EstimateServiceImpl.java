@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ssafy.project.domain.estimate.EstimateEntity;
 import com.ssafy.project.domain.estimate.EstimateResult;
-import com.ssafy.project.domain.estimate.PriceResult;
+import com.ssafy.project.domain.estimate.FeedPriceResult;
+import com.ssafy.project.domain.estimate.FullEstimate;
 import com.ssafy.project.repository.EstimateRepository;
 
 @Service
@@ -22,7 +23,7 @@ public class EstimateServiceImpl implements EstimateService {
     }
 
     @Override
-    public List<PriceResult> getFeedPrice(String name) {
+    public List<FeedPriceResult> getFeedPrice(String name) {
         return repo.getFeedPrice(name);
     }
 
@@ -33,7 +34,7 @@ public class EstimateServiceImpl implements EstimateService {
 
     
     @Override
-    public List<PriceResult> getEstimate(String name) {
+    public List<FullEstimate> getEstimate(String name) {
         return repo.getEstimate(name);
     }
 

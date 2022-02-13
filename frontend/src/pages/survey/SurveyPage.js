@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Box, Button } from '@mui/material';
 import MobileStepper from '@mui/material/MobileStepper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
-import questionList from "./questionList.json";
 import SurveySet from "./SurveySet";
+import questionList from "./questionList";
+import getResultPromise from './getResult';
 
 function SurveyPage() {
   const [answers, setAnswers] = useState({})
@@ -28,6 +29,15 @@ function SurveyPage() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const navigate = useNavigate();
+  const sendResult = (event) => {
+    event.preventDefault();
+    getResultPromise(answers)
+    .then(data => {
+      navigate('/result', { state: data });
+    });
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -64,14 +74,7 @@ function SurveyPage() {
             // 완료 시 Link의 to로 state 담아서 이동
             <Button
               size="small"
-              component={Link}
-              to="/Result"
-              state={answers}
-              // 프로그래밍 방식 이동
-              // onClick={() => {
-              //   const navigate = useNavigate();
-              //   navigate('/Result', {state: state})
-              // }}
+              onClick={sendResult}
             >
               완료
               <KeyboardArrowRight />

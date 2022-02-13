@@ -1,10 +1,12 @@
 import { Stack } from "@mui/material";
 import HelpIconButton from "../../components/HelpIconButton";
 
-function Survey({question, detail, paramName, onAnswer}) {
-  const indexList = [5, 4, 3, 2, 1]
+function Survey({ question, onAnswer }) {
+  let optionList = question.optionNum === '5' ? [5, 4, 3, 2, 1] : [5, 1]
+  optionList = question.reverse ? optionList.reverse() : optionList
+
   const getSelectedIndex = (event) => {
-    onAnswer(paramName, event.target.value)
+    onAnswer(question.paramName, event.target.value)
   }
 
   return (
@@ -13,19 +15,19 @@ function Survey({question, detail, paramName, onAnswer}) {
       alignItems="center"
     >
       <p>
-        {question}
-        <HelpIconButton content={detail} />
+        { question.text }
+        { question.detail ? <HelpIconButton content={question.detail} /> : null }
       </p>
 
       <div>
         <strong>YES </strong>
 
-        {indexList.map((button, index) => (
+        {optionList.map((button, index) => (
           <input
             key={index}
             type="radio"
-            name={`survey_${paramName}`} 
-            value={index}
+            name={`survey_${question.paramName}`} 
+            value={button}
             onClick={getSelectedIndex}
             />
           ))}

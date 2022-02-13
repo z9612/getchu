@@ -128,14 +128,14 @@ public class UserController {
 		return service.getInfo(email);
 	}
 
-	// @ApiOperation(value = "회원 정보 수정", notes = "수정할 회원 정보를 입력한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
-	// @PutMapping
-	// public ResponseEntity<String> modify(@RequestBody @ApiParam(value = "수정할 회원 정보", required = true) MemberDto memberDto) throws Exception {
-	// if (service.updateUser(memberDto)) {
-	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	// }
-	// return new ResponseEntity<String>(FAIL, HttpStatus.OK);
-	// }
+	@ApiOperation(value = "회원 정보 수정", notes = "수정할 회원 정보를 입력한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
+	@PutMapping
+	public ResponseEntity<String> modify(@RequestBody @ApiParam(value = "수정할 회원 정보", required = true) UserEntity userEntity) throws Exception {
+	if (service.updateUser(userEntity)) {
+	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
+	return new ResponseEntity<String>(FAIL, HttpStatus.OK);
+	}
 
 	@ApiOperation(value = "회원 탈퇴", notes = "이메일에 해당하는 회원 정보를 삭제한다. 그리고 DB삭제 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@DeleteMapping("/{email}")
@@ -146,9 +146,9 @@ public class UserController {
 	return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	}
 
-	// @ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
-	// @GetMapping("/logout")
-	// public ResponseEntity<String> logout() throws Exception {
-	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	// }
+	@ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
+	@GetMapping("/logout")
+	public ResponseEntity<String> logout() throws Exception {
+	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
 }

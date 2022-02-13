@@ -4,8 +4,8 @@ public interface FullEstimate {
     String getCategory_first();
     String getCategory_second();
     String getName();
-    String getProductPrice();
-    String getProductPricePerWeight();
-    String getDogFeedPrice();
+    Integer getProductPrice();
+    Integer getProductPricePerWeight();
+    Integer getDogFeedPrice();
     String getImage();
 }

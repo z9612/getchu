@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.ssafy.project.domain.estimate.EstimateEntity;
 import com.ssafy.project.domain.estimate.EstimateResult;
-import com.ssafy.project.domain.estimate.PriceResult;
+import com.ssafy.project.domain.estimate.FeedPriceResult;
+import com.ssafy.project.domain.estimate.FullEstimate;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,9 +13,17 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EstimateRepository extends JpaRepository<EstimateEntity, Integer> {
+
+        // 견종별 모든 견적 정보 출력
+        @Query(nativeQuery = true, value = "select e.name, e.category_first, e.category_second, concat(format(round( ( (d.weight_min+d.weight_max) /2)*0.025*30,0) * (e.price_avg/e.weight) ,0) ,'원') as dogFeedPrice, if(e.small is null, concat(format(price_avg,0),'원'), Case when(d.health_Size = 1) then concat(format(e.small,0),'원')  when(d.health_Size between 2 and 3) then concat(format(e.medium,0),'원')  when(d.health_Size between 4 and 5) then concat(format(e.large,0),'원')  else 0 end ) as productPrice,  concat(format((price_avg/weight),0),'원') as ProductPricePerWeight , e.image "
+                        +
+                        "from estimate e join dog d " +
+                        "where d.name =:name order by category_first, category_second")
+        List<FullEstimate> getEstimate(String name);
+
         // 한 달 사료 값 정보 출력
-        @Query(nativeQuery = true, value = "select e.name,concat(format(round( ( (d.weight_min+d.weight_max) /2)*0.025*30,0) * (e.price_avg/e.weight) ,0) ,'원') as price, e.image from estimate e join dog d where e.category_second = 'food' and d.name =:name order by price")
-        public List<PriceResult> getFeedPrice(String name);
+        @Query(nativeQuery = true, value = "select e.name,concat(format(round( ( (d.weight_min+d.weight_max) /2)*0.025*30,0) * (e.price_avg/e.weight) ,0) ,'원') as dogFeedPrice, e.image from estimate e join dog d where e.category_second = 'food' and d.name =:name order by dogFeedPrice")
+        public List<FeedPriceResult> getFeedPrice(String name);
 
         // 의료 정보 출력
         @Query(nativeQuery = true, value = "select name, format(e.price_min,0) as min, format(e.price_avg,0) as avg ,format(e.price_max,0) as max from estimate e where category_first = 'medical'")
@@ -34,11 +43,6 @@ public interface EstimateRepository extends JpaRepository<EstimateEntity, Intege
                         "where id=14 ")
         public EstimateResult getFemaleDesexualization(String sex);
 
-        // 전체 정보 출력
-        @Query(nativeQuery = true, value = "select e.name, e.category_first, e.category_second, concat(format(round( ( (d.weight_min+d.weight_max) /2)*0.025*30,0) * (e.price_avg/e.weight) ,0) ,'원') as dogFeedPrice, if(e.small is null, concat(format(price_avg,0),'원'), Case when(d.health_Size = 1) then concat(format(e.small,0),'원')  when(d.health_Size between 2 and 3) then concat(format(e.medium,0),'원')  when(d.health_Size between 4 and 5) then concat(format(e.large,0),'원')  else 0 end ) as productPrice,  concat(format((price_avg/weight),0),'원') as ProductPricePerWeight , e.image "
-                        +
-                        "from estimate e join dog d " +
-                        "where d.name =:name order by category_first, category_second")
-        List<PriceResult> getEstimate(String name);
+        
 
 }

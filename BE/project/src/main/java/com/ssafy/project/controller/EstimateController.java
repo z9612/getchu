@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.ssafy.project.domain.estimate.EstimateEntity;
 import com.ssafy.project.domain.estimate.EstimateResult;
-import com.ssafy.project.domain.estimate.PriceResult;
+import com.ssafy.project.domain.estimate.FeedPriceResult;
+import com.ssafy.project.domain.estimate.FullEstimate;
 import com.ssafy.project.service.EstimateService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class EstimateController {
 
     @ApiOperation(value = "모든 견적 정보를 견종명을 받아서 출력합니다.")
     @GetMapping(value = "/estimate")
-    public List<PriceResult> getToolsPrice(@RequestParam String name) {
+    public List<FullEstimate> getToolsPrice(@RequestParam String name) {
         return service.getEstimate(name);
     }
 
-    @ApiOperation(value = "한 달 사료값 정보를 견종명을 입력 받아서 보내줍니다.", response = PriceResult.class)
+    @ApiOperation(value = "한 달 사료값 정보를 견종명을 입력 받아서 보내줍니다.", response = FeedPriceResult.class)
     @GetMapping(value = "/feedPrice")
-    public List<PriceResult> getFeedPrice(@ApiParam(value = "견종명") @RequestParam String name) {
+    public List<FeedPriceResult> getFeedPrice(@ApiParam(value = "견종명") @RequestParam String name) {
         return service.getFeedPrice(name);
     }
 
@@ -43,7 +44,7 @@ public class EstimateController {
 
     @ApiOperation(value = "중성화 비용을 성별 정보를 받아서 출력합니다.")
     @GetMapping(value = "/desexualization")
-    public EstimateResult getDesexualization(@ApiParam(value = "성별") @RequestParam String sex) {
+    public EstimateResult getDesexualization(@ApiParam(value = "성별(수컷,암컷)") @RequestParam String sex) {
         return service.getDesexualization(sex);
     }
 

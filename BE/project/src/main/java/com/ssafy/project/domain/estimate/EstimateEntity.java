@@ -21,8 +21,11 @@ public class EstimateEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @ApiModelProperty(value = "카테고리")
-    private String category;
+    @ApiModelProperty(value = "대분류")
+    private String category_first;
+
+    @ApiModelProperty(value = "소분류")
+    private String category_second;
 
     @ApiModelProperty(value = "물품명")
     private String name;

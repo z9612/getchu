@@ -25,7 +25,7 @@ const FeedCosts = () => {
   }
   
   useEffect(() => {
-    if (foodList) {
+    if (foodList[0]) {
       setFoodSum(Number(foodList[0].dogFeedPrice))
     }
   }, [])

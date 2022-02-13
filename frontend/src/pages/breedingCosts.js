@@ -1,65 +1,20 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil'
 import { Button } from '@mui/material';
 
 import TotalCosts from './costsComponent/totalCosts';
 import FeedCosts from './costsComponent/feedCosts';
 import MedicalCosts from './costsComponent/medicalCosts';
 import OtherCosts from './costsComponent/otherCosts';
-import { foodState, medicalState, goodsState } from './teststate'
-import { foodAmountState } from './costsComponent/state';
-import getFoodAmount from './estimate/food/getFoodAmount';
+import useInitState from './costsComponent/useStateInit';
 
 const BreedingCosts = () => {
   const [loading, setLoading] = useState(true)
 
   // 견종 이름
   const breed = useParams().breed
+  useInitState(breed, setLoading)
   
-  // state 데이터 변경 위해
-  const setFoodData = useSetRecoilState(foodState)
-  const setMedicalData = useSetRecoilState(medicalState)  
-  const setGoodsData = useSetRecoilState(goodsState)
-  const setFoodAmount = useSetRecoilState(foodAmountState)
-  
-  // state 데이터를 API 데이터로 변경
-  useEffect(() => {
-    axios({
-      url: `/estimate/estimate?name=${breed}`,
-      method: 'get',
-    })
-    .then(res => {
-      const food = res.data.slice(0,7)
-      setFoodData(food)
-
-      const medical = res.data.slice(7,14)
-      setMedicalData(medical)
-
-      const goods = res.data.slice(14,23)
-      setGoodsData(goods)
-      // console.log(food)
-    })
-    .catch(res => {
-      console.log('fail')
-    })
-
-    // 사료 금액 산정 기준 설명에 필요한 사료 양 저장
-    axios({
-      url: `/dog/findByName?name=${breed}`,
-      method: 'get',
-    })
-    .then(response => {
-      const dogInfo = response.data
-      const foodAmount = getFoodAmount(dogInfo)
-      setFoodAmount(foodAmount)
-      setLoading(false)
-    })
-    .catch(error => {
-      console.log(error)
-    })
-  }, []);
   
   return (
     <div style={{margin: '40px 20px'}}>

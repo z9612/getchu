@@ -27,8 +27,8 @@ const FoodDetailPriceList = ({
             control={<Radio />} 
             value={index} 
             img={""}
-            label={food.title + food.price}
-            key={food.title}
+            label={food.name + food.productPrice}
+            key={food.name}
           />
         ))}
       </RadioGroup>

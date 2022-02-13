@@ -1,3 +1,4 @@
+import { useRecoilValue } from 'recoil';
 import {
   Accordion,
   AccordionSummary,
@@ -6,13 +7,15 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import { foodAmountState } from '../../costsComponent/state';
+
 const FoodDetailAmount = ({ 
-  amounts, 
-  
   expanded,
   handleChange, 
   index 
 }) => {
+  const amounts = useRecoilValue(foodAmountState)
+
   return (
     <Accordion 
       expanded={expanded === index} 
@@ -45,14 +48,14 @@ const FoodDetailAmount = ({
           </li>
           <li>
             <Typography>
-              {amounts.weight} kg * 2% 
+              {amounts.weightAvg} kg * 2% 
               = {amounts.foodPerDayAsGram} g
             </Typography>
           </li>
           <li>
             <Typography>
               30일 * {amounts.foodPerDayAsGram} g 
-              = {amounts.foodPerMonthRounded}kg
+              = {amounts.foodPerMonthRounded} kg
             </Typography>
           </li>
         </ul>

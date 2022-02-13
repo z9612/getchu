@@ -1,18 +1,22 @@
 import React, {useState} from 'react';
 import { Box, Button } from '@mui/material';
 
+import { useRecoilValue } from 'recoil';
+import { goodsState } from '../teststate';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
-import HouseIcon from '@mui/icons-material/House';
 
 import './costsComponent.css'
 
 // 임시 사용
-import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
+// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
 
 const OtherCosts = (props) => {
+  // state goods 데이터
+  const goods = useRecoilValue(goodsState)
+
   const cost = {
     "other": 
     {
@@ -52,12 +56,6 @@ const OtherCosts = (props) => {
         <img className='cost-img' 
           src='https://media.istockphoto.com/photos/accessories-for-cat-and-dog-on-blue-background-pet-care-and-training-picture-id1248454290?k=20&m=1248454290&s=612x612&w=0&h=Ajti5uiVqrJ4Ll66-1JS3qfSwSwvSHBAK-dOyJDj8Ow=' alt='dog-supply' />
       </div>
-      {/* <div className='cost-icon'>
-        <HouseIcon 
-          sx={{
-            width: 70, height: 70, 
-          }} />
-      </div> */}
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
       >
@@ -65,6 +63,7 @@ const OtherCosts = (props) => {
         <div className='criteria'>(??? 기준)</div>
       </Box>
 
+      {/* 금액산정기준 on/off */}
       {
         !isShow
         ?
@@ -82,7 +81,7 @@ const OtherCosts = (props) => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          <ResultDogDetail dogData={ props.dogData } />
+          {/* <ResultDogDetail dogData={ props.dogData } /> */}
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

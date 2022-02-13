@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Box, Button } from '@mui/material';
 
+import { useRecoilValue } from 'recoil';
+import { medicalState } from '../teststate';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// import LocalHospitalOutlinedIcon from '@mui/icons-material/LocalHospitalOutlined';
-// import VaccinesIcon from '@mui/icons-material/Vaccines';
 
 import './costsComponent.css'
 
 
 // 임시 사용
-import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
+// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
 const MedicalCosts = (props) => {
+  // state medical 데이터
+  const medical = useRecoilValue(medicalState)
 
   const cost = {
     "medical": 
@@ -26,12 +29,9 @@ const MedicalCosts = (props) => {
   }
 
   const [isShow, setIsShow] = useState(false)
-  // console.log(isShow)
 
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
-    // console.log('button 확인용')
-    // console.log(isShow)
   }
 
   return (
@@ -44,6 +44,7 @@ const MedicalCosts = (props) => {
       }}
       py={1}
     >
+      {/* 의료비용 관련 title, img */}
       <div className='cost-title'>
         의료비용
       </div>
@@ -51,20 +52,12 @@ const MedicalCosts = (props) => {
         <img className='cost-img'
           src='https://images.squarespace-cdn.com/content/v1/5aa0bf73af2096458586fb17/1547932498065-AUGFM6FAS19VW32LMSHR/MPC_Dog_Vaccine_Main.jpg?format=1000w' alt='dog-vaccine' />
       </div>
-      {/* <div className='cost-icon'>
-        <VaccinesIcon 
-          sx={{
-            // color: '#b1b1b1', 
-            width: 70, height: 70, 
-            // border: 5, borderRadius: '100%'
-          }} />
-      </div> */}
 
-      {/* cost 변경 필요 */}
+      {/* cost, 기준? 변경 필요 */}
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
-        <div className='cost-cost'>■ { cost.medical['a-cost'] }원</div>
+        <div className='cost-cost'>■ a원</div>
         <div className='criteria'>(A 비용)</div>
       </Box>
 
@@ -72,7 +65,7 @@ const MedicalCosts = (props) => {
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
-        <div className='cost-cost'>■ { cost.medical['b-cost'] }원</div>
+        <div className='cost-cost'>■ b원</div>
         <div className='criteria'>(B 비용)</div>
       </Box>
       
@@ -80,10 +73,11 @@ const MedicalCosts = (props) => {
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
       >
-        <div className='cost-cost'>■ { cost.medical['c-cost'] }원</div>
+        <div className='cost-cost'>■ c원</div>
         <div className='criteria'>(C 비용)</div>
       </Box>
 
+      {/* 금액산정기준 on/off */}
       {
         !isShow
         ?
@@ -101,7 +95,7 @@ const MedicalCosts = (props) => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          <ResultDogDetail dogData={ props.dogData } />
+          {/* <ResultDogDetail dogData={ props.dogData } /> */}
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

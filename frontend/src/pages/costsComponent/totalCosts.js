@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button } from '@mui/material';
+import axios from 'axios';
+
+import { useRecoilValue } from 'recoil';
+// import { foodState } from '../teststate';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -7,12 +11,25 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import './costsComponent.css'
 
 // 임시 사용
-import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
+// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
 const TotalCosts = (props) => {
 
+  const [dog, setDog] = useState([])
+    
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: `/dog/findByName?name=${props.breed}`
+    })
+    .then(res => {
+      const dogdog = res.data
+      setDog([dogdog])
+    })
+  }, [props.breed])
+
+
   const [isShow, setIsShow] = useState(false)
-  // console.log(isShow)
 
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
@@ -28,8 +45,19 @@ const TotalCosts = (props) => {
       }}
       py={1}
     >
+
       {/* 견종명, 이미지 */}
-      <div className='cost-title'>
+      { dog.map(data => 
+        <div key={data}>
+          <div className='cost-title'>
+            "{data.name}"의 첫 1년 비용은?
+          </div>
+          <img className='cost-dog-img'
+          src= { data.image }
+          alt='dog_img' />      
+        </div>
+      )}
+      {/* <div className='cost-title'>
         "{ props.dogData.name }"의 첫 1년 비용은?
       </div>
       <img className='cost-dog-img'
@@ -43,7 +71,7 @@ const TotalCosts = (props) => {
       </Box>
 
 
-      {/* 금액산정기준 */}
+      {/* 금액산정기준 on/off */}
       {
         !isShow
         ?

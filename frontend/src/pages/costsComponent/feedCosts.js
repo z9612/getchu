@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
+import { useRecoilState } from 'recoil';
 import { Box, Button } from '@mui/material';
 
 import { useRecoilValue } from 'recoil';
@@ -7,6 +8,8 @@ import { foodState } from '../teststate';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import FoodPage from '../estimate/food/FoodPage';
+import { foodSumState } from './state';
 import './costsComponent.css'
 
 // 임시 사용
@@ -26,7 +29,31 @@ const FeedCosts = () => {
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
   }
-  
+
+  const getWeightAvg = () => {
+    const weight_min = Number(props.dogData.weight_min)
+    const weight_max = Number(props.dogData.weight_max)
+    return (weight_min + weight_max) / 2
+  }
+  const weight = getWeightAvg()
+  const foodPerDay = weight * 0.02
+  const foodPerDayAsGram = Math.round(foodPerDay * 1000)
+  const foodPerMonth = foodPerDay * 30
+  const foodPerMonthRounded = Math.round(foodPerMonth * 10) / 10
+  const amounts = {
+    weight,
+    foodPerDay, 
+    foodPerDayAsGram, 
+    foodPerMonth,
+    foodPerMonthRounded
+  }
+  const price = 20000;
+
+  const [foodSum, setFoodSum] = useRecoilState(foodSumState)
+  useEffect(() => {
+    setFoodSum(18 * price)
+  }, [])
+
   return (
     <Box
       sx={{
@@ -63,7 +90,7 @@ const FeedCosts = () => {
           }}
         >
           <div>■&nbsp;</div>
-          <div className='cost-cost'>???원</div>
+          <div className='cost-cost'>{ foodSum }원</div>
         </Box>
         <div className='criteria'>(한 달 기준)</div>
       </Box>
@@ -104,6 +131,7 @@ const FeedCosts = () => {
           </div>
           )}
           <div>{food.name}</div> */}
+          <FoodPage amounts={amounts}/>
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

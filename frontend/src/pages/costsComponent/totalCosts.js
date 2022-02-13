@@ -8,12 +8,14 @@ import { useRecoilValue } from 'recoil';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import { totalSumState } from './state';
 import './costsComponent.css'
 
 // 임시 사용
 // import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
 const TotalCosts = (props) => {
+  const totalSum = useRecoilValue(totalSumState);
 
   const [dog, setDog] = useState([])
     
@@ -67,7 +69,7 @@ const TotalCosts = (props) => {
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
-        <div className='cost-cost'>■ 원</div>
+        <div className='cost-cost'>■ {totalSum} 원</div>
       </Box>
 
 

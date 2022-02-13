@@ -28,4 +28,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
     @Modifying //Insert, Update, Delete 구문에 꼭 넣어줘야한다.
     @Transactional //메서드 테스트시 rollback 해준다
     int deleteUser(String email);
+
+
 }

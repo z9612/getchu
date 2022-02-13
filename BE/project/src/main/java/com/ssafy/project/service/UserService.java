@@ -9,5 +9,6 @@ public interface UserService {
     UserEntity getInfo(String email);
 
     boolean deleteUser(String email);
+    boolean updateUser(UserEntity userEntity);
 
 }

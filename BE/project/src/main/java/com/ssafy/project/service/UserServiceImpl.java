@@ -39,6 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public boolean deleteUser(String email) {
 
         if (repo.deleteUser(email) == 1) {
@@ -46,6 +47,16 @@ public class UserServiceImpl implements UserService {
         } else {
             return false;
 
+        }
+    }
+
+    @Override
+    @Transactional
+    public boolean updateUser(UserEntity userEntity) {
+        if(repo.save(userEntity) != null){
+            return true;
+        }else{
+            return false;
         }
     }
 

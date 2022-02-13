@@ -2,6 +2,6 @@ package com.ssafy.project.domain.estimate;
 
 public interface FeedPriceResult {
     String getName();
-    String getDogFeedPrice();
+    Integer getDogFeedPrice();
     String getImage();
 }

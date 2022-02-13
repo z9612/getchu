@@ -29,7 +29,7 @@ public class UserEntity {
 	@ApiModelProperty(value = "MBTI")
 	private String mbti;
 	@ApiModelProperty(value = "원하는 개")
-	private int wish_dog;
+	private String wish_dog;
 	@ApiModelProperty(value = "프로필사진")
 	private String image;
 	@ApiModelProperty(value = "가입날짜")

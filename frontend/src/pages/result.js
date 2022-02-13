@@ -7,11 +7,9 @@ import ResultBody from './resultComponent/resultBody';
 import './result.css'
 
 const Result = () => {
-  // 이전 주소에서 넘겨받은 인자 (개 특징 정보)
+  // 이전 페이지에서 견종 정보 배열 (Array) 받음
   const { state } = useLocation();
-  for (const key in state) {
-    console.log(key, state[key]);
-  }
+  console.log(state);
 
   return (
     <div>

@@ -5,7 +5,7 @@ import FoodDetailAmount from './FoodDetailAmount';
 import FoodDetailPrice from './FoodDetailPrice';
 import FoodFooter from './FoodFooter';
 
-const FoodPage = ({ amounts }) => {
+const FoodPage = () => {
   const [expanded, setExpanded] = useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -18,13 +18,11 @@ const FoodPage = ({ amounts }) => {
     >
       <main>
         <FoodDetailAmount 
-          amounts={amounts}
           handleChange={handleChange}
           expanded={expanded}
           index={1}
         />
         <FoodDetailPrice 
-          amounts={amounts}
           handleChange={handleChange}
           expanded={expanded}
           index={2}

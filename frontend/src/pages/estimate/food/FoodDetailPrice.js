@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useSetRecoilState } from 'recoil';
+import { useEffect, useState } from 'react'
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   Accordion,
   AccordionSummary,
@@ -10,32 +10,29 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import FoodDetailPriceList from './FoodDetailPriceList';
 import { foodSumState } from '../../costsComponent/state';
-import foodList from './foodContent';
+import { foodState } from '../../teststate';
 import currency from '../currencyFormatter';
 
 const FoodDetailPrice = ({ 
-  amounts,
   expanded,
   handleChange, 
   index 
 }) => {
-  const middleIndex = parseInt(foodList.length / 2)
-  const [foodIndex, setFoodIndex] = useState(middleIndex)
+  const foodList = useRecoilValue(foodState)
+  // const middleIndex = parseInt(foodList.length / 2)
+  const [foodIndex, setFoodIndex] = useState(0)
   
   const setFoodSum = useSetRecoilState(foodSumState)
   
   const changeFoodIndex = (event) => {
-    const amount = amounts.foodPerMonthRounded
-
-    const prevIndex = foodIndex
-    const prevPrice = Number(foodList[prevIndex].price) * amount
-    
     const newIndex = event.target.value
-    const newPrice = Number(foodList[newIndex].price) * amount
-    
-    setFoodSum(prev => Number(prev) - prevPrice + newPrice)
     setFoodIndex(newIndex)
   }
+
+  useEffect(() => {
+    const newPrice = foodList[foodIndex].dogFeedPrice
+    setFoodSum(newPrice)
+  }, [foodList, foodIndex, setFoodSum])
 
   return (
     <Accordion 
@@ -50,7 +47,7 @@ const FoodDetailPrice = ({
       >
         {/* 좌측 제목 */}
         <Typography sx={{ width: '50%', flexShrink: 0 }}>
-          {currency(foodList[foodIndex].price)}
+          {currency(foodList[foodIndex].productPricePerWeight)}
         </Typography>
 
         {/* 우측 부제목 */}

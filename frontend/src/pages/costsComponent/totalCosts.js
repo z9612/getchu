@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Button } from '@mui/material';
 import axios from 'axios';
-
+import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-// import { foodState } from '../teststate';
+import { Box, Button } from '@mui/material';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
 import { totalSumState } from './state';
+// import { foodState } from '../teststate';
+import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'
 
 // 임시 사용
@@ -64,12 +63,12 @@ const TotalCosts = (props) => {
       </div>
       <img className='cost-dog-img'
         src= { props.dogData.image }
-        alt='dog_img' />
+        alt='dog_img' /> */}
 
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
-        <div className='cost-cost'>■ {totalSum} 원</div>
+        <div className='cost-cost'>■ { currency(totalSum) }</div>
       </Box>
 
 

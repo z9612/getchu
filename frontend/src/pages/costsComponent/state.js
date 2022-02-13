@@ -1,5 +1,10 @@
 import { atom, selector } from 'recoil';
 
+export const foodAmountState = atom({
+  key: 'foodAmountState',
+  default: {},
+})
+
 export const foodSumState = atom({
   key: 'foodSumState',
   default: 0,

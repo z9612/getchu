@@ -8,10 +8,8 @@ import com.ssafy.project.domain.estimate.PriceResult;
 
 public interface EstimateService {
 	List<EstimateEntity> findAll();
-	EstimateEntity getEstimate(String name);
-
 	List<PriceResult> getFeedPrice(String name);
 	List<EstimateResult> getHealthPrice(String name);
-	List<PriceResult> getToolsPrice(String name);
+	List<PriceResult> getEstimate(String name);
 	EstimateResult getDesexualization(String sex);
 }

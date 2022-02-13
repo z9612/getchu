@@ -12,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -112,41 +114,37 @@ public class UserController {
 
 	@ApiOperation(value = "회원 가입", notes = "회원 정보를 입력받아 가입한다.", response = UserJoinResponse.class)
 	@PostMapping
-	public boolean register(
+	public boolean join(
 			@RequestBody @ApiParam(value = "가입을 요청할 회원 정보", required = true) UserJoinRequest userJoinRequest)
 			throws Exception {
 
-		return service.registerUser(userJoinRequest);
+		return service.joinUser(userJoinRequest);
 	}
 
 	@ApiOperation(value = "회원 정보 보기", notes = "이메일에 해당하는 회원의 정보를 반환한다.", response = UserEntity.class)
 	@GetMapping("/{userid}")
-	public UserEntity getInfo(@PathVariable("userid") @ApiParam(value = "정보를 얻어올 회원 아이디", required = true) String email) throws Exception {
+	public UserEntity getInfo(@PathVariable("userid") @ApiParam(value = "정보를 얻어올 회원 아이디", required = true) String email)
+			throws Exception {
 		return service.getInfo(email);
 	}
 
-	// @ApiOperation(value = "회원 정보 수정", notes = "수정할 회원 정보를 입력한다. 그리고 DB수정 성공여부에 따라
-	// 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
+	// @ApiOperation(value = "회원 정보 수정", notes = "수정할 회원 정보를 입력한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	// @PutMapping
-	// public ResponseEntity<String> modify(@RequestBody @ApiParam(value = "수정할 회원
-	// 정보", required = true) MemberDto memberDto) throws Exception {
-	// if (memberService.updateMember(memberDto)) {
+	// public ResponseEntity<String> modify(@RequestBody @ApiParam(value = "수정할 회원 정보", required = true) MemberDto memberDto) throws Exception {
+	// if (service.updateUser(memberDto)) {
 	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	// }
 	// return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	// }
 
-	// @ApiOperation(value = "회원 탈퇴", notes = "아이디에 해당하는 회원 정보를 삭제한다. 그리고 DB삭제 성공여부에
-	// 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
-	// @DeleteMapping("/{userid}")
-	// public ResponseEntity<String> delete(@PathVariable("userid") @ApiParam(value
-	// = "삭제할 회원의 아이디", required = true) String userid) throws Exception {
-	// System.out.println(">>>" + userid);
-	// if (memberService.deleteMember(userid)) {
-	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	// }
-	// return new ResponseEntity<String>(FAIL, HttpStatus.OK);
-	// }
+	@ApiOperation(value = "회원 탈퇴", notes = "이메일에 해당하는 회원 정보를 삭제한다. 그리고 DB삭제 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
+	@DeleteMapping("/{email}")
+	public ResponseEntity<String> delete(@PathVariable("email") @ApiParam(value = "삭제할 회원의 이메일", required = true) String email) throws Exception {
+	if (service.deleteUser(email)) {
+	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
+	return new ResponseEntity<String>(FAIL, HttpStatus.OK);
+	}
 
 	// @ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
 	// @GetMapping("/logout")

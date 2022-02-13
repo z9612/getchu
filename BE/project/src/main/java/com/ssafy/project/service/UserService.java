@@ -4,7 +4,10 @@ import com.ssafy.project.domain.user.UserEntity;
 import com.ssafy.project.domain.user.UserJoinRequest;
 
 public interface UserService {
-    boolean registerUser(UserJoinRequest userJoinRequest) throws Exception;
+    boolean joinUser(UserJoinRequest userJoinRequest) throws Exception;
     int idCheck(String email);
     UserEntity getInfo(String email);
+
+    boolean deleteUser(String email);
+
 }

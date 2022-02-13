@@ -13,13 +13,19 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
     @Query(nativeQuery = true, value = "insert into user(email,password,nickname) values(:#{#entity.email},:#{#entity.password},:#{#entity.nickname})")
-    @Modifying
-    @Transactional
-    void userRegister(UserEntity entity);
+    @Modifying //Insert, Update, Delete 구문에 꼭 넣어줘야한다.
+    @Transactional //메서드 테스트시 rollback 해준다
+    int joinUser(UserEntity entity);
 
     @Query(nativeQuery = true, value = "select count(*) from user where email=:email")
     int idCheck(String email);
 
     @Query(nativeQuery = true, value = "select * from user where email=:email")
     UserEntity getInfo(String email);
+
+
+    @Query(nativeQuery = true, value = "delete from user where email=:email")
+    @Modifying //Insert, Update, Delete 구문에 꼭 넣어줘야한다.
+    @Transactional //메서드 테스트시 rollback 해준다
+    int deleteUser(String email);
 }

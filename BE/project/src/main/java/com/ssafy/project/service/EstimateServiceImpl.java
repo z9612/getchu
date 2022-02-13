@@ -22,12 +22,6 @@ public class EstimateServiceImpl implements EstimateService {
     }
 
     @Override
-    public EstimateEntity getEstimate(String name) {
-
-        return repo.getEstimate(name);
-    }
-
-    @Override
     public List<PriceResult> getFeedPrice(String name) {
         return repo.getFeedPrice(name);
     }
@@ -39,8 +33,8 @@ public class EstimateServiceImpl implements EstimateService {
 
     
     @Override
-    public List<PriceResult> getToolsPrice(String name) {
-        return repo.getToolsPrice(name);
+    public List<PriceResult> getEstimate(String name) {
+        return repo.getEstimate(name);
     }
 
     @Override

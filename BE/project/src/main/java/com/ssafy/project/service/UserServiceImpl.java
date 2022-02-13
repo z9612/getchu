@@ -17,17 +17,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public boolean registerUser(UserJoinRequest userJoinRequest) throws Exception {
+    public boolean joinUser(UserJoinRequest userJoinRequest) throws Exception {
         UserEntity entity = userJoinRequest.toEntity();
 
-        System.out.println(entity.getEmail());
-        System.out.println(entity.getPassword());
-        System.out.println(entity.getNickname());
+        if (repo.joinUser(entity) == 1) {
+            return true;
+        } else {
+            return false;
 
-        repo.userRegister(entity);
-
-        System.out.println("here2");
-        return true;
+        }
     }
 
     @Override
@@ -38,6 +36,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity getInfo(String email) {
         return repo.getInfo(email);
+    }
+
+    @Override
+    public boolean deleteUser(String email) {
+
+        if (repo.deleteUser(email) == 1) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
 
 }

@@ -98,22 +98,6 @@ const ResultBody = () => {
       "physical_Potential_For_Playfulness": 4,
       "image": "https://www.dogtime.com/assets/uploads/2011/01/file_23024_greyhound-300x189.jpg",
       "mbti": "INTP"
-    },
-    {
-      name: '닥스훈트',
-      image: 'https://www.dogtime.com/assets/uploads/2011/01/file_23020_dachshund-dog-breed-460x290.jpg',
-      personality: 'font랑 font-size를 어떻게/얼마나 바꿀지 고민해봐야 함',
-      hair: '임시-long',
-      hairloss: 3,
-      sample: 2
-    },
-    {
-      name: '닥스훈트 맞나?',
-      image: 'https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-      personality: '견종특징2 견종특징2 견종특징2 견종특징2 견종특징2 견종특징2 견종특징2 견종특징2 견종특징2 ',
-      hair: 'short',
-      hairloss: 5,
-      sample: 4
     }
   ]
 
@@ -162,18 +146,10 @@ const ResultBody = () => {
                 </Button>
               </Box>
           }
-          {/* {
-            isShow
-            && info
-          } */}
         </div>
       </div>
     )
   }
-
-  // const ToCosts = (dogName) => {
-  //   <Link to='/costs'/>
-  // }
 
   const dogInfoLoop = dogResultData.map((dog, index) => {
     return (
@@ -204,31 +180,13 @@ const ResultBody = () => {
               <ResultDogDetail dogData={ dog } />, dog
             )}
           </Grid>
-          
-        {/* <Button 
-          variant="text"
-          onClick={ ToCosts(dog.name) }
-        >견적 내러 가기</Button> */}
 
-        <Link to={`/costs/${dog.name}`}>
+        <Link to={`/cost/${dog.name}`}>
           <Button 
             variant="text"
-            // onClick={ ToCosts(dog.name) }
           >견적 내러 가기</Button>
         </Link>
-            
-        {/* <Link to={{
-          pathname: '/costs',
-          state: {
-            dogData: dog
-          }
-        }}>
-          <Button variant="text"
-          >견적 내러 가기</Button>
-        </Link> */}
         </Grid>
-
-        {/* 견적내러가기 */}
 
         <Divider variant='middle' />
       </div>

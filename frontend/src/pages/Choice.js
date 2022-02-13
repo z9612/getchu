@@ -1,4 +1,11 @@
 import * as React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
@@ -9,16 +16,19 @@ const images = [
     url: "img/MBTI.png",
     title: "MBTI",
     width: "40%",
+    link: "mbti",
   },
   {
     url: "img/lifestyle.jpg",
     title: "Life Style",
     width: "40%",
+    link: "lifeStyle",
   },
   {
     url: "img/dog.png",
     title: "Dog",
     width: "40%",
+    link: "dogTrait",
   },
 ];
 
@@ -99,12 +109,18 @@ export default function ButtonBases() {
     >
       {images.map((image) => (
         <ImageButton
+        onClick={() => { console.log(image.link); }}
           focusRipple
           key={image.title}
           style={{
             width: image.width,
           }}
         >
+        <Link
+            to={`/recommend/${image.link}`}
+            style={{ textDecoration: "none" }}
+          >
+
           <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
           <ImageBackdrop className="MuiImageBackdrop-root" />
           <Image>
@@ -123,6 +139,7 @@ export default function ButtonBases() {
               <ImageMarked className="MuiImageMarked-root" />
             </Typography>
           </Image>
+          </Link>
         </ImageButton>
       ))}
     </Box>

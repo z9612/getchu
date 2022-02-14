@@ -28,9 +28,11 @@ const useInitState = async (breed, setLoading) => {
   medicalData[6].defaultCheck = false
   setMedicalData(medicalData)
 
-  const goods = await estimateData.slice(14,23)
+  const goodsResponse = await axios.get(`/estimate/findAll`)
+  const goodsData = await goodsResponse.data
+  const goods = await goodsData.slice(14,23)
+  // console.log(goods);
   setGoodsData(goods)
-  // console.log(food)
 
   // 사료 금액 산정 기준 설명에 필요한 사료 양 저장
   const dogInfoResponse = await axios.get(`/dog/findByName?name=${breed}`)

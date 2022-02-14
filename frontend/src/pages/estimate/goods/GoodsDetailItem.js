@@ -14,11 +14,11 @@ const GoodsDetailItem = ({
       <div>
         <img 
           src={item.image} 
-          alt={item.title}
+          alt={item.name}
           width="100%"
         />
         <Typography align='center' height='50px'>
-          {item.title}
+          {item.name}
         </Typography>
       </div>
       <div>
@@ -29,7 +29,7 @@ const GoodsDetailItem = ({
             setChecked(!checked)
           }}
         />
-        {currency(item.price)}
+        {currency(item.price_avg)}
       </div>
     </Stack>
   )

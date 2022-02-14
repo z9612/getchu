@@ -1,4 +1,4 @@
-package com.ssafy.project.domain;
+package com.ssafy.project.domain.dog;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -64,9 +64,6 @@ public class DogEntity {
     private int physical_Potential_For_Playfulness;
     private String image;
     private String mbti;
-
-
-        
-
+    private int famous;
 }   
 

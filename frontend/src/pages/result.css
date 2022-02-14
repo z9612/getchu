@@ -1,0 +1,18 @@
+.result-arrange {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-retest {
+  padding-top: 20px;
+  padding-bottom: 25px;
+  text-align: center;
+  color: gray;
+}
+
+.result-retest-link {
+  /* text-decoration: none; */
+  color: gray;
+}

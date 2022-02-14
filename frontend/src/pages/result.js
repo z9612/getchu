@@ -9,7 +9,7 @@ import './result.css'
 const Result = () => {
   // 이전 페이지에서 견종 정보 배열 (Array) 받음
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
 
   return (
     <div>
@@ -17,7 +17,7 @@ const Result = () => {
         <ResultHeader />
       </div>
       <Divider variant='middle' />
-      <ResultBody />
+      <ResultBody dogData={ state } />
 
       <div className='result-retest'>
         {/* 링크 추가하기 */}

@@ -17,6 +17,7 @@ public class UpdateuserRequest {
     //dto -> entity
     public UserEntity toEntity(){
         return UserEntity.builder()
+            .email(email)
             .password(password)
             .nickname(nickname)
             .build();

@@ -1,5 +1,6 @@
 package com.ssafy.project.service;
 
+import com.ssafy.project.domain.user.UpdateuserRequest;
 import com.ssafy.project.domain.user.UserEntity;
 import com.ssafy.project.domain.user.UserJoinRequest;
 
@@ -9,6 +10,6 @@ public interface UserService {
     UserEntity getInfo(String email);
 
     boolean deleteUser(String email);
-    boolean updateUser(UserEntity userEntity);
+    boolean updateUser(UpdateuserRequest userRequest);
 
 }

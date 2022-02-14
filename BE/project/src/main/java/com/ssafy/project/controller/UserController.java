@@ -1,5 +1,9 @@
 package com.ssafy.project.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import com.ssafy.project.domain.user.UpdateuserRequest;
 import com.ssafy.project.domain.user.UserEntity;
 import com.ssafy.project.domain.user.UserJoinRequest;
 import com.ssafy.project.domain.user.UserJoinResponse;
@@ -54,32 +58,30 @@ public class UserController {
 		return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	}
 
-	// @ApiOperation(value = "회원 로그인", notes = "Access-token과 로그인 결과 메세지를 반환한다.",
-	// response = Map.class)
+	// @ApiOperation(value = "회원 로그인", notes = "Access-token과 로그인 결과 메세지를 반환한다.", response = Map.class)
 	// @PostMapping("/login")
-	// public ResponseEntity<Map<String, Object>> login(@RequestBody @ApiParam(value
-	// = "로그인 시 필요한 회원정보(아이디, 비밀번호).", required = true) MemberDto memberDto) {
-	// Map<String, Object> resultMap = new HashMap<>();
-	// HttpStatus status = null;
-	// try {
-	// MemberDto loginUser = memberService.login(memberDto);
-	// if (loginUser != null) {
-	// String token = jwtService.create("userid", loginUser.getUserid(),
-	// "access-token");// key, data, subject
-	// logger.debug("로그인 토큰정보 : {}", token);
-	// resultMap.put("access-token", token);
-	// resultMap.put("message", SUCCESS);
-	// status = HttpStatus.ACCEPTED;
-	// } else {
-	// resultMap.put("message", FAIL);
-	// status = HttpStatus.ACCEPTED;
-	// }
-	// } catch (Exception e) {
-	// logger.error("로그인 실패 : {}", e);
-	// resultMap.put("message", e.getMessage());
-	// status = HttpStatus.INTERNAL_SERVER_ERROR;
-	// }
-	// return new ResponseEntity<Map<String, Object>>(resultMap, status);
+	// public ResponseEntity<Map<String, Object>> login( @RequestBody @ApiParam(value = "로그인 시 필요한 회원정보(아이디, 비밀번호).", required = true) MemberDto memberDto) {
+	// 	Map<String, Object> resultMap = new HashMap<>();
+	// 	HttpStatus status = null;
+	// 	try {
+	// 		MemberDto loginUser = memberService.login(memberDto);
+	// 		if (loginUser != null) {
+	// 			String token = jwtService.create("userid", loginUser.getUserid(),
+	// 					"access-token");// key, data, subject
+	// 			logger.debug("로그인 토큰정보 : {}", token);
+	// 			resultMap.put("access-token", token);
+	// 			resultMap.put("message", SUCCESS);
+	// 			status = HttpStatus.ACCEPTED;
+	// 		} else {
+	// 			resultMap.put("message", FAIL);
+	// 			status = HttpStatus.ACCEPTED;
+	// 		}
+	// 	} catch (Exception e) {
+	// 		logger.error("로그인 실패 : {}", e);
+	// 		resultMap.put("message", e.getMessage());
+	// 		status = HttpStatus.INTERNAL_SERVER_ERROR;
+	// 	}
+	// 	return new ResponseEntity<Map<String, Object>>(resultMap, status);
 	// }
 
 	// @ApiOperation(value = "회원인증", notes = "회원 정보를 담은 Token을 반환한다.", response =
@@ -130,25 +132,28 @@ public class UserController {
 
 	@ApiOperation(value = "회원 정보 수정", notes = "수정할 회원 정보를 입력한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PutMapping
-	public ResponseEntity<String> modify(@RequestBody @ApiParam(value = "수정할 회원 정보", required = true) UserEntity userEntity) throws Exception {
-	if (service.updateUser(userEntity)) {
-	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	}
-	return new ResponseEntity<String>(FAIL, HttpStatus.OK);
+	public ResponseEntity<String> modify(
+			@RequestBody @ApiParam(value = "수정할 회원 정보", required = true) UpdateuserRequest userRequest)
+			throws Exception {
+		if (service.updateUser(userRequest)) {
+			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		}
+		return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "회원 탈퇴", notes = "이메일에 해당하는 회원 정보를 삭제한다. 그리고 DB삭제 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@DeleteMapping("/{email}")
-	public ResponseEntity<String> delete(@PathVariable("email") @ApiParam(value = "삭제할 회원의 이메일", required = true) String email) throws Exception {
-	if (service.deleteUser(email)) {
-	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	}
-	return new ResponseEntity<String>(FAIL, HttpStatus.OK);
+	public ResponseEntity<String> delete(
+			@PathVariable("email") @ApiParam(value = "삭제할 회원의 이메일", required = true) String email) throws Exception {
+		if (service.deleteUser(email)) {
+			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		}
+		return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
-	@GetMapping("/logout")
-	public ResponseEntity<String> logout() throws Exception {
-	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	}
+	// @ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
+	// @GetMapping("/logout")
+	// public ResponseEntity<String> logout() throws Exception {
+	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	// }
 }

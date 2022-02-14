@@ -64,9 +64,6 @@ public class DogEntity {
     private int physical_Potential_For_Playfulness;
     private String image;
     private String mbti;
-
-
-        
-
+    private int famous;
 }   
 

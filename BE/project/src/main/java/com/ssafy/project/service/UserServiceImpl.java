@@ -2,6 +2,7 @@ package com.ssafy.project.service;
 
 import javax.transaction.Transactional;
 
+import com.ssafy.project.domain.user.UpdateuserRequest;
 import com.ssafy.project.domain.user.UserEntity;
 import com.ssafy.project.domain.user.UserJoinRequest;
 import com.ssafy.project.repository.UserRepository;
@@ -46,14 +47,19 @@ public class UserServiceImpl implements UserService {
             return true;
         } else {
             return false;
-
         }
     }
 
     @Override
     @Transactional
-    public boolean updateUser(UserEntity userEntity) {
-        if(repo.save(userEntity) != null){
+    public boolean updateUser(UpdateuserRequest userRequest) {
+        UserEntity entity = userRequest.toEntity();
+
+        System.out.println(entity.getEmail());
+        System.out.println(entity.getPassword());
+        System.out.println(entity.getNickname());
+
+        if(repo.updateUser(entity) ==1){
             return true;
         }else{
             return false;

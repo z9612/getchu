@@ -53,5 +53,8 @@ public class EstimateEntity {
 
     @ApiModelProperty(required = false, value = "이미지 주소")
     private String image;
+    
+    @ApiModelProperty(required = false, value = "설명")
+    private String comment;
 
 }

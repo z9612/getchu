@@ -19,7 +19,7 @@ public interface EstimateRepository extends JpaRepository<EstimateEntity, Intege
         List<FullEstimate> getEstimate(String name);
 
         // 한 달 사료 값 정보 출력
-        @Query(nativeQuery = true, value = "select e.name,round( ((d.weight_min+d.weight_max) /2)*0.025*30 * (e.price_avg/e.weight),0) as dogFeedPrice, e.image from estimate e join dog d where e.category_second = 'food' and d.name =:name order by dogFeedPrice")
+        @Query(nativeQuery = true, value = "select e.name,round( ((d.weight_min+d.weight_max) /2)*0.025*30 * (e.price_avg/e.weight),0) as dogFeedPrice, e.image, e.comment from estimate e join dog d where e.category_second = 'food' and d.name =:name order by dogFeedPrice")
         public List<FeedPriceResult> getFeedPrice(String name);
 
         // 의료 정보 출력

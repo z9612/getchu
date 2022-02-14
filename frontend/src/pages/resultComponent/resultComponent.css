@@ -1,0 +1,85 @@
+/* resultHeader */
+.result-header {
+  padding: 15px 20px;
+  text-align: center;
+
+}
+.result-header-text {
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: left;
+}
+
+/* resultBody */
+
+.show-more {
+  text-align: center;
+  padding: 10px 0;
+  transition: 1s;
+}
+.show-more-color {
+  color: black;
+}
+
+.result-dog-img {
+  width: 100px;
+  height: 100px;
+
+  /* max-width: 130px; */
+  /* max-height: 130px; */
+
+  display: block;
+  object-fit: contain;
+  /* margin: auto 10px; */
+  margin: 10px auto;
+  border-radius: 100%;
+  border: 5px solid #b1b1b1;
+}
+
+
+/*                     */
+/* resultBodyComponent */
+/*                     */
+.result-dog-breed {
+  font-weight: 700;
+  text-align: center;
+}
+.result-dog-personality {
+  max-width: 100%;
+  display: block;
+  /* display: -webkit-box; */
+  /* -webkit-line-clamp: 3; */
+  /* -webkit-box-orient: vertical; */
+  /* font-size: 15px; */
+  max-height: 84px;
+  /* max-height: 700px; */
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+
+  /* white-space: initial; */
+
+  text-align: left;
+
+}
+
+
+/* resultDogDetail */
+.result-info {
+
+  text-align: center;
+}
+
+.result-dog-info {
+  margin: 5px 0;
+  text-align: 30%;
+  font-weight: bold;
+  /* text-align: left; */
+}
+
+.row-arrange {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

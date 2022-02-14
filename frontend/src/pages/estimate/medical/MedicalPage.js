@@ -1,13 +1,23 @@
 import { useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { Stack } from '@mui/material';
 
-import MedicalHeader from './MedicalHeader';
 import MedicalDetail from './MedicalDetail';
 import MedicalFooter from './MedicalFooter';
-import medicalContent from './medicalContent';
+import { medicalState } from '../../teststate';
+import { medicalSumState } from '../../costsComponent/state';
 
-const EstimateDetailPage = () => {
-  const [sum, setSum] = useState(0)
+const MedicalPage = () => {
+  const medicalList = useRecoilValue(medicalState)
+  const setMedicalSum = useSetRecoilState(medicalSumState)
+
+  const changeSumByIndex = (index, checked) => {
+    // console.log(medicalList, index, checked);
+    const price = medicalList[index].avg
+    const diff = checked ? -price : price
+    setMedicalSum(prev => prev + diff)
+  }
+
   const [expanded, setExpanded] = useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -15,24 +25,19 @@ const EstimateDetailPage = () => {
 
   return (
     <Stack
-      height="90vh"
       direction="column"
       alignItems="stretch"
       justifyContent="space-between"
     >
-      <MedicalHeader sum={sum} />
       <main>
-        {medicalContent.map(content => (
+        {medicalList.map((medical, index) => (
           <MedicalDetail
-            sum={content.price}
-            title={content.title}
-            detail={content.detail}
-            checkDefault={content.checkDefault}
-            
+            medical={medical}
             expanded={expanded}
             handleChange={handleChange}
-            setSum={setSum}
-            key={content.title}
+            index={index}
+            changeSumByIndex={changeSumByIndex}
+            key={medical.name}
           /> 
         ))} 
       </main>
@@ -41,4 +46,4 @@ const EstimateDetailPage = () => {
   );
 }
 
-export default EstimateDetailPage;
+export default MedicalPage;

@@ -23,7 +23,7 @@ export const goodsSumState = atom({
 export const totalSumState = selector({
   key: 'totalSumState',
   get: ({ get }) => (
-    get(foodSumState) + 
+    get(foodSumState) * 12 + 
     get(medicalSumState) + 
     get(goodsSumState)
   )

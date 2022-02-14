@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
-
-import { useRecoilValue } from 'recoil';
-import { medicalState } from '../teststate';
-
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import MedicalPage from '../estimate/medical/MedicalPage';
+import { medicalState } from '../teststate';
+import { medicalSumState } from './state';
+import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'
 
 
 // 임시 사용
 // import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
-const MedicalCosts = (props) => {
+const MedicalCosts = () => {
   // state medical 데이터
-  const medical = useRecoilValue(medicalState)
-
-  const cost = {
-    "medical": 
-    {
-      "a-cost": 100000,
-      "b-cost": 150000,
-      "c-cost": 120000,
-      "d-cost": 130000,
-      "e-cost": 140000,
-    }
-  }
+  const medicalList = useRecoilValue(medicalState)
+  const [medicalSum, setMedicalSum] = useRecoilState(medicalSumState)
+  
+  useEffect(() => {
+    const vaccinationList = medicalList.slice(0, 5)
+    console.log(vaccinationList);
+    const medicalSumTemp = vaccinationList.reduce((acc, cur) => {
+      return acc + cur.avg
+    }, 0)
+    setMedicalSum(medicalSumTemp)
+  }, [])
 
   const [isShow, setIsShow] = useState(false)
 
@@ -57,24 +57,8 @@ const MedicalCosts = (props) => {
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
-        <div className='cost-cost'>■ a원</div>
-        <div className='criteria'>(A 비용)</div>
-      </Box>
-
-      {/* cost 변경 필요 */}
-      <Box
-        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
-        >
-        <div className='cost-cost'>■ b원</div>
-        <div className='criteria'>(B 비용)</div>
-      </Box>
-      
-      {/* cost 변경 필요 */}
-      <Box
-        sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
-      >
-        <div className='cost-cost'>■ c원</div>
-        <div className='criteria'>(C 비용)</div>
+        <div className='cost-cost'>■ { currency(medicalSum) }</div>
+        <div className='criteria'>(1년 기준)</div>
       </Box>
 
       {/* 금액산정기준 on/off */}
@@ -96,6 +80,7 @@ const MedicalCosts = (props) => {
 
           {/* 비용 상세정보 가져오기 */}
           {/* <ResultDogDetail dogData={ props.dogData } /> */}
+          <MedicalPage />
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

@@ -19,8 +19,14 @@ const useInitState = async (breed, setLoading) => {
   const food = await estimateData.slice(0,7)
   setFoodData(food)
 
-  const medical = await estimateData.slice(7,14)
-  setMedicalData(medical)
+  const medicalResponse = await axios.get(`/estimate/health?name=${breed}`)
+  const medicalData = await medicalResponse.data
+  medicalData.forEach((medical) => {
+    medical.defaultCheck = true
+  })
+  medicalData[5].defaultCheck = false
+  medicalData[6].defaultCheck = false
+  setMedicalData(medicalData)
 
   const goods = await estimateData.slice(14,23)
   setGoodsData(goods)

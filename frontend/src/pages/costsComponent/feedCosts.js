@@ -1,34 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
-
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import FoodPage from '../estimate/food/FoodPage';
+import currency from '../estimate/currencyFormatter';
+import { foodSumState } from './state';
+import { foodState } from '../teststate';
 import './costsComponent.css'
 
 // 임시 사용
-import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
+// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
 
 
-const FeedCosts = (props) => {
-
-  const cost = {
-    "feed": 
-    {
-      "avg-cost" : 33000,
-      "a-cost": 11000,
-      "b-cost": 22000,
-      "c-cost": 33000,
-      "d-cost": 44000,
-      "e-cost": 55000,
-    }
-  }
-
+const FeedCosts = () => {
+  // state food 데이터
+  const [foodSum, setFoodSum] = useRecoilState(foodSumState)
+  const foodList = useRecoilValue(foodState)
+  
   const [isShow, setIsShow] = useState(false)
-
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
   }
+  
+  useEffect(() => {
+    if (foodList[0]) {
+      setFoodSum(Number(foodList[0].dogFeedPrice))
+    }
+  }, [])
   
   return (
     <Box
@@ -40,13 +40,12 @@ const FeedCosts = (props) => {
       }}
       py={1}
     >
-      {/* 견종명, 이미지 */}
+      {/* 사료 관련 title, img */}
       <div className='cost-title'>
         {/* "{ props.dogData.name }"의 사료값 */}
         사료
       </div>
       <img className='cost-img'
-        // src= { props.dogData.image }
         src= 'https://images.medicanimal.com/image/upload/v1564586575/pethub/dry_food.jpg'
         alt='dog_img' />
       
@@ -58,7 +57,7 @@ const FeedCosts = (props) => {
           width: '65%'
         }}
       >
-        {/* 한 달 비용 */}
+        {/* 한 달 비용 출력 */}
         <Box
           sx={{
             display: 'flex',
@@ -66,13 +65,13 @@ const FeedCosts = (props) => {
             // justifyContent: 'center',
           }}
         >
-          {/* <div><SquareIcon fontSize='small' /></div> */}
           <div>■&nbsp;</div>
-          <div className='cost-cost'>{ cost.feed['avg-cost'] }원</div>
+          <div className='cost-cost'>{ currency(foodSum) }</div>
         </Box>
         <div className='criteria'>(한 달 기준)</div>
       </Box>
 
+      {/* 금액산정기준 on/off */}
       {
         !isShow
         ?
@@ -92,7 +91,23 @@ const FeedCosts = (props) => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          <ResultDogDetail dogData={ props.dogData } />
+          {/* <ResultDogDetail dogData={ props.dogData } /> */}
+
+          {/* 비용 확인용 */}
+          {/* <div>test</div>
+          { food.map(data => 
+          <div key={data.name}>
+            <div className='cost-title'>
+              "{data.name}"
+              "{data.price}"
+            </div>
+            <img className='cost-dog-img'
+            src= { data.image }
+            alt='dog_img' />      
+          </div>
+          )}
+          <div>{food.name}</div> */}
+          <FoodPage />
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

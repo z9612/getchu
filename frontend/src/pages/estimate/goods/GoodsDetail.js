@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRecoilValue, useRecoilState } from 'recoil'
 import {
   Accordion,
   AccordionSummary,
@@ -9,23 +10,22 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import GoodsDetailItem from './GoodsDetailItem';
+import { goodsState } from '../../teststate';
+import { goodsSumState } from '../../costsComponent/state'
 import currency from '../currencyFormatter';
 
 const GoodsDetail = ({ 
   accordionIndex,
   accordionExpanded,
   expandAccordion,
-  goodsContent
 }) => {
-  const defaultSum = goodsContent.reduce((acc, cur) => {
-    return acc + Number(cur.price)
-  }, 0)
-  const [sum, setSum] = useState(defaultSum)
+  const goods = useRecoilValue(goodsState)
+  const [goodsSum, setGoodsSum] = useRecoilState(goodsSumState)
 
   const changeSumByIndex = (index, checked) => {
-    const price = Number(goodsContent[index].price)
+    const price = Number(goods[index].price_avg)
     const diff = checked ? -price : price
-    setSum(prev => prev + diff)
+    setGoodsSum(prev => prev + diff)
   }
 
   return (
@@ -41,7 +41,7 @@ const GoodsDetail = ({
       >
         {/* 좌측 제목 */}
         <Typography sx={{ width: '50%', flexShrink: 0 }}>
-          {currency(sum)}
+          { currency(goodsSum) }
         </Typography>
 
         {/* 우측 부제목 */}
@@ -53,8 +53,10 @@ const GoodsDetail = ({
       {/* 세부 내용 부분 */}
       <AccordionDetails>
         <Grid container>
-          {goodsContent.map((item, index) => (
-            <Grid item xs={6} sm={4} md={3} lg={2} >
+          {goods.map((item, index) => (
+            <Grid item xs={6} sm={4} md={3} lg={2}
+              key={index}
+            >
               <GoodsDetailItem 
                 item={item} 
                 index={index}

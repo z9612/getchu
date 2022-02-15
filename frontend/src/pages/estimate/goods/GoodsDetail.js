@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useRecoilValue, useRecoilState } from 'recoil'
 import {
   Accordion,
@@ -19,13 +18,23 @@ const GoodsDetail = ({
   accordionExpanded,
   expandAccordion,
 }) => {
-  const goods = useRecoilValue(goodsState)
+  const [goods, setGoods] = useRecoilState(goodsState)
   const [goodsSum, setGoodsSum] = useRecoilState(goodsSumState)
 
   const changeSumByIndex = (index, checked) => {
     const price = Number(goods[index].price_avg)
     const diff = checked ? -price : price
     setGoodsSum(prev => prev + diff)
+
+    const newList = goods.map((item, idx) => {
+      if (idx == index) {
+        return {...item, checked: !checked}
+      } else {
+        return {...item}
+      }
+    })
+    // console.log(newList)
+    setGoods(newList)
   }
 
   return (

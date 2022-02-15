@@ -13,6 +13,7 @@ import getFoodAmount from '../estimate/food/getFoodAmount'
 
 const useInitState = async (breed, setLoading) => {
   // state 데이터 변경 위해 Recoil 상태들 선언
+  // 주의: async 함수에서 상태 선언은 위쪽에 있어야 함
   const setFoodData = useSetRecoilState(foodState)
   const setFoodSum = useSetRecoilState(foodSumState)
   const setFoodAmount = useSetRecoilState(foodAmountState)
@@ -53,12 +54,19 @@ const useInitState = async (breed, setLoading) => {
   setMedicalSum(medicalSum)
 
   /** 물품비 관련 상태 설정 */
-  
   const goodsResponse = await axios.get(`/estimate/findAll`)
   const goodsData = await goodsResponse.data
   const goods = await goodsData.slice(14,23)
   // console.log(goods);
-  setGoodsData(goods)
+  const goodsCheckable = goods.map((each) => {
+    return {...each, checked: true}
+  })
+  setGoodsData(goodsCheckable)
+
+  const goodsSum = goodsCheckable.reduce((prev, cur) => {
+    return prev + cur.price_avg
+  }, 0)
+  setGoodsSum(goodsSum)
 
   setLoading(false)
   console.log('init')

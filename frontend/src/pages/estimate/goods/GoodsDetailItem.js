@@ -7,8 +7,6 @@ const GoodsDetailItem = ({
   index,
   changeSumByIndex
 }) => {
-  const [checked, setChecked] = useState(true)
-
   return (
     <Stack>
       <div>
@@ -23,10 +21,9 @@ const GoodsDetailItem = ({
       </div>
       <div>
         <Checkbox 
-          checked={checked}
+          checked={item.checked}
           onClick={() => {
-            changeSumByIndex(index, checked)
-            setChecked(!checked)
+            changeSumByIndex(index, item.checked)
           }}
         />
         {currency(item.price_avg)}

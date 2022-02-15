@@ -58,6 +58,7 @@ const DogInfo = (props) => {
                   { props.dogData.height_min }~{ props.dogData.height_max } (cm)
                 </div>
               </Box>
+              <div className='explanation-2'>(성견 기준의 체중과 신장입니다.)</div>
             </Box>
           </AccordionSummary>
         </Accordion>

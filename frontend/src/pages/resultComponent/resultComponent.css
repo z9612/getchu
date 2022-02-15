@@ -87,4 +87,10 @@
 .explanation {
   font-size: 12px;
   color: gray;
+  /* text-align: end; */
+}
+.explanation-2 {
+  font-size: 12px;
+  color: gray;
+  text-align: end;
 }

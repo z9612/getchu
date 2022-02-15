@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Stack } from '@mui/material';
 
 import MedicalDetail from './MedicalDetail';
@@ -8,7 +8,7 @@ import { medicalState } from '../../teststate';
 import { medicalSumState } from '../../costsComponent/state';
 
 const MedicalPage = () => {
-  const medicalList = useRecoilValue(medicalState)
+  const [medicalList, setMedicalList] = useRecoilState(medicalState)
   const setMedicalSum = useSetRecoilState(medicalSumState)
 
   const changeSumByIndex = (index, checked) => {
@@ -16,6 +16,16 @@ const MedicalPage = () => {
     const price = medicalList[index].avg
     const diff = checked ? -price : price
     setMedicalSum(prev => prev + diff)
+
+    const newList = medicalList.map((medical, idx) => {
+      if (idx == index) {
+        return {...medical, defaultCheck: !checked}
+      } else {
+        return {...medical}
+      }
+    })
+    // console.log(newList)
+    setMedicalList(newList)
   }
 
   const [expanded, setExpanded] = useState(false);

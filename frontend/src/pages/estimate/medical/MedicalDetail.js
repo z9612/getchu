@@ -17,13 +17,6 @@ const MedicalDetail = ({
   changeSumByIndex,
   index 
 }) => {
-  const [checked, setChecked] = useState(medical.defaultCheck)
-
-  const handleCheck = () => {
-    changeSumByIndex(index, checked)
-    setChecked(!checked)
-  }
-  
   return (
     <Accordion 
       expanded={expanded === medical.name} 
@@ -37,7 +30,7 @@ const MedicalDetail = ({
       >
         {/* 좌측 제목 */}
         <Typography sx={{ width: '50%', flexShrink: 0 }}>
-          { checked ? currency(medical.avg) : currency(0) }
+          { medical.defaultCheck ? currency(medical.avg) : currency(0) }
         </Typography>
 
         {/* 우측 부제목 */}
@@ -53,10 +46,12 @@ const MedicalDetail = ({
         {/* 항목 포함 여부 */}
         <div>
           <Checkbox 
-            checked={checked}
-            onClick={handleCheck}
+            checked={medical.defaultCheck}
+            onClick={() => {
+              changeSumByIndex(index, medical.defaultCheck)
+            }}
           />
-          {checked ? "포함" : "미포함"}
+          {medical.defaultCheck ? "포함" : "미포함"}
         </div>
       </AccordionDetails>
     </Accordion>

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -7,28 +7,15 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import FoodPage from '../estimate/food/FoodPage';
 import currency from '../estimate/currencyFormatter';
 import { foodSumState } from './state';
-import { foodState } from '../teststate';
 import './costsComponent.css'
 
-// 임시 사용
-// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
-
-
 const FeedCosts = () => {
-  // state food 데이터
-  const [foodSum, setFoodSum] = useRecoilState(foodSumState)
-  const foodList = useRecoilValue(foodState)
+  const foodSum = useRecoilValue(foodSumState)
   
   const [isShow, setIsShow] = useState(false)
   const DetailButton = () => {
     setIsShow((isShow) => (!isShow))
   }
-  
-  useEffect(() => {
-    if (foodList[0]) {
-      setFoodSum(Number(foodList[0].dogFeedPrice))
-    }
-  }, [])
   
   return (
     <Box

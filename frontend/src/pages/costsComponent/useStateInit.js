@@ -1,8 +1,14 @@
 import axios from 'axios'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { foodState, medicalState, goodsState } from '../teststate'
-import { foodAmountState } from './state'
+import { 
+  foodAmountState, 
+  foodIndexState,
+  foodSumState, 
+  medicalSumState, 
+  goodsSumState 
+} from './state'
 import getFoodAmount from '../estimate/food/getFoodAmount'
 
 const useInitState = async (breed, setLoading) => {
@@ -11,6 +17,11 @@ const useInitState = async (breed, setLoading) => {
   const setMedicalData = useSetRecoilState(medicalState)  
   const setGoodsData = useSetRecoilState(goodsState)
   const setFoodAmount = useSetRecoilState(foodAmountState)
+  const foodIndex = useRecoilValue(foodIndexState)
+
+  const setFoodSum = useSetRecoilState(foodSumState)
+  const setMedicalSum = useSetRecoilState(medicalSumState)
+  const setGoodsSum = useSetRecoilState(goodsSumState)
 
   // state 데이터를 API 데이터로 변경
   const estimateResponse = await axios.get(`/estimate/estimate?name=${breed}`)
@@ -18,6 +29,7 @@ const useInitState = async (breed, setLoading) => {
 
   const food = await estimateData.slice(0,7)
   setFoodData(food)
+  setFoodSum(Number(food[foodIndex].dogFeedPrice))
 
   const medicalResponse = await axios.get(`/estimate/health?name=${breed}`)
   const medicalData = await medicalResponse.data

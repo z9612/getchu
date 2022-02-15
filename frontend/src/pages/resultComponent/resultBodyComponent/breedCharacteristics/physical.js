@@ -5,19 +5,19 @@ const physical = (props) => {
   return (
     <div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>Energy_Level</div>
+        <div className='result-dog-info'>에너지</div>
         <Rating name='test-rating' value={ props.dogData.physical_Energy_Level } readOnly />
       </div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>Intensity</div>
+        <div className='result-dog-info'>격렬함</div>
         <Rating name='test-rating' value={ props.dogData.physical_Intensity } readOnly />
       </div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>Exercise_Needs</div>
+        <div className='result-dog-info'>운동 요구량</div>
         <Rating name='test-rating' value={ props.dogData.physical_Exercise_Needs } readOnly />
       </div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>Potential_For_Playfulness</div>
+        <div className='result-dog-info'>장난기</div>
         <Rating name='test-rating' value={ props.dogData.physical_Potential_For_Playfulness } readOnly />
       </div>
     </div>

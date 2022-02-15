@@ -20,17 +20,19 @@ const ResultBody = (props) => {
       <div>
         {
           isShow
-          ? info
+          ? info // 버튼 클릭되면(isShow === true) info 보여주기
           : 
           <div>
+            {/* 일정 길이 이상의 텍스트는 말줄임(...) 표시 */}
             { dog.personality.length > 80 
               ? `${dog.personality.slice(0, 79)}...`
               : dog.personality}
           </div>
         }
+        {/* 버튼 기능 구현 */}
         <div onClick={ () => setIsShow((isShow) => (!isShow)) }>
           {
-            isShow
+            isShow // true 일 때 '닫기'로 표시
             ? <Box className='show-more'
                 sx={{
                   display: 'flex',
@@ -43,6 +45,7 @@ const ResultBody = (props) => {
                   color='primary' />
                 </Button>
               </Box>
+            // false 일 때 '더보기'로 표시
             : <Box className='show-more'
                 sx={{
                   display: 'flex',
@@ -92,12 +95,18 @@ const ResultBody = (props) => {
               <ResultDogDetail dogData={ dog } />, dog
             )}
           </Grid>
-
-        <Link to={`/cost/${dog.name}`}>
-          <Button 
-            variant="text"
-          >견적 내러 가기</Button>
-        </Link>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            <Link to={`/cost/${dog.name}`}>
+              <Button 
+                variant="text" 
+              >초기 자금 견적내기</Button>
+            </Link>
+          </Box>
         </Grid>
 
         <Divider variant='middle' />

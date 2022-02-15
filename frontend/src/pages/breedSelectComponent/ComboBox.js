@@ -1,19 +1,28 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useParams,
-} from "react-router-dom";
-import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import {
+  TextField,
+  Autocomplete,
+  Button
+} from "@mui/material"
+
 import DogInfo from "./dogInfo.json";
-import { Button } from "@mui/material";
+import AlertSnackbar from "../../components/AlertSnackbar";
 
 export default function ComboBox() {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState('');
+  const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    event.preventDefault();
+    if (selected) {
+      navigate(`/cost/${selected}`)
+    } else {
+      setOpen(true)
+    }
+  };
+
   return (
     <div>
       <Autocomplete
@@ -26,15 +35,20 @@ export default function ComboBox() {
           <TextField {...params} label="견종을 선택해주세요" />
         )}
       />
-      <Button variant="outlined" color="success">
-        <Link
-          to={`/cost/${selected}`}
-          style={{ textDecoration: "none" }}
-          className="견종별 견적"
-        >
-          견적페이지 이동
-        </Link>
+      <Button 
+        variant="outlined" 
+        color="success"
+        onClick={handleClick}
+      >
+        견적페이지 이동
       </Button>
+
+      <AlertSnackbar
+        severity="info"
+        message="빈 칸은 입력할 수 없어요!"
+        open={open}
+        setOpen={setOpen}
+      />
     </div>
   );
 }

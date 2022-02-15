@@ -94,19 +94,19 @@ const ResultBody = (props) => {
             { MakeButton(
               <ResultDogDetail dogData={ dog } />, dog
             )}
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <Link to={`/cost/${dog.name}`}>
+                <Button 
+                  variant="text" 
+                >초기 자금 견적내기</Button>
+              </Link>
+            </Box>
           </Grid>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <Link to={`/cost/${dog.name}`}>
-              <Button 
-                variant="text" 
-              >초기 자금 견적내기</Button>
-            </Link>
-          </Box>
         </Grid>
 
         <Divider variant='middle' />

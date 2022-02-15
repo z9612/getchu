@@ -6,6 +6,7 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 
 import SurveySet from "./SurveySet";
+import AlertSnackbar from "../../components/AlertSnackbar";
 import questionList from "./questionList";
 import getResultPromise from "./getResult";
 
@@ -16,7 +17,7 @@ function SurveyPage() {
     const new_answers = { ...answers };
     new_answers[name] = value;
     setAnswers(new_answers);
-    console.log(new_answers);
+    // console.log(new_answers);
   };
 
   const [activeStep, setActiveStep] = useState(0);
@@ -30,13 +31,23 @@ function SurveyPage() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const [open, setOpen] = useState(false);
+
   const navigate = useNavigate();
   const sendResult = (event) => {
     event.preventDefault();
+
+    // 설문 미완료 시 오류 메시지 출력
+    const answerCount = Object.keys(answers).length;
+    if (answerCount < 14) {
+      setOpen(true);
+      return;
+    }
+
     getResultPromise(answers).then((data) => {
       navigate("/result", { state: data });
-      console.log(answers);
-      console.log(data);
+      // console.log(answers);
+      // console.log(data);
     });
   };
 
@@ -73,6 +84,13 @@ function SurveyPage() {
             </Button>
           )
         }
+      />
+
+      <AlertSnackbar
+        severity="error"
+        message="설문을 모두 완료해주세요!"
+        open={open}
+        setOpen={setOpen}
       />
     </Box>
   );

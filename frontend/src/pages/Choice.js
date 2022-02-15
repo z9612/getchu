@@ -109,36 +109,37 @@ export default function ButtonBases() {
     >
       {images.map((image) => (
         <ImageButton
-        onClick={() => { console.log(image.link); }}
+          onClick={() => {
+            console.log(image.link);
+          }}
           focusRipple
           key={image.title}
           style={{
             width: image.width,
           }}
         >
-        <Link
+          <Link
             to={`/recommend/${image.link}`}
             style={{ textDecoration: "none" }}
           >
-
-          <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: "relative",
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              {image.title}
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
+            <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+            <ImageBackdrop className="MuiImageBackdrop-root" />
+            <Image>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="inherit"
+                sx={{
+                  position: "relative",
+                  p: 4,
+                  pt: 2,
+                  pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                }}
+              >
+                {image.title}
+                <ImageMarked className="MuiImageMarked-root" />
+              </Typography>
+            </Image>
           </Link>
         </ImageButton>
       ))}

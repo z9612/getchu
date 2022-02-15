@@ -8,36 +8,40 @@ import {
 } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { Stack } from "@mui/material";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 
+import "./choiceComponent/choiceComponent.css";
+import { StackedLineChartTwoTone } from "@mui/icons-material";
 const images = [
   {
     url: "img/MBTI.png",
     title: "MBTI",
-    width: "40%",
+    width: "100%",
     link: "mbti",
   },
   {
     url: "img/lifestyle.jpg",
     title: "Life Style",
-    width: "40%",
+    width: "100%",
     link: "lifeStyle",
   },
   {
     url: "img/dog.png",
     title: "Dog",
-    width: "40%",
+    width: "100%",
     link: "dogTrait",
   },
 ];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: "relative",
-  height: 200,
+  height: 300,
   [theme.breakpoints.down("sm")]: {
     width: "100% !important", // Overrides inline-style
-    height: 150,
+    height: 250,
   },
   "&:hover, &.Mui-focusVisible": {
     zIndex: 1,
@@ -98,14 +102,11 @@ const ImageMarked = styled("span")(({ theme }) => ({
 
 export default function ButtonBases() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-
-        minWidth: 300,
-        width: "100%",
-      }}
+    <Stack
+      height="100vh"
+      justifyContent="center"
+      alignItems="center"
+      sx={{ flexGrow: 1, overflow: "hidden", px: 0 }}
     >
       {images.map((image) => (
         <ImageButton
@@ -143,6 +144,6 @@ export default function ButtonBases() {
           </Link>
         </ImageButton>
       ))}
-    </Box>
+    </Stack>
   );
 }

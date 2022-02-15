@@ -1,9 +1,6 @@
 import * as React from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
 
 import getMbtiResultPromise from "./getMbtiResult";
 
@@ -93,10 +90,6 @@ function MbtiButton() {
   ];
 
   const navigate = useNavigate();
-
-  const getMbtiName = mbtiList.map((item) => {
-    return item.name;
-  });
 
   // const sendResult = (event) => {
   //   event.preventDefault();

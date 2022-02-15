@@ -1,37 +1,18 @@
-import React, {useState} from 'react';
-import { Box, Button } from '@mui/material';
-
+import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { goodsState } from '../teststate';
-
+import { Box, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
+import GoodsPage from '../estimate/goods/GoodsPage'
+import { goodsState } from '../teststate';
+import { goodsSumState } from './state';
+import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'
 
-// 임시 사용
-// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
-
-
-const OtherCosts = (props) => {
+const OtherCosts = () => {
   // state goods 데이터
-  const goods = useRecoilValue(goodsState)
-
-  const cost = {
-    "other": 
-    {
-      "a-cost": 3000,
-      "b-cost": 4000,
-      "c-cost": 12000,
-      "d-cost": 10000,
-      "e-cost": 8000,
-    }
-  }
-
-  const sumValues = obj => 
-    Object.values(obj).reduce((a, b) => a + b);
-
-  const sumCost = sumValues(cost.other)
+  const goodsSum = useRecoilValue(goodsSumState)
 
   const [isShow, setIsShow] = useState(false)
 
@@ -59,8 +40,8 @@ const OtherCosts = (props) => {
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
       >
-        <div className='cost-cost'>■ { sumCost }원</div>
-        <div className='criteria'>(??? 기준)</div>
+        <div className='cost-cost'>■ { currency(goodsSum) }</div>
+        <div className='criteria'>(1년 기준)</div>
       </Box>
 
       {/* 금액산정기준 on/off */}
@@ -81,7 +62,7 @@ const OtherCosts = (props) => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          {/* <ResultDogDetail dogData={ props.dogData } /> */}
+          <GoodsPage />
 
           <div style={{textAlign: 'end'}}>
             <div className='cost-show-more'>

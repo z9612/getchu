@@ -63,10 +63,13 @@
   align-items: center;
 }
 
-.non-data {
+.load-data {
+  height: 70vh;
   padding: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  user-select: none;
 }

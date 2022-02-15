@@ -7,6 +7,7 @@ import Result from "./pages/result";
 import Choice from "./pages/choice";
 import BreedingCosts from "./pages/breedingCosts";
 import BreedSelect from "./pages/breedSelect";
+import Mbti from "./pages/mbti";
 import "./index.css";
 
 function App() {
@@ -16,15 +17,21 @@ function App() {
         {/* 견종 추천 */}
         <Route path="/start" element={<Start />} />
         <Route path="/recommend" element={<Choice />} />
-        <Route path="/recommend" element={<BackBarLayout to="/result" title="처음으로" />}>
+        <Route
+          path="/recommend"
+          element={<BackBarLayout to="/result" title="처음으로" />}
+        >
           <Route path="/recommend/lifeStyle" element={<SurveyPage />} />
-          {/* <Route path="/recommend/mbti" element={<SurveyPage />} /> */}
+          <Route path="/recommend/mbti" element={<Mbti />} />
           {/* <Route path="/recommend/dogTrait" element={<SurveyPage />} /> */}
         </Route>
         <Route path="/result" element={<Result />} />
-        
+
         {/* 초기 견적 */}
-        <Route path="/cost/" element={<BackBarLayout to="/start" title="처음으로" />} >
+        <Route
+          path="/cost/"
+          element={<BackBarLayout to="/start" title="처음으로" />}
+        >
           <Route path="/cost/breedSelect" element={<BreedSelect />} />
           <Route path="/cost/:breed" element={<BreedingCosts />} />
         </Route>

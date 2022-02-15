@@ -8,4 +8,5 @@ public interface FullEstimate {
     Integer getProductPricePerWeight();
     Integer getDogFeedPrice();
     String getImage();
+    String getComment();
 }

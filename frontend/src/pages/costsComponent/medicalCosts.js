@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import React, { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import MedicalPage from '../estimate/medical/MedicalPage';
-import { medicalState } from '../teststate';
 import { medicalSumState } from './state';
 import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'

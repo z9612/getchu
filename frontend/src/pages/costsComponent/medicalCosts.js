@@ -11,9 +11,6 @@ import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'
 
 
-// 임시 사용
-// import ResultDogDetail from '../resultComponent/resultBodyComponent/resultDogDetail'
-
 const MedicalCosts = () => {
   // state medical 데이터
   const medicalSum = useRecoilValue(medicalSumState)
@@ -36,14 +33,14 @@ const MedicalCosts = () => {
     >
       {/* 의료비용 관련 title, img */}
       <div className='cost-title'>
-        의료비용
+        의료비
       </div>
       <div>
         <img className='cost-img'
           src='https://images.squarespace-cdn.com/content/v1/5aa0bf73af2096458586fb17/1547932498065-AUGFM6FAS19VW32LMSHR/MPC_Dog_Vaccine_Main.jpg?format=1000w' alt='dog-vaccine' />
       </div>
 
-      {/* cost, 기준? 변경 필요 */}
+      {/* cost */}
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
         >
@@ -69,7 +66,6 @@ const MedicalCosts = () => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          {/* <ResultDogDetail dogData={ props.dogData } /> */}
           <MedicalPage />
 
           <div style={{textAlign: 'end'}}>

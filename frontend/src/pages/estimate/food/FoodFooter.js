@@ -1,12 +1,10 @@
 import { Alert, AlertTitle } from '@mui/material';
 
-import foodDisclaimer from './foodDisclaimer';
-
 const FoodFooter = () => {
   return (
     <Alert severity="info">
       <AlertTitle>알려드립니다!</AlertTitle>
-      {foodDisclaimer.content}
+      {"이는 성견 체중(중간값)의 2%를 급여했을 때의 기준입니다!"}
     </Alert>
   );
 }

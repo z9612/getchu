@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -12,14 +12,7 @@ import './costsComponent.css'
 
 const OtherCosts = () => {
   // state goods 데이터
-  const goods = useRecoilValue(goodsState)
-  const goodsSumTemp = goods.reduce((prev, cur) => {
-    return prev + cur.price_avg
-  }, 0)
-  const [goodsSum, setGoodsSum] = useRecoilState(goodsSumState)
-  useEffect(() => {
-    setGoodsSum(goodsSumTemp)
-  }, [])
+  const goodsSum = useRecoilValue(goodsSumState)
 
   const [isShow, setIsShow] = useState(false)
 

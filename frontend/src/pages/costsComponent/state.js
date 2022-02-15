@@ -5,6 +5,11 @@ export const foodAmountState = atom({
   default: {},
 })
 
+export const foodIndexState = atom({
+  key: 'foodIndexState',
+  default: 0,
+})
+
 export const foodSumState = atom({
   key: 'foodSumState',
   default: 0,

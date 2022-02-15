@@ -16,18 +16,8 @@ import './costsComponent.css'
 
 const MedicalCosts = () => {
   // state medical 데이터
-  const medicalList = useRecoilValue(medicalState)
-  const [medicalSum, setMedicalSum] = useRecoilState(medicalSumState)
+  const medicalSum = useRecoilValue(medicalSumState)
   
-  useEffect(() => {
-    const vaccinationList = medicalList.slice(0, 5)
-    console.log(vaccinationList);
-    const medicalSumTemp = vaccinationList.reduce((acc, cur) => {
-      return acc + cur.avg
-    }, 0)
-    setMedicalSum(medicalSumTemp)
-  }, [])
-
   const [isShow, setIsShow] = useState(false)
 
   const DetailButton = () => {

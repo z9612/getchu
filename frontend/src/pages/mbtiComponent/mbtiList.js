@@ -6,17 +6,17 @@ const mbtiList = [
   },
   {
     id: 2,
-    name: "ENFJ",
+    name: "ENFP",
     url: "img/ENFP.jpeg",
   },
   {
     id: 3,
-    name: "ENFJ",
+    name: "ENTJ",
     url: "img/ENTJ.jpeg",
   },
   {
     id: 4,
-    name: "ENFJ",
+    name: "ENTP",
     url: "img/ENTP.jpeg",
   },
 ];

@@ -1,12 +1,12 @@
 import axios from "axios";
-import getMbtiQuery from "./getMbtiQuery";
 
-const baseUrl = "/dog/recommand/MBTI";
+const baseUrl = "/dog/recommand/mbti";
 
 const getMbtiResultPromise = async (params) => {
-  console.log(params);
-  const query = getMbtiQuery(params);
+  // console.log(params);
 
+  const query = `?mbti=${params}`;
+  // console.log(query);
   const config = {
     url: baseUrl + query,
     method: "GET",

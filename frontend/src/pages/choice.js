@@ -103,7 +103,7 @@ const ImageMarked = styled("span")(({ theme }) => ({
 export default function Choice() {
   return (
     <Stack
-      height="100vh"
+      height="85vh"
       justifyContent="center"
       alignItems="center"
       sx={{ flexGrow: 1, overflow: "hidden", px: 0 }}

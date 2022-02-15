@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Box, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import GoodsPage from '../estimate/goods/GoodsPage'
-import { goodsState } from '../teststate';
 import { goodsSumState } from './state';
 import currency from '../estimate/currencyFormatter';
 import './costsComponent.css'

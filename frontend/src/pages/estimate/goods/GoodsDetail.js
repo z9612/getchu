@@ -1,4 +1,4 @@
-import { useRecoilValue, useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import {
   Accordion,
   AccordionSummary,
@@ -27,7 +27,7 @@ const GoodsDetail = ({
     setGoodsSum(prev => prev + diff)
 
     const newList = goods.map((item, idx) => {
-      if (idx == index) {
+      if (idx === index) {
         return {...item, checked: !checked}
       } else {
         return {...item}

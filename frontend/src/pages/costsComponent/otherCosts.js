@@ -69,7 +69,6 @@ const OtherCosts = () => {
         <Box sx={{width: '85%'}} pt={2}>
 
           {/* 비용 상세정보 가져오기 */}
-          {/* <ResultDogDetail dogData={ props.dogData } /> */}
           <GoodsPage />
 
           <div style={{textAlign: 'end'}}>

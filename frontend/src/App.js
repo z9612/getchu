@@ -25,7 +25,12 @@ function App() {
           <Route path="/recommend/mbti" element={<Mbti />} />
           <Route path="/recommend/dogTrait" element={<SurveyPage />} />
         </Route>
-        <Route path="/result" element={<Result />} />
+        <Route
+          path="/result"
+          element={<BackBarLayout to="/start" title="처음으로" />}
+        >
+          <Route path="/result" element={<Result />} />
+        </Route>
 
         {/* 초기 견적 */}
         <Route

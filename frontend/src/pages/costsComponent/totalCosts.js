@@ -4,6 +4,7 @@ import { totalSumState } from './state';
 import { breedState } from '../teststate';
 // import { foodState } from '../teststate';
 import currency from '../estimate/currencyFormatter';
+
 import './costsComponent.css'
 
 const TotalCosts = () => {
@@ -23,9 +24,10 @@ const TotalCosts = () => {
       <div className='cost-title'>
         "{dogData.name}"의 첫 1년 비용은?
       </div>
-      <img className='cost-dog-img'
-      src= { dogData.image }
-      alt='dog_img' />      
+      <img 
+        className='cost-dog-img'
+        src= { dogData.image }
+        alt='dog_img' />      
 
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}

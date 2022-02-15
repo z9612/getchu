@@ -19,11 +19,11 @@ function App() {
         <Route path="/recommend" element={<Choice />} />
         <Route
           path="/recommend"
-          element={<BackBarLayout to="/result" title="처음으로" />}
+          element={<BackBarLayout to="/start" title="처음으로" />}
         >
           <Route path="/recommend/lifeStyle" element={<SurveyPage />} />
           <Route path="/recommend/mbti" element={<Mbti />} />
-          {/* <Route path="/recommend/dogTrait" element={<SurveyPage />} /> */}
+          <Route path="/recommend/dogTrait" element={<SurveyPage />} />
         </Route>
         <Route path="/result" element={<Result />} />
 

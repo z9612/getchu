@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Stack, Checkbox, Typography } from '@mui/material'
 import currency from '../currencyFormatter'
 

@@ -18,7 +18,7 @@ const MedicalPage = () => {
     setMedicalSum(prev => prev + diff)
 
     const newList = medicalList.map((medical, idx) => {
-      if (idx == index) {
+      if (idx === index) {
         return {...medical, defaultCheck: !checked}
       } else {
         return {...medical}

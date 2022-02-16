@@ -1,10 +1,13 @@
 import * as React from "react";
+
 import MbtiButton from "./mbtiButton";
+import SimpleSlider from "./carousel";
 
 function mbtiBody() {
   return (
     <div>
-      <MbtiButton />
+      {/* <MbtiButton /> */}
+      <SimpleSlider />
     </div>
   );
 }

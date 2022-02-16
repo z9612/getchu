@@ -24,6 +24,9 @@
     "react-scripts": "5.0.0",
     "react-swipeable-views": "^0.14.0",
     "recoil": "^0.6.1",
+    "sass": "^1.49.7",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

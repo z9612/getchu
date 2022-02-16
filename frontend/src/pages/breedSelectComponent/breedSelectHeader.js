@@ -1,10 +1,11 @@
 import React from "react";
+import { Box } from "@mui/material";
 import "./breedSelectComponent.css";
 
 const breedSelectHeader = () => {
   return (
-    <div>
-      <h2>견종 선택 페이지</h2>
+    <div className="center">
+      <img className="img" src="/img/find_dog.jpg"></img>
     </div>
   );
 };

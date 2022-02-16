@@ -18,6 +18,7 @@ function mbti() {
       <br />
       <br />
       <br />
+      <br />
       <div className="result-retest">
         {/* 링크 추가하기 */}
         <Button

@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 import { QuoteList } from "./QuoteList";
-import { initial } from './initial';
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -12,8 +10,7 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-export const DragDrop = () => {
-  const [state, setState] = useState({ quotes: initial });
+export const DragDrop = ({ state, setState }) => {
 
   function onDragEnd(result) {
     if (!result.destination) {

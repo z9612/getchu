@@ -22,7 +22,11 @@ const TotalCosts = () => {
       py={1}
     >
       <div className='cost-title'>
-        "{dogData.name}"의 첫 1년 비용은?
+        {/* "{dogData.name}"의 첫 1년 비용은? */}
+        <div>
+          <div className='cost-dog-breed'>"{dogData.name}"</div>
+          <div className='cost-total-cost'>처음 1년 비용은?</div>
+        </div>
       </div>
       <img 
         className='cost-dog-img'

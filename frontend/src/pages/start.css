@@ -1,5 +1,6 @@
 @media screen and (max-height: 920px) {
   .start-bg {
+    overflow: hidden;
     height: 100vh;
     /* max-height: 1000px; */
     background-image:

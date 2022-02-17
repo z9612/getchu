@@ -34,6 +34,8 @@ const DogInfo = (props) => {
             <Box
               sx={{width: '100%'}}
             >
+              <div className='explanation-2'>(이미지를 누르면 사진을 볼 수 있습니다.)</div>
+              <div>&nbsp;</div>
               <Box
                 sx={{
                   display: 'flex',

@@ -21,7 +21,9 @@ const Start = () => {
 
       <div className='start-footer'>
         <Link className='start-link' to="/recommend">
-          <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
+          <Button style={{
+            fontSize: '30px', fontWeight: '700', color: 'white'
+          }} variant='text'>
             검사하러가기
           </Button>
         </Link>

@@ -5,11 +5,11 @@ const physical = (props) => {
   return (
     <div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>에너지</div>
+        <div className='result-dog-info'>에너지 수준</div>
         <Rating name='test-rating' value={ props.dogData.physical_Energy_Level } readOnly />
       </div>
       <div className='row-arrange'>
-        <div className='result-dog-info'>격렬함</div>
+        <div className='result-dog-info'>활발함</div>
         <Rating name='test-rating' value={ props.dogData.physical_Intensity } readOnly />
       </div>
       <div className='row-arrange'>

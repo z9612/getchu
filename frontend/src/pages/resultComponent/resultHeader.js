@@ -8,7 +8,7 @@ const resultHeader = () => {
   const testTitle = {
     "lifestyle" : '당신의 라이프스타일과 잘 맞는 견종',
     "mbti" : '당신의 MBTI와 잘 맞는 견종',
-    "dogtrait" : '당신에게 어울리는 견종'
+    "dogtrait" : '당신에게 잘 맞는 견종'
   }
 
   return (

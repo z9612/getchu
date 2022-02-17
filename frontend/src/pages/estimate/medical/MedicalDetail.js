@@ -4,6 +4,7 @@ import {
   AccordionDetails,
   Typography,
   Checkbox,
+  Stack,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -40,18 +41,28 @@ const MedicalDetail = ({
       
       {/* 세부 내용 부분 */}
       <AccordionDetails>
-        <Typography>{medical.min}</Typography>
-        <Typography>{medical.max}</Typography>
+        {/* <Typography>설명: {medical.comment}</Typography> */}
+        <Stack direction="row" justifyContent="space-between">
+          <Typography>최저가</Typography>
+          <Typography>평균가</Typography>
+          <Typography>최고가</Typography>
+        </Stack>
+        <Stack direction="row" justifyContent="space-between">
+          <Typography>{currency(medical.min)}</Typography>
+          <Typography>{currency(medical.avg)}</Typography>
+          <Typography>{currency(medical.max)}</Typography>
+        </Stack>
+
         {/* 항목 포함 여부 */}
-        <div>
+        <Stack direction="row" alignItems="center" justifyContent="center">
+          {medical.defaultCheck ? "포함" : "미포함"}
           <Checkbox 
             checked={medical.defaultCheck}
             onClick={() => {
               changeSumByIndex(index, medical.defaultCheck)
             }}
           />
-          {medical.defaultCheck ? "포함" : "미포함"}
-        </div>
+        </Stack>
       </AccordionDetails>
     </Accordion>
   );

@@ -1,10 +1,11 @@
 import {
-  Radio,
   RadioGroup,
-  FormControlLabel,
   FormControl,
   FormLabel,
+  Grid,
 } from '@mui/material';
+
+import FoodDetailPriceItem from './FoodDetailPriceItem';
 
 const FoodDetailPriceList = ({ 
   foodList, 
@@ -22,15 +23,13 @@ const FoodDetailPriceList = ({
         value={foodIndex}
         onChange={changeFoodIndex}
       >
-        {foodList.map((food, index) => (
-          <FormControlLabel 
-            control={<Radio />} 
-            value={index} 
-            img={""}
-            label={food.name + food.productPrice}
-            key={food.name}
-          />
-        ))}
+        <Grid container spacing={2}>
+          {foodList.map((item, index) => (
+            <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
+              <FoodDetailPriceItem item={item} index={index}/>
+            </Grid>
+          ))}
+        </Grid>
       </RadioGroup>
     </FormControl>
   );

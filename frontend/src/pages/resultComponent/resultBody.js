@@ -24,8 +24,8 @@ const ResultBody = (props) => {
           : 
           <div>
             {/* 일정 길이 이상의 텍스트는 말줄임(...) 표시 */}
-            { dog.personality.length > 80 
-              ? `${dog.personality.slice(0, 79)}...`
+            { dog.personality.length > 90 
+              ? `${dog.personality.slice(0, 89)}...`
               : dog.personality}
           </div>
         }

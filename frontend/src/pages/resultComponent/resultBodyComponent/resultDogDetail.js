@@ -34,6 +34,8 @@ const DogInfo = (props) => {
             <Box
               sx={{width: '100%'}}
             >
+              <div className='explanation-2'>(이미지를 누르면 사진을 볼 수 있습니다.)</div>
+              <div>&nbsp;</div>
               <Box
                 sx={{
                   display: 'flex',
@@ -103,7 +105,7 @@ const DogInfo = (props) => {
             id="panel1bh-header"
           >
             <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
-              건강과 그루밍
+              건강함
             </Typography>
             <Rating sx={{ width: '50%', flexShrink: 0 }}
               name='test-rating' value={ props.dogData.health } readOnly />
@@ -137,7 +139,7 @@ const DogInfo = (props) => {
             id="panel1bh-header"
           >
             <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
-              신체적 요구?
+              신체 활동
             </Typography>
             <Rating sx={{ width: '50%', flexShrink: 0 }}
               name='test-rating' value={ props.dogData.physical } readOnly />

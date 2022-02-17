@@ -3,9 +3,7 @@ import React from 'react';
 import { Box, Button } from '@mui/material'
 import { Link } from 'react-router-dom';
 
-
 import './start.css'
-
 
 const Start = () => {
 
@@ -30,6 +28,11 @@ const Start = () => {
         <Link className='start-link' to="/cost/breedselect">
           <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
             견적내러가기
+          </Button>
+        </Link>
+        <Link className='start-link' to="/map">
+          <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
+            (임시)지도화면
           </Button>
         </Link>
       </div>

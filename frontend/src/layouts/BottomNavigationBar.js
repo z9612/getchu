@@ -9,12 +9,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import PetsIcon from '@mui/icons-material/Pets';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import MapIcon from '@mui/icons-material/Map';
-
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const BottomNavigationBar = () => {
 
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
   return (
     <Box 
@@ -33,7 +32,7 @@ const BottomNavigationBar = () => {
         <BottomNavigationAction label="견종추천" icon={<PetsIcon />} component={Link} to={'/recommend'} />
         <BottomNavigationAction label="홈으로" icon={<HomeIcon />} component={Link} to={'/'} />
         <BottomNavigationAction label="초기견적" icon={<PriceCheckIcon />} component={Link} to={'/cost/breedselect'} />
-        <BottomNavigationAction label="Map" icon={<LocationOnIcon />} component={Link} to={'/map'} />
+        {/* <BottomNavigationAction label="Map" icon={<LocationOnIcon />} component={Link} to={'/map'} /> */}
       </BottomNavigation>
     </Box>
   );

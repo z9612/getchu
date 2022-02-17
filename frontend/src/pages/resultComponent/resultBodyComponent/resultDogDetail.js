@@ -105,7 +105,7 @@ const DogInfo = (props) => {
             id="panel1bh-header"
           >
             <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
-              건강과 그루밍
+              건강함
             </Typography>
             <Rating sx={{ width: '50%', flexShrink: 0 }}
               name='test-rating' value={ props.dogData.health } readOnly />
@@ -139,7 +139,7 @@ const DogInfo = (props) => {
             id="panel1bh-header"
           >
             <Typography sx={{ width: '50%',fontWeight: 'bold', flexShrink: 0 }}>
-              신체적 요구?
+              신체 활동
             </Typography>
             <Rating sx={{ width: '50%', flexShrink: 0 }}
               name='test-rating' value={ props.dogData.physical } readOnly />

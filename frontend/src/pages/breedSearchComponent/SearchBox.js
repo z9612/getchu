@@ -1,21 +1,21 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TextField, Autocomplete, Button } from "@mui/material";
 
-import DogInfo from "./dogInfo.json";
+import DogInfo from "../breedSelectComponent/dogInfo.json";
 import AlertSnackbar from "../../components/AlertSnackbar";
+import getSearchResult from "./getSearchResult"
 
-import "./breedSelectComponent.css";
-
-export default function ComboBox() {
+export default function SearchBox() {
   const [selected, setSelected] = useState("");
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
     if (selected) {
-      navigate(`/cost/${selected}`);
+      const result = await getSearchResult(selected)
+      navigate('/result', {state: result})
     } else {
       setOpen(true);
     }
@@ -41,7 +41,7 @@ export default function ComboBox() {
         color="primary"
         onClick={handleClick}
       >
-        견적내기
+        결과보기
       </Button>
 
       <AlertSnackbar

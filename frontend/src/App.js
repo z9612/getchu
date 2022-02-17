@@ -8,6 +8,7 @@ import Choice from "./pages/choice";
 import BreedingCosts from "./pages/breedingCosts";
 import BreedSelect from "./pages/breedSelect";
 import Mbti from "./pages/mbti";
+import BreedSearch from "./pages/breedSearch";
 import { TraitPriority } from "./pages/trait";
 import "./index.css";
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/recommend/lifeStyle" element={<SurveyPage />} />
           <Route path="/recommend/mbti" element={<Mbti />} />
           <Route path="/recommend/dogTrait" element={<TraitPriority />} />
+          <Route path="/recommend/breedSearch" element={<BreedSearch />} />
         </Route>
         <Route
           path="/result"

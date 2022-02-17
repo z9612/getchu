@@ -16,7 +16,8 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 
-function BackBar({ to, title }) {
+// function BackBar({ to, title }) {
+function BackBar({ title }) {
   const navigate = useNavigate();
   
   return (
@@ -28,18 +29,21 @@ function BackBar({ to, title }) {
             edge="start"
             color="inherit"
             aria-label="menu"
-            component={Link}
-            to={to}
+            onClick={() => {
+              navigate(-1)
+            }}
+            // component={Link}
+            // to={to}
           >
             <ArrowBackIosNewIcon />
           </IconButton>
-          <LinkText
+          {/* <LinkText
             underline="none"
             color="inherit"
             onClick={() => {
               navigate('/start')
             }}
-          >
+          > */}
             <Typography 
               variant="h6" 
               component="div" 
@@ -47,7 +51,7 @@ function BackBar({ to, title }) {
             >
               { title }
             </Typography>
-          </LinkText>  
+          {/* </LinkText>   */}
         </StyledToolbar>
       </AppBar>
     </Box>

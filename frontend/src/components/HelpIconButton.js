@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IconButton, Popover, Typography } from "@mui/material";
-import HelpIcon from '@mui/icons-material/Help';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 
 function HelpIconButton({ content }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -21,7 +22,7 @@ function HelpIconButton({ content }) {
         variant="contained"
         onClick={handleClick}
       >
-        <HelpIcon />
+        <ContactSupportIcon color="primary"/>
       </IconButton>
       
       <Popover

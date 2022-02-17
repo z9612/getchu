@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material'
 
+import HelpIconButton from '../../../components/HelpIconButton'
 import currency from '../currencyFormatter'
 
 const FoodDetailPriceItem = ({ item, index }) => {
@@ -13,10 +14,11 @@ const FoodDetailPriceItem = ({ item, index }) => {
       <div>
         <img 
           src={item.image} 
-          alt={item.name}
+          alt={item.comment}
           width="100%"
         />
         <Typography align='center'>
+          <HelpIconButton content={item.comment} />
           {item.name}
         </Typography>
       </div>

@@ -20,15 +20,12 @@ const Result = () => {
       <ResultBody dogData={ state } />
 
       <div className='result-retest'>
-        {/* 링크 추가하기 */}
         <Button 
           variant='text'
           style={{color: 'gray'}}
           component={Link}
           to='/recommend'
         >다시 검사할래요</Button>
-        {/* 다시 검사할래요 */}
-        {/* <Link className='result-retest-link' to={ '/test' }>다시 검사할래요</Link> */}
       </div>
     </div>
   );

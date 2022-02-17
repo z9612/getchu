@@ -19,7 +19,8 @@ function App() {
         <Route path="/" element={<Start />} />
         <Route
           path="/recommend"
-          element={<BackBarLayout to="/" title="처음으로" />}
+          // element={<BackBarLayout to="/" title="처음으로" />}
+          element={<BackBarLayout title="뒤로가기" />}
         >
           <Route path="/recommend" element={<Choice />} />
           <Route path="/recommend/lifeStyle" element={<SurveyPage />} />
@@ -28,7 +29,8 @@ function App() {
         </Route>
         <Route
           path="/result"
-          element={<BackBarLayout to="/" title="처음으로" />}
+          // element={<BackBarLayout to="/" title="처음으로" />}
+          element={<BackBarLayout title="뒤로가기" />}
         >
           <Route path="/result" element={<Result />} />
         </Route>
@@ -36,7 +38,8 @@ function App() {
         {/* 초기 견적 */}
         <Route
           path="/cost/"
-          element={<BackBarLayout to="/" title="처음으로" />}
+          // element={<BackBarLayout to="/" title="처음으로" />}
+          element={<BackBarLayout title="뒤로가기" />}
         >
           <Route path="/cost/breedSelect" element={<BreedSelect />} />
           <Route path="/cost/:breed" element={<BreedingCosts />} />

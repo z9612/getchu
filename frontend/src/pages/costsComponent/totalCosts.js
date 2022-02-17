@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
+import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+
 import { totalSumState } from './state';
 import { breedState } from '../teststate';
-// import { foodState } from '../teststate';
 import currency from '../estimate/currencyFormatter';
 
 import './costsComponent.css'
 
 const TotalCosts = () => {
+  const [isYearlyCost, setIsYearlyCost] = useState(true)
   const totalSum = useRecoilValue(totalSumState);
   const dogData = useRecoilValue(breedState)
 
@@ -31,8 +34,17 @@ const TotalCosts = () => {
 
       <Box
         sx={{ display: 'flex', justifyContent: 'space-between', width: '65%' }}
+      >
+        {isYearlyCost ? (
+          <div className='cost-cost'>■ { currency(totalSum) }</div>
+        ) : (
+          <div className='cost-cost'>■ { currency(totalSum) }</div>
+        )}
+        <IconButton 
+          onClick={() => {setIsYearlyCost(!isYearlyCost)}}
         >
-        <div className='cost-cost'>■ { currency(totalSum) }</div>
+          <CompareArrowsIcon />
+        </IconButton>
       </Box>
       <div className='explanation'>(12개월분 사료 + 의료비 + 생필품 비용)</div>
     </Box>

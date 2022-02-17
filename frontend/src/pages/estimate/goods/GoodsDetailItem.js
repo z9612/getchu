@@ -1,11 +1,32 @@
 import { Stack, Checkbox, Typography } from '@mui/material'
+
+import HelpIconButton from '../../../components/HelpIconButton'
 import currency from '../currencyFormatter'
 
-const GoodsDetailItem = ({ 
-  item, 
-  index,
-  changeSumByIndex
-}) => {
+const HelpContent = ({ item }) => {
+  return (
+    <Stack>
+      <Typography>
+        {item.comment}
+      </Typography>
+      <br />
+      <Stack direction="row" justifyContent="space-between">
+        <Typography>최저가</Typography>
+        <Typography>평균가</Typography>
+        <Typography>최고가</Typography>
+      </Stack>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography>{currency(item.price_min)}</Typography>
+        <Typography>{currency(item.price_avg)}</Typography>
+        <Typography>{currency(item.price_max)}</Typography>
+      </Stack>
+    </Stack>
+  )
+} 
+
+const GoodsDetailItem = ({ item, index, changeSumByIndex }) => {
+  
+
   return (
     <Stack>
       <div>
@@ -14,7 +35,8 @@ const GoodsDetailItem = ({
           alt={item.name}
           width="100%"
         />
-        <Typography align='center' height='50px'>
+        <Typography align='center'>
+          <HelpIconButton content={<HelpContent item={item} />} />
           {item.name}
         </Typography>
       </div>

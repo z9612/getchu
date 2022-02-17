@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { IconButton, Popover, Typography } from "@mui/material";
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { IconButton, Popover, Stack, Typography } from "@mui/material";
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import CloseIcon from '@mui/icons-material/Close';
 
 function HelpIconButton({ content }) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -42,6 +42,11 @@ function HelpIconButton({ content }) {
         <Typography sx={{ p: 2 }}>
           {content}
         </Typography>
+        <Stack alignItems="center">
+          <IconButton onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
+        </Stack>
       </Popover>
     </span>
   );

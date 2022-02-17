@@ -32,11 +32,6 @@ const Start = () => {
             견적내러가기
           </Button>
         </Link>
-        <Link className='start-link' to="/map">
-          <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
-            (임시)지도화면
-          </Button>
-        </Link>
       </div>
     </Box>
   );

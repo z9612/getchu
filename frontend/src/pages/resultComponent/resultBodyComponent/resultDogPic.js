@@ -32,14 +32,14 @@ const ResultPic = (props) => {
             }}>
               <Carousel
                 data={dogPics[breed]}
-                time={3000}
+                time={2000}
                 width="850px"
                 height="500px"
                 radius="10px"
                 captionPosition="bottom"
                 automatic={true}
                 dots={true}
-                pauseIconColor="red"
+                pauseIconColor="black"
                 pauseIconSize="40px"
                 // slideBackgroundColor="darkgrey"
                 slideBackgroundColor='rgb(127,127,127)'
@@ -56,9 +56,11 @@ const ResultPic = (props) => {
               />
             </div>
             <div>
-              <CloseIcon color='primary' onClick={ CloseModal }
+              <CloseIcon  onClick={ CloseModal }
                 sx={{ 
-                  fontSize: 50, borderRadius: '50%', backgroundColor: 'black'
+                  color: 'white',
+                  fontSize: 40, borderRadius: '50%', 
+                  // backgroundColor: 'black'
                 }} 
               />
             </div>

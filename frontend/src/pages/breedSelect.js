@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import { Container, Typography } from "@material-ui/core";
-import { Box } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import ComboBox from "./breedSelectComponent/ComboBox";
-import BreedSelectHeader from "./breedSelectComponent/breedSelectHeader";
+
 function dogSelect() {
   return (
-    <Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <BreedSelectHeader />
-
+    <Stack direction="column" alignItems="stretch">
+      <Container maxWidth="sm">
+        <img width="100%" src="/img/find_dog.jpg" />
+      </Container>
       <ComboBox />
-    </Container>
+    </Stack>
   );
 }
 

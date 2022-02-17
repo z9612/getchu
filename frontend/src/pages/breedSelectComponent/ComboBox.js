@@ -22,7 +22,7 @@ export default function ComboBox() {
   };
 
   return (
-    <div className="bottom" sx={{ mx: "auto" }}>
+    <div>
       <Autocomplete
         selectOnFocus="true"
         onChange={(event, value) => setSelected(value.label)}

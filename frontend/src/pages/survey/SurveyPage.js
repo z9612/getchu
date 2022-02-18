@@ -60,6 +60,7 @@ function SurveyPage() {
         position="bottom"
         steps={maxSteps}
         activeStep={activeStep}
+        style={{marginBottom: '66px'}}
         backButton={
           <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
             <KeyboardArrowLeft />

@@ -15,7 +15,7 @@ export default function SearchBox() {
     event.preventDefault();
     if (selected) {
       const result = await getSearchResult(selected)
-      navigate('/result', {state: result})
+      navigate('/result', {state: [result]})
     } else {
       setOpen(true);
     }

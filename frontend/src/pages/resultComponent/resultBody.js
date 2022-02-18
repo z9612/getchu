@@ -10,9 +10,7 @@ import ResultDogPic from './resultBodyComponent/resultDogPic';
 
 const ResultBody = (props) => {
   /** dogData는 Array여야 함. Object 형태로 오면 에러 */
-  const dogData = (typeof props.dogData === 'object') ? (
-    [props.dogData]
-  ) : props.dogData
+  const dogData = props.dogData
   // console.log(dogData)
 
   const MakeButton = (info, dog) => {

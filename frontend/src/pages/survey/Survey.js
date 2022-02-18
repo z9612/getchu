@@ -16,7 +16,7 @@ function Survey({ question, onAnswer }) {
     >
       <p>
         { question.text }
-        { question.detail ? <HelpIconButton content={question.detail} /> : null }
+        {/* { question.detail ? <HelpIconButton content={question.detail} /> : null } */}
       </p>
 
       <div>

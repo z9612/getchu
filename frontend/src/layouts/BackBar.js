@@ -11,8 +11,8 @@ import {
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  paddingTop: theme.spacing(2),
-  paddingBottom: theme.spacing(1),
+  paddingTop: theme.spacing(0),
+  paddingBottom: theme.spacing(0),
 }));
 
 
@@ -41,7 +41,7 @@ function BackBar({ title }) {
             underline="none"
             color="inherit"
             onClick={() => {
-              navigate('/start')
+              navigate(`${to}`)
             }}
           > */}
             <Typography 

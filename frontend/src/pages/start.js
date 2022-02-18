@@ -27,6 +27,11 @@ const Start = () => {
             검사하러가기
           </Button>
         </Link>
+        <Link className='start-link' to="/recommend/breedSearch">
+          <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
+            견종정보보기
+          </Button>
+        </Link>
         <Link className='start-link' to="/cost/breedselect">
           <Button style={{fontSize: '30px', fontWeight: '700', color: 'white'}} variant='text'>
             견적내러가기

@@ -9,6 +9,7 @@ import ResultDogDetail from './resultBodyComponent/resultDogDetail';
 import ResultDogPic from './resultBodyComponent/resultDogPic';
 
 const ResultBody = (props) => {
+  /** dogData는 Array여야 함. Object 형태로 오면 에러 */
   const dogData = props.dogData
   // console.log(dogData)
 

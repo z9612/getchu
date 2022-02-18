@@ -1,15 +1,16 @@
-import { Container, Stack } from "@mui/material";
-import ComboBox from "./breedSelectComponent/ComboBox";
+import { Container, Stack } from "@mui/material"
 
-function dogSelect() {
+import SearchBox from "./breedSearchComponent/SearchBox"
+
+const BreedSearch = () => {
   return (
     <Stack direction="column" alignItems="stretch">
       <Container maxWidth="sm">
         <img width="100%" src="/img/find_dog.jpg" />
       </Container>
-      <ComboBox />
+      <SearchBox />
     </Stack>
   );
 }
 
-export default dogSelect;
+export default BreedSearch;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { Button, Stack } from '@mui/material'
+import { Button, Stack, Typography } from '@mui/material'
 
 import { DragDrop } from './traitComponent/DragDrop'
 import { initial } from './traitComponent/initial'
@@ -29,11 +29,10 @@ export const TraitPriority = () => {
       alignItems="center"
       justifyContent="space-evenly"
     >
-      <h3>
-        다음 특성 중 <br /> 
-        중요하게 생각하는 순서대로 <br /> 
-        나열해주세요~
-      </h3>
+      <Typography align="center">
+        중요한 특성이 먼저 오도록 <br /> 
+        꾹 눌러서 옮겨주세요!
+      </Typography>
       <DragDrop state={state} setState={setState} />
       <Button variant="contained" onClick={sendResult}>
         결과 확인!

@@ -7,18 +7,7 @@ import MbtiHeader from "./mbtiComponent/mbtiHeader";
 function mbti() {
   return (
     <div>
-      <br />
-
-      <br />
-      <br />
       <MbtiBody />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <div className="result-retest">
         {/* 링크 추가하기 */}
         <Button

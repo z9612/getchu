@@ -151,9 +151,9 @@ public class UserController {
 		return new ResponseEntity<String>(FAIL, HttpStatus.OK);
 	}
 
-	// @ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
-	// @GetMapping("/logout")
-	// public ResponseEntity<String> logout() throws Exception {
-	// return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
-	// }
+	@ApiOperation(value = "로그아웃", notes = "로그아웃", response = String.class)
+	@GetMapping("/logout")
+	public ResponseEntity<String> logout() throws Exception {
+	return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
 }
